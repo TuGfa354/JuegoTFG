@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-class_name EnemyParent
+class_name EnemyMeleeParent
 var damaging : bool = false
 var player
 
-var speed = 50
+var speed: int  = 125
 func _ready():
 	$NavigationAgent2D.target_position = Globals.player_pos
 	$AnimatedSprite2D.play("Run")

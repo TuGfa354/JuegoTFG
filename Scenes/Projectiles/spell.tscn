@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://cymp4hb415s36"]
+
+[ext_resource type="Texture2D" uid="uid://ch2i54re4h5mw" path="res://Graphics/Pixel Crawler - FREE - 1.8/Weapons/Projectiles/circle.png" id="1_fm1ca"]
+
+[sub_resource type="GDScript" id="GDScript_t0cd1"]
+resource_name = "Spell.gd"
+script/source = "extends Area2D
+
+@export var speed: int = 100
+var direction: Vector2 = Vector2.UP
+
+func _ready():
+	pass
+
+func _process(delta):
+	position += direction * speed * delta
+
+
+func _on_body_entered(body):
+	if \"hit\" in body:
+		body.hit()
+	queue_free()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ph7js"]
+radius = 7.07107
+
+[node name="Spell" type="Area2D"]
+collision_layer = 32
+collision_mask = 9
+script = SubResource("GDScript_t0cd1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.705882, 0, 0.192157, 1)
+light_mask = 0
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_fm1ca")
+region_rect = Rect2(120.379, 130.149, 527.323, 563.764)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ph7js")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

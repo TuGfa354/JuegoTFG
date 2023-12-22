@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/PlayableCharacters/ParentPlayer.gd" id="1_wimjr"]
 
 [node name="PlayableCharacter" type="CharacterBody2D"]
+collision_mask = 46
 script = ExtResource("1_wimjr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

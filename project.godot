@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Globals="*res://Scenes/Globals/Globals.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [file_customization]
 
 folder_colors={
@@ -63,6 +68,15 @@ Down={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Items"
+2d_physics/layer_4="Objects"
+2d_physics/layer_5="Projectiles"
+2d_physics/layer_6="Enemy Projectiles"
 
 [rendering]
 

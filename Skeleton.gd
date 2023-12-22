@@ -1,2 +1,2 @@
-extends EnemyParent
+extends EnemyMeleeParent
 

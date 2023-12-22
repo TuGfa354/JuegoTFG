@@ -70,3 +70,5 @@ frame_progress = 0.657049
 [node name="CollisionShape2D" parent="HitArea" index="0"]
 position = Vector2(1.5, -6)
 shape = SubResource("RectangleShape2D_uorpl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="4"]

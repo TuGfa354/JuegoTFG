@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctpqddvtilysj"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/enemy_ranged_parent.gd" id="1_cnok4"]
+
+[node name="EnemyRangedParent" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 25
+script = ExtResource("1_cnok4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="SpellCooldDown" type="Timer" parent="Timers"]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timers/SpellCooldDown" to="." method="_on_spell_coold_down_timeout"]
