@@ -14,3 +14,5 @@ script = ExtResource("1_4aggb")
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+
+[node name="Timers" type="Node" parent="."]

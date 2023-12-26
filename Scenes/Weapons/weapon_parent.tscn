@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckuqqgrsfy78j"]
+
+[ext_resource type="Script" path="res://Scenes/Weapons/weapon_parent.gd" id="1_h28en"]
+
+[node name="WeaponParent" type="Node2D"]
+script = ExtResource("1_h28en")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+
+[node name="Timers" type="Node" parent="."]

@@ -28,8 +28,6 @@ window/size/viewport_height=1080
 
 folder_colors={
 "res://Graphics/": "yellow",
-"res://Graphics/Aventurero/": "orange",
-"res://Graphics/Knight/": "gray",
 "res://Graphics/PS4 BUTTONS - Premium Assets/": "blue",
 "res://Graphics/Pixel Crawler - FREE - 1.8/": "red",
 "res://Graphics/XBOX BUTTONS - Premium Assets/": "green"
