@@ -75,6 +75,7 @@ Down={
 2d_physics/layer_4="Objects"
 2d_physics/layer_5="Projectiles"
 2d_physics/layer_6="Enemy Projectiles"
+2d_physics/layer_7="Weapons"
 
 [rendering]
 

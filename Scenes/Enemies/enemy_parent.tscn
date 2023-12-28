@@ -4,18 +4,25 @@
 
 [node name="EnemyMeleeParent" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 25
+collision_mask = 88
 script = ExtResource("1_wm476")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
-[node name="HitArea" type="Area2D" parent="."]
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="Timers" type="Node" parent="."]
 
-[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
-[connection signal="body_exited" from="HitArea" to="." method="_on_hit_area_body_exited"]
+[node name="VulnerableCooldown" type="Timer" parent="Timers"]
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="body_exited" from="DamageArea" to="." method="_on_damage_area_body_exited"]
+[connection signal="timeout" from="Timers/VulnerableCooldown" to="." method="_on_vulnerable_cooldown_timeout"]

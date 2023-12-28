@@ -91,7 +91,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ndrlg")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
 "speed": 6.0
 }, {
@@ -136,17 +136,15 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1clxk"]
-size = Vector2(18, 31)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g7g3"]
+size = Vector2(20, 32)
 
 [node name="Skeleton Mage" groups=["Mages"] instance=ExtResource("1_ta74d")]
 script = ExtResource("2_b65tl")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_5se78")
-animation = &"Idle"
-frame_progress = 0.390305
+animation = &"Run"
 
-[node name="CollisionShape2D" parent="HitArea" index="0"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_1clxk")
+[node name="HitBox" parent="." index="3"]
+shape = SubResource("RectangleShape2D_5g7g3")
