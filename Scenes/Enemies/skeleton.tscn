@@ -140,12 +140,11 @@ shape = SubResource("RectangleShape2D_44cu8")
 
 [node name="HealthComponent" parent="." index="4"]
 maxHealth = 50.0
-timerDuration = 0.5
 
 [node name="Velocity" parent="." index="5"]
 base_mov_speed = 125.0
 
-[node name="Hitbox" parent="HitboxComponent" index="0"]
+[node name="Hitbox" parent="HitboxComponent" index="1"]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_fg2gw")
 

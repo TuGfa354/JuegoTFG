@@ -30,3 +30,7 @@ func _on_health_component_dead():
 	hitbox_component.disable_hitbox()
 	velocity_component.stop_moving()
 	$AnimatedSprite2D.play('Death')
+
+
+func _on_animated_sprite_2d_animation_finished():
+	queue_free()

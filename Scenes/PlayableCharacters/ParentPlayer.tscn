@@ -25,9 +25,11 @@ unique_name_in_owner = true
 collision_mask = 38
 health_component = NodePath("../HealthComponent")
 hit_box_shape = NodePath("CollisionShape2D")
+timerDuration = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 
 [node name="CharacterBodyShape" type="CollisionShape2D" parent="."]
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="dead" from="HealthComponent" to="." method="_on_health_component_dead"]

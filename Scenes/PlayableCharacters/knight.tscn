@@ -155,9 +155,8 @@ position = Vector2(27, -14)
 
 [node name="HealthComponent" parent="." index="2"]
 maxHealth = 110.0
-timerDuration = 0.3
 
-[node name="CollisionShape2D" parent="HitboxComponent" index="0"]
+[node name="CollisionShape2D" parent="HitboxComponent" index="1"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_m6mn5")
 
