@@ -1,10 +1,11 @@
 extends CharacterBody2D
 class_name   PlayerParent
-var speed: int = 200
-var dead : bool = false
 
-
-func movementInput():
+@onready var hitbox_component =  %HitboxComponent as HitboxComponent
+@onready var velocity_component =  %Velocity as VelocityComponent
+@onready var health_component =  %HealthComponent as HealthComponent
+var dead:bool = false
+func _process(delta):
 	
 	if Input.is_action_pressed("Down") or Input.is_action_pressed("Right") or Input.is_action_pressed("Left") or Input.is_action_pressed("Up"):
 		$AnimatedSprite2D.play("Run")
@@ -14,15 +15,16 @@ func movementInput():
 		if Input.is_action_just_pressed("Right"):
 			$AnimatedSprite2D.scale= Vector2(1, 1)
 		var direction = Input.get_vector("Left", "Right", "Up", "Down")
-		velocity = direction * speed
-		move_and_slide()
+		velocity = direction * velocity_component.base_mov_speed
+		velocity_component.move(self)
 		Globals.player_pos = global_position
 	else:
-		$AnimatedSprite2D.play("Idle")
+		$AnimatedSprite2D.play('Idle')
 		$AnimatedSprite2D.position = Vector2(0, 0)
 
-func hit():
-	Globals.hp -= 10
-	if Globals.hp == 0:
-		dead = true
-		$AnimatedSprite2D.play('Death')
+
+func _on_health_component_dead():
+	hitbox_component.disable_hitbox()
+	velocity_component.stop_moving()
+	$AnimatedSprite2D.play('Death')
+	

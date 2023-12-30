@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://03imv440ns8m"
+path="res://.godot/imported/Death.aseprite-37d159854628af18d609e0d49b5e8f04.res"
+
+[deps]
+
+source_file="res://Graphics/Pixel Crawler - FREE - 1.8/Heroes/Knight/Death/Death.aseprite"
+dest_files=["res://.godot/imported/Death.aseprite-37d159854628af18d609e0d49b5e8f04.res"]
+
+[params]
+

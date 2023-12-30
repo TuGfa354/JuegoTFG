@@ -1,26 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cymp4hb415s36"]
 
 [ext_resource type="Texture2D" uid="uid://ch2i54re4h5mw" path="res://Graphics/Pixel Crawler - FREE - 1.8/Weapons/Projectiles/circle.png" id="1_fm1ca"]
-
-[sub_resource type="GDScript" id="GDScript_t0cd1"]
-resource_name = "Spell.gd"
-script/source = "extends Area2D
-
-@export var speed: int = 100
-var direction: Vector2 = Vector2.UP
-
-func _ready():
-	pass
-
-func _process(delta):
-	position += direction * speed * delta
-
-
-func _on_body_entered(body):
-	if \"hit\" in body:
-		body.hit()
-	queue_free()
-"
+[ext_resource type="Script" path="res://Scenes/Projectiles/spell.gd" id="1_qa00v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ph7js"]
 radius = 7.07107
@@ -28,7 +9,7 @@ radius = 7.07107
 [node name="Spell" type="Area2D"]
 collision_layer = 32
 collision_mask = 9
-script = SubResource("GDScript_t0cd1")
+script = ExtResource("1_qa00v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.705882, 0, 0.192157, 1)

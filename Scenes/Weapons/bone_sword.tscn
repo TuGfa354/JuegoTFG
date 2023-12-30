@@ -8,6 +8,7 @@
 size = Vector2(9, 48)
 
 [node name="BoneSword" instance=ExtResource("1_p4tcj")]
+collision_mask = 128
 script = ExtResource("2_gl5d8")
 
 [node name="Sprite2D" parent="." index="0"]

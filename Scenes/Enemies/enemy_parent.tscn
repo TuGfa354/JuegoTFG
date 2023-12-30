@@ -1,16 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://cphgxeuhywdfg"]
+[gd_scene load_steps=6 format=3 uid="uid://cphgxeuhywdfg"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/enemy_parent.gd" id="1_wm476"]
+[ext_resource type="PackedScene" uid="uid://d2c4ccnfltmr1" path="res://Scenes/Components/health_component.tscn" id="2_hvinq"]
+[ext_resource type="Script" path="res://Scenes/Enemies/DamageArea.gd" id="2_oerwy"]
+[ext_resource type="PackedScene" uid="uid://c73ovdjp0q4wx" path="res://Scenes/Components/velocity.tscn" id="3_t6aan"]
+[ext_resource type="PackedScene" uid="uid://c8wqavxm6m0q" path="res://Scenes/Components/hitbox_component.tscn" id="4_gw4np"]
 
 [node name="EnemyMeleeParent" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 88
+collision_mask = 8
 script = ExtResource("1_wm476")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="DamageArea" type="Area2D" parent="."]
 collision_layer = 2
+script = ExtResource("2_oerwy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 
@@ -18,11 +23,24 @@ collision_layer = 2
 
 [node name="Timers" type="Node" parent="."]
 
-[node name="VulnerableCooldown" type="Timer" parent="Timers"]
+[node name="HealthComponent" parent="." instance=ExtResource("2_hvinq")]
+unique_name_in_owner = true
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
+[node name="Velocity" parent="." instance=ExtResource("3_t6aan")]
+unique_name_in_owner = true
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_box_shape") instance=ExtResource("4_gw4np")]
+unique_name_in_owner = true
+collision_layer = 128
+collision_mask = 88
+health_component = NodePath("../HealthComponent")
+hit_box_shape = NodePath("Hitbox")
+
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
+
+[node name="CharacterBodyShape" type="CollisionShape2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
 [connection signal="body_exited" from="DamageArea" to="." method="_on_damage_area_body_exited"]
-[connection signal="timeout" from="Timers/VulnerableCooldown" to="." method="_on_vulnerable_cooldown_timeout"]
+[connection signal="dead" from="HealthComponent" to="." method="_on_health_component_dead"]

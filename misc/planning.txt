@@ -1,0 +1,20 @@
+Planificación
+
+Estadísticas:
+Vida, ataque, defensa, velocidad, cooldown, magia, regeneración de vida, robo de vida, rango, prob crit, daño crit.
+
+Categorías armas?¿:
+Espadas, claymore, hachas, lanzas, mazos,arcos(no tengo sprites), varitas(no tengo sprites)
+
+Enemigos:
+	Orcos:
+		base
+		rogue: Más rápido, menos vida(?)
+		shaman: Caster ranged
+		warrior: Más vida, más lento, algun ataque especial como una carga(?)
+
+	Esqueletos:
+		base
+		rogue: Más rápido, menos vida(?)
+		shaman: Caster ranged
+		warrior: Más vida, más lento, algun ataque especial como una carga(?)

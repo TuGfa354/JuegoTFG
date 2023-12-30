@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ojb0fe0kynvw"
+path="res://.godot/imported/Run.aseprite-1c621dc5fbd4200b1071f211e35bd13c.res"
+
+[deps]
+
+source_file="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Rogue/Run/Run.aseprite"
+dest_files=["res://.godot/imported/Run.aseprite-1c621dc5fbd4200b1071f211e35bd13c.res"]
+
+[params]
+

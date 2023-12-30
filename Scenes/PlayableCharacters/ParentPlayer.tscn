@@ -1,13 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://2vriyonhucnw"]
+[gd_scene load_steps=5 format=3 uid="uid://2vriyonhucnw"]
 
 [ext_resource type="Script" path="res://Scenes/PlayableCharacters/ParentPlayer.gd" id="1_wimjr"]
+[ext_resource type="PackedScene" uid="uid://d2c4ccnfltmr1" path="res://Scenes/Components/health_component.tscn" id="2_j1i6e"]
+[ext_resource type="PackedScene" uid="uid://c8wqavxm6m0q" path="res://Scenes/Components/hitbox_component.tscn" id="3_iandt"]
+[ext_resource type="PackedScene" uid="uid://c73ovdjp0q4wx" path="res://Scenes/Components/velocity.tscn" id="4_r0ura"]
 
 [node name="PlayableCharacter" type="CharacterBody2D"]
-collision_mask = 44
+collision_mask = 8
 script = ExtResource("1_wimjr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
 [node name="Weapons" type="Node2D" parent="."]
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_j1i6e")]
+unique_name_in_owner = true
+
+[node name="Velocity" parent="." instance=ExtResource("4_r0ura")]
+unique_name_in_owner = true
+base_mov_speed = 200.0
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_box_shape") instance=ExtResource("3_iandt")]
+unique_name_in_owner = true
+collision_mask = 38
+health_component = NodePath("../HealthComponent")
+hit_box_shape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+
+[node name="CharacterBodyShape" type="CollisionShape2D" parent="."]
+
+[connection signal="dead" from="HealthComponent" to="." method="_on_health_component_dead"]

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://chojhbjrvfns7"
+path="res://.godot/imported/Idle.aseprite-bbe12b010dd428439aadac55e1b7306b.res"
+
+[deps]
+
+source_file="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Orc Crew/Orc - Shaman/Idle/Idle.aseprite"
+dest_files=["res://.godot/imported/Idle.aseprite-bbe12b010dd428439aadac55e1b7306b.res"]
+
+[params]
+

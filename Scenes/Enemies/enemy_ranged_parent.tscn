@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctpqddvtilysj"]
+[gd_scene load_steps=6 format=3 uid="uid://ctpqddvtilysj"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/enemy_ranged_parent.gd" id="1_cnok4"]
+[ext_resource type="PackedScene" uid="uid://d2c4ccnfltmr1" path="res://Scenes/Components/health_component.tscn" id="2_3xs1y"]
+[ext_resource type="PackedScene" uid="uid://c73ovdjp0q4wx" path="res://Scenes/Components/velocity.tscn" id="3_l3our"]
+[ext_resource type="PackedScene" uid="uid://bt6sh5hh7awu8" path="res://Scenes/Components/damage_range_component.tscn" id="4_2a1c1"]
+[ext_resource type="PackedScene" uid="uid://c8wqavxm6m0q" path="res://Scenes/Components/hitbox_component.tscn" id="5_klnuv"]
 
 [node name="EnemyRangedParent" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 89
+collision_mask = 8
 script = ExtResource("1_cnok4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -18,7 +22,17 @@ wait_time = 2.0
 
 [node name="VulnerableCooldown" type="Timer" parent="Timers"]
 
-[node name="HitBox" type="CollisionShape2D" parent="."]
+[node name="HealthComponent" parent="." instance=ExtResource("2_3xs1y")]
+
+[node name="Velocity" parent="." instance=ExtResource("3_l3our")]
+
+[node name="DamageRangeComponent" parent="." instance=ExtResource("4_2a1c1")]
+
+[node name="HitboxComponent" parent="." instance=ExtResource("5_klnuv")]
+collision_layer = 128
+collision_mask = 80
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timers/SpellCooldDown" to="." method="_on_spell_coold_down_timeout"]

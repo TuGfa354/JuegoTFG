@@ -16,4 +16,4 @@ func create_spell(pos, direction):
 	spell.rotation_degrees = rad_to_deg(direction.angle()) + 90
 	spell.direction = direction
 	$Projectiles.add_child(spell)
-	print("casting spell")
+

@@ -1,0 +1,10 @@
+Cosas a revisar en un futuro en el desarrollo del juego:
+In playlist:
+Component Nodes(Heredar pero muy guapo)
+Aseprite wizard(Para importar todas las animaciones en un anuimationPlayer con sprite2d si tengo un archivo aseprite)
+Escalar resolución
+Multiplayer
+Port Forwarding
+Manejo con mando
+Traducción
+Not In Playlist:

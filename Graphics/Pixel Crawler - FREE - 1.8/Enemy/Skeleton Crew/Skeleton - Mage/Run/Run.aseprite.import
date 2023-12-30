@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cf5gnymx10q16"
+path="res://.godot/imported/Run.aseprite-aa1b48a401c9ffe698c7f8fd4598711f.res"
+
+[deps]
+
+source_file="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Mage/Run/Run.aseprite"
+dest_files=["res://.godot/imported/Run.aseprite-aa1b48a401c9ffe698c7f8fd4598711f.res"]
+
+[params]
+

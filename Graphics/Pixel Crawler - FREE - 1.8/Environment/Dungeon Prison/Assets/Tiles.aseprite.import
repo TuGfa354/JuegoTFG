@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b35in24fxbbqe"
+path="res://.godot/imported/Tiles.aseprite-948eb7409d6d25eb8d1ef0344d814fb4.res"
+
+[deps]
+
+source_file="res://Graphics/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.aseprite"
+dest_files=["res://.godot/imported/Tiles.aseprite-948eb7409d6d25eb8d1ef0344d814fb4.res"]
+
+[params]
+

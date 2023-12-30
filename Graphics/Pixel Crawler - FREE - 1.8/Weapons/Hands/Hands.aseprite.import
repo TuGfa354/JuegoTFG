@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://uflpfa2foif1"
+path="res://.godot/imported/Hands.aseprite-a14bd5051f0c172c11f4e5d905722612.res"
+
+[deps]
+
+source_file="res://Graphics/Pixel Crawler - FREE - 1.8/Weapons/Hands/Hands.aseprite"
+dest_files=["res://.godot/imported/Hands.aseprite-a14bd5051f0c172c11f4e5d905722612.res"]
+
+[params]
+

@@ -13,6 +13,7 @@ var dead:bool = false
 func _ready():
 	$NavigationAgent2D.target_position = Globals.player_pos
 	$AnimatedSprite2D.play("Idle")
+	
 
 func _process(_delta):
 	if dead:

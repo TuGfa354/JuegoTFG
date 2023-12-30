@@ -23,6 +23,11 @@ Globals="*res://Scenes/Globals/Globals.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [file_customization]
 
@@ -30,7 +35,8 @@ folder_colors={
 "res://Graphics/": "yellow",
 "res://Graphics/PS4 BUTTONS - Premium Assets/": "blue",
 "res://Graphics/Pixel Crawler - FREE - 1.8/": "red",
-"res://Graphics/XBOX BUTTONS - Premium Assets/": "green"
+"res://Graphics/XBOX BUTTONS - Premium Assets/": "green",
+"res://Graphics/armas/": "purple"
 }
 
 [input]
@@ -70,12 +76,13 @@ Down={
 [layer_names]
 
 2d_physics/layer_1="Player"
-2d_physics/layer_2="Enemies"
+2d_physics/layer_2="EnemyDamageArea"
 2d_physics/layer_3="Items"
 2d_physics/layer_4="Objects"
 2d_physics/layer_5="Projectiles"
 2d_physics/layer_6="Enemy Projectiles"
 2d_physics/layer_7="Weapons"
+2d_physics/layer_8="EnemyHitbox"
 
 [rendering]
 

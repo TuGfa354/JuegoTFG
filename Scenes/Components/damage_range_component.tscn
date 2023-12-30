@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bt6sh5hh7awu8"]
+
+[node name="DamageRangeComponent" type="Area2D"]

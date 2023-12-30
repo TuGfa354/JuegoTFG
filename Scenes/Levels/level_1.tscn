@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bn4q4fyry8aop"]
+[gd_scene load_steps=13 format=3 uid="uid://bn4q4fyry8aop"]
 
 [ext_resource type="PackedScene" uid="uid://clea0mhs5s5q" path="res://Scenes/Levels/parent_level.tscn" id="1_mx8lj"]
 [ext_resource type="Texture2D" uid="uid://d01q7fsb7dm73" path="res://Graphics/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Tiles.png" id="2_ei3pb"]
 [ext_resource type="PackedScene" uid="uid://dm3k822oyrqi" path="res://Scenes/Enemies/skeleton.tscn" id="3_biwr8"]
 [ext_resource type="PackedScene" uid="uid://pr383wo1yuuf" path="res://Scenes/PlayableCharacters/knight.tscn" id="3_r6v1l"]
-[ext_resource type="PackedScene" uid="uid://b8vjrhk626qel" path="res://Scenes/Enemies/skeleton_mage.tscn" id="4_q00iu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vv0xo"]
 texture = ExtResource("2_ei3pb")
@@ -166,12 +165,11 @@ layer_0/tile_data = PackedInt32Array(-262149, 524288, 7, -196613, 524288, 8, -13
 
 [node name="Skeleton" parent="Enemies" index="0" instance=ExtResource("3_biwr8")]
 position = Vector2(451, 128)
-
-[node name="Skeleton Mage" parent="Enemies" index="1" instance=ExtResource("4_q00iu")]
-position = Vector2(574, 387)
+collision_mask = 88
 
 [node name="Knight" parent="." index="4" instance=ExtResource("3_r6v1l")]
 position = Vector2(342, 209)
+collision_mask = 44
 
 [node name="Camera2D" type="Camera2D" parent="Knight" index="3"]
 position = Vector2(117, 86)

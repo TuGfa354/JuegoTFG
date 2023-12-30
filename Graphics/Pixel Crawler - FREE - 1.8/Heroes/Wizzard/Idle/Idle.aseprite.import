@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b5k3cr3imdrus"
+path="res://.godot/imported/Idle.aseprite-72796930e58cf5882a2b38a0f1b1c18d.res"
+
+[deps]
+
+source_file="res://Graphics/Pixel Crawler - FREE - 1.8/Heroes/Wizzard/Idle/Idle.aseprite"
+dest_files=["res://.godot/imported/Idle.aseprite-72796930e58cf5882a2b38a0f1b1c18d.res"]
+
+[params]
+
