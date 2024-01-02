@@ -15,25 +15,31 @@ script = ExtResource("1_cnok4")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
+[node name="DamageRangeComponent" parent="." instance=ExtResource("4_2a1c1")]
+unique_name_in_owner = true
+timerDuration = 2.0
+
+[node name="Range" type="CollisionShape2D" parent="DamageRangeComponent"]
+
 [node name="Timers" type="Node" parent="."]
 
-[node name="SpellCooldDown" type="Timer" parent="Timers"]
-wait_time = 2.0
-
-[node name="VulnerableCooldown" type="Timer" parent="Timers"]
-
 [node name="HealthComponent" parent="." instance=ExtResource("2_3xs1y")]
+unique_name_in_owner = true
 
 [node name="Velocity" parent="." instance=ExtResource("3_l3our")]
+unique_name_in_owner = true
 
-[node name="DamageRangeComponent" parent="." instance=ExtResource("4_2a1c1")]
-
-[node name="HitboxComponent" parent="." instance=ExtResource("5_klnuv")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_box_shape") instance=ExtResource("5_klnuv")]
+unique_name_in_owner = true
 collision_layer = 128
 collision_mask = 80
+health_component = NodePath("../HealthComponent")
+hit_box_shape = NodePath("Hitbox")
+timerDuration = 0.4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
+
+[node name="CharacterBodyShape" type="CollisionShape2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="timeout" from="Timers/SpellCooldDown" to="." method="_on_spell_coold_down_timeout"]
-[connection signal="timeout" from="Timers/VulnerableCooldown" to="." method="_on_vulnerable_cooldown_timeout"]
+[connection signal="dead" from="HealthComponent" to="." method="_on_health_component_dead"]

@@ -1,14 +1,14 @@
 extends Area2D
-class_name   MeleeAttack
-@export var speed: int = 100
-var damage: int = 10
-var direction: Vector2 = Vector2.UP
+class_name   Attack
+var direction: Vector2
+var damage:int
 
-func _ready():
-	pass
 
-func _process(delta):
-	position += direction * speed * delta
+
+func _physics_process(delta):
+	const SPEED: int = 100
+	damage = 30
+	position += direction * SPEED * delta
 
 
 func _on_body_entered(body):

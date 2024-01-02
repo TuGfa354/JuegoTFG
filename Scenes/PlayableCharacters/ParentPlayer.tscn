@@ -1,9 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://2vriyonhucnw"]
+[gd_scene load_steps=7 format=3 uid="uid://2vriyonhucnw"]
 
 [ext_resource type="Script" path="res://Scenes/PlayableCharacters/ParentPlayer.gd" id="1_wimjr"]
 [ext_resource type="PackedScene" uid="uid://d2c4ccnfltmr1" path="res://Scenes/Components/health_component.tscn" id="2_j1i6e"]
 [ext_resource type="PackedScene" uid="uid://c8wqavxm6m0q" path="res://Scenes/Components/hitbox_component.tscn" id="3_iandt"]
 [ext_resource type="PackedScene" uid="uid://c73ovdjp0q4wx" path="res://Scenes/Components/velocity.tscn" id="4_r0ura"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4iu2"]
+bg_color = Color(0.0117647, 0.0156863, 0.0196078, 0.662745)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihxcq"]
+bg_color = Color(0.223529, 0.713726, 0.235294, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="PlayableCharacter" type="CharacterBody2D"]
 collision_mask = 8
@@ -30,6 +49,14 @@ timerDuration = 0.2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 
 [node name="CharacterBodyShape" type="CollisionShape2D" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_right = 4.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_b4iu2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ihxcq")
+show_percentage = false
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="dead" from="HealthComponent" to="." method="_on_health_component_dead"]

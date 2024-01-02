@@ -20,11 +20,10 @@ func disable_hitbox() -> void:
 func enable_hitbox() -> void:
 	hit_box_shape.set_deferred("disabled", false)
 
-func _process(delta):
+func _physics_process(_delta):
 	if areaframe:
 		if areaframe.overlaps_area(self):
 			if vulnerable:
-				print(Time.get_datetime_dict_from_system())
 				health_component.damage(areaframe.damage)
 				vulnerable = false
 				$Timer.start()

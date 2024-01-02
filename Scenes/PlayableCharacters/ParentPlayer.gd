@@ -5,9 +5,13 @@ class_name   PlayerParent
 @onready var velocity_component =  %Velocity as VelocityComponent
 @onready var health_component =  %HealthComponent as HealthComponent
 var dead:bool = false
-func _process(delta):
+signal death
+func _ready():
+	%ProgressBar.value = health_component.currentHealth
+func _physics_process(_delta):
 	if dead:
 			$AnimatedSprite2D.play('Death')
+			death.emit()
 	else:
 		if Input.is_action_pressed("Down") or Input.is_action_pressed("Right") or Input.is_action_pressed("Left") or Input.is_action_pressed("Up"):
 			$AnimatedSprite2D.play("Run")

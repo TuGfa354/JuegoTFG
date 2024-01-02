@@ -1,21 +1,25 @@
 extends CharacterBody2D
 class_name EnemyRangedParent
-var player
-var speed:int = 100
-var hp: int =30
-var attack_range:int = 200
-var attacking:bool= false
-signal spell(pos, direction)
-var can_spell = true
-var vulnerable:bool = true
+
+
+@onready var hitbox_component = %HitboxComponent as HitboxComponent
+@onready var velocity_component = %Velocity as VelocityComponent
+@onready var health_component = %HealthComponent as HealthComponent
+@onready var damage_range_component = %DamageRangeComponent as DamageRangeComponent
+var direction: Vector2
+var running:bool = true
+var SPEED: int
 var dead:bool = false
+
 
 func _ready():
 	$NavigationAgent2D.target_position = Globals.player_pos
-	$AnimatedSprite2D.play("Idle")
-	
+	$AnimatedSprite2D.play("Run")
+	SPEED = velocity_component.base_mov_speed
 
-func _process(_delta):
+
+
+func _physics_process(_delta):
 	if dead:
 		$AnimatedSprite2D.play('Death')
 	else:
@@ -25,42 +29,27 @@ func _process(_delta):
 		else:
 			$AnimatedSprite2D.scale= Vector2(1, 1)
 		var next_path_position = $NavigationAgent2D.get_next_path_position()
-		var direction: Vector2 = (next_path_position - global_position).normalized()
-		velocity = direction * speed
-
-		var in_range: bool = Globals.player_pos.distance_to(global_position) < attack_range
-		var pos: Vector2 = global_position
-		if in_range:
-			spellCast(pos,direction)
-		else:
+		direction = (next_path_position - global_position).normalized()
+		velocity = direction * velocity_component.base_mov_speed
+		if running:
+			velocity_component.base_mov_speed = SPEED
 			$AnimatedSprite2D.play("Run")
-			$AnimatedSprite2D.position = Vector2(0, -15)
-			move_and_slide()
+			$AnimatedSprite2D.position = Vector2(0,0)
+			velocity_component.move(self)
+		else:
+			$AnimatedSprite2D.play("Idle")
+			$AnimatedSprite2D.position = Vector2(0,15)
+			velocity_component.stop_moving()
 
-func spellCast(pos,direction):
-	$AnimatedSprite2D.play("Idle")
-	$AnimatedSprite2D.position = Vector2(0, 0)
-	if can_spell:
-		spell.emit(pos, direction)
-		can_spell = false
-		$Timers/SpellCooldDown.start()
-
-func hit(damage):
-	if vulnerable:
-		hp -= damage
-		vulnerable = false
-		$Timers/VulnerableCooldown.start()
-		if hp <= 0:
-			dead = true
-
-
-func _on_spell_coold_down_timeout():
-	can_spell = true
-
-
-func _on_vulnerable_cooldown_timeout():
-	vulnerable = true
 
 
 func _on_animated_sprite_2d_animation_finished():
 	queue_free()
+
+
+func _on_health_component_dead():
+
+	hitbox_component.disable_hitbox()
+	velocity_component.stop_moving()
+	damage_range_component.queue_free()
+	dead = true

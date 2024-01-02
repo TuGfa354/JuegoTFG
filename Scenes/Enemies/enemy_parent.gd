@@ -13,7 +13,7 @@ func _ready():
 
 
 
-func _process(delta):
+func _physics_process(_delta):
 	$NavigationAgent2D.target_position = Globals.player_pos
 	if  Globals.player_pos.x< position.x:
 		$AnimatedSprite2D.scale= Vector2(-1, 1)

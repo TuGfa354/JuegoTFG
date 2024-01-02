@@ -21,9 +21,12 @@ func _ready():
 
 
 func damage(damage_amount: float):
+
 	currentHealth = maxf(0.0, currentHealth - damage_amount)
-	print (get_parent(),currentHealth)
+	if get_parent() is PlayerParent:
+		get_parent().get_node("ProgressBar").value = currentHealth
 	if(currentHealth == 0):
+
 		dead.emit()
 
 

@@ -116,8 +116,8 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_44cu8"]
-size = Vector2(22, 33)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcfjo"]
+size = Vector2(20, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fg2gw"]
 size = Vector2(20, 32)
@@ -134,9 +134,9 @@ sprite_frames = SubResource("SpriteFrames_jdh1f")
 animation = &"Death"
 autoplay = "Run"
 
-[node name="CollisionShape2D" parent="DamageArea" index="0"]
-position = Vector2(1, -6.5)
-shape = SubResource("RectangleShape2D_44cu8")
+[node name="CollisionShape2D" parent="DamageAreaComponent" index="0"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_lcfjo")
 
 [node name="HealthComponent" parent="." index="4"]
 maxHealth = 50.0
@@ -144,10 +144,14 @@ maxHealth = 50.0
 [node name="Velocity" parent="." index="5"]
 base_mov_speed = 125.0
 
+[node name="HitboxComponent" parent="." index="6"]
+visible = false
+
 [node name="Hitbox" parent="HitboxComponent" index="1"]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_fg2gw")
 
 [node name="CharacterBodyShape" parent="." index="7"]
+visible = false
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_bw5mc")

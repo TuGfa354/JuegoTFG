@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b8vjrhk626qel"]
+[gd_scene load_steps=26 format=3 uid="uid://b8vjrhk626qel"]
 
 [ext_resource type="PackedScene" uid="uid://ctpqddvtilysj" path="res://Scenes/Enemies/enemy_ranged_parent.tscn" id="1_ta74d"]
 [ext_resource type="Script" path="res://Scenes/Enemies/skeleton_mage.gd" id="2_b65tl"]
@@ -136,7 +136,13 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g7g3"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5x87m"]
+radius = 200.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2wuv"]
+size = Vector2(20, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ostu"]
 size = Vector2(20, 32)
 
 [node name="Skeleton Mage" groups=["Mages"] instance=ExtResource("1_ta74d")]
@@ -144,7 +150,22 @@ script = ExtResource("2_b65tl")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_5se78")
-animation = &"Run"
+animation = &"Death"
 
-[node name="HitBox" parent="." index="3"]
-shape = SubResource("RectangleShape2D_5g7g3")
+[node name="Range" parent="DamageRangeComponent" index="1"]
+shape = SubResource("CircleShape2D_5x87m")
+debug_color = Color(0.862745, 0.32549, 0.411765, 0.419608)
+
+[node name="HealthComponent" parent="." index="4"]
+maxHealth = 40.0
+
+[node name="Velocity" parent="." index="5"]
+base_mov_speed = 100.0
+
+[node name="Hitbox" parent="HitboxComponent" index="1"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_f2wuv")
+
+[node name="CharacterBodyShape" parent="." index="7"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_5ostu")

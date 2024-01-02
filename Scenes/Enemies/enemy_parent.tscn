@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cphgxeuhywdfg"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/enemy_parent.gd" id="1_wm476"]
+[ext_resource type="PackedScene" uid="uid://b3wmjqb34cqs5" path="res://Scenes/Components/damage_area_component.tscn" id="2_1leip"]
 [ext_resource type="PackedScene" uid="uid://d2c4ccnfltmr1" path="res://Scenes/Components/health_component.tscn" id="2_hvinq"]
-[ext_resource type="Script" path="res://Scenes/Enemies/DamageArea.gd" id="2_oerwy"]
 [ext_resource type="PackedScene" uid="uid://c73ovdjp0q4wx" path="res://Scenes/Components/velocity.tscn" id="3_t6aan"]
 [ext_resource type="PackedScene" uid="uid://c8wqavxm6m0q" path="res://Scenes/Components/hitbox_component.tscn" id="4_gw4np"]
 
@@ -13,13 +13,11 @@ script = ExtResource("1_wm476")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
-[node name="DamageArea" type="Area2D" parent="."]
-collision_layer = 2
-script = ExtResource("2_oerwy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="DamageAreaComponent" parent="." instance=ExtResource("2_1leip")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageAreaComponent"]
 
 [node name="Timers" type="Node" parent="."]
 
@@ -42,6 +40,4 @@ timerDuration = 0.4
 [node name="CharacterBodyShape" type="CollisionShape2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
-[connection signal="body_exited" from="DamageArea" to="." method="_on_damage_area_body_exited"]
 [connection signal="dead" from="HealthComponent" to="." method="_on_health_component_dead"]
