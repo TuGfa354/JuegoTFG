@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bn4q4fyry8aop"]
+[gd_scene load_steps=17 format=3 uid="uid://bn4q4fyry8aop"]
 
 [ext_resource type="PackedScene" uid="uid://clea0mhs5s5q" path="res://Scenes/Levels/parent_level.tscn" id="1_mx8lj"]
 [ext_resource type="Texture2D" uid="uid://d01q7fsb7dm73" path="res://Graphics/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Tiles.png" id="2_ei3pb"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b8vjrhk626qel" path="res://Scenes/Enemies/skeleton_mage.tscn" id="3_80gnb"]
 [ext_resource type="PackedScene" uid="uid://dm3k822oyrqi" path="res://Scenes/Enemies/skeleton.tscn" id="3_biwr8"]
 [ext_resource type="PackedScene" uid="uid://pr383wo1yuuf" path="res://Scenes/PlayableCharacters/knight.tscn" id="3_r6v1l"]
+[ext_resource type="PackedScene" uid="uid://dvgyqm01rsx33" path="res://Scenes/Ui/pause_menu.tscn" id="7_3dl84"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vv0xo"]
 texture = ExtResource("2_ei3pb")
@@ -484,6 +485,7 @@ position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="NavigationRegion2D" parent="." index="5"]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_2cu4t")
 
 [node name="LevelBarriers" type="Node2D" parent="." index="6"]
@@ -529,4 +531,19 @@ shape = SubResource("RectangleShape2D_4tchd")
 unique_name_in_owner = true
 visible = false
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="9"]
+visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.513726)
+
+[node name="PauseMenu" parent="CanvasLayer/ColorRect2" index="0" instance=ExtResource("7_3dl84")]
+layout_mode = 1
+
 [connection signal="death" from="Knight" to="." method="_on_knight_death"]
+[connection signal="pause" from="CanvasLayer/ColorRect2/PauseMenu" to="." method="_on_pause_menu_pause"]
