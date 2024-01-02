@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://dm3k822oyrqi"]
 
 [ext_resource type="PackedScene" uid="uid://cphgxeuhywdfg" path="res://Scenes/Enemies/enemy_parent.tscn" id="1_faiin"]
-[ext_resource type="Script" path="res://Skeleton.gd" id="2_k338a"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Skeleton.gd" id="2_k338a"]
 [ext_resource type="Texture2D" uid="uid://bsgg6p8kfxyuq" path="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Base/Death/Death-Sheet.png" id="3_3ci6y"]
 [ext_resource type="Texture2D" uid="uid://ca7gx430olxe4" path="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Base/Run/Run-Sheet.png" id="3_hpcun"]
 

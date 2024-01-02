@@ -40,6 +40,10 @@ folder_colors={
 "res://Graphics/armas/": "purple"
 }
 
+[gui]
+
+theme/custom_font="res://Graphics/others/TestFont.tres"
+
 [input]
 
 ui_left={
