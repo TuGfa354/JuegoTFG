@@ -157,7 +157,7 @@ position = Vector2(27, -14)
 maxHealth = 100.0
 
 [node name="Velocity" parent="." index="3"]
-base_mov_speed = 200.0
+base_mov_speed = 175.0
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="1"]
 position = Vector2(0, 0.5)

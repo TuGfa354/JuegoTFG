@@ -89,10 +89,10 @@ func _on_v_sync_toggled(toggled_on):
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
 func _on_back_from_video_pressed():
-	show_and_hide(menu, video)
+	show_and_hide(options, video)
 
 func _on_back_from_audio_pressed():
-	show_and_hide(menu, audio)
+	show_and_hide(options, audio)
 
 
 func _on_master_value_changed(value):

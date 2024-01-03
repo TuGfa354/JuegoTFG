@@ -1,0 +1,140 @@
+[gd_scene load_steps=21 format=3 uid="uid://bi0geqhiagin4"]
+
+[ext_resource type="PackedScene" uid="uid://cphgxeuhywdfg" path="res://Scenes/Enemies/enemy_parent.tscn" id="1_suk6x"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Skeletons/Skeleton_warrior.gd" id="2_n5qmi"]
+[ext_resource type="Texture2D" uid="uid://vetq34tx5nt5" path="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Warrior/Death/Death-Sheet.png" id="3_om3ai"]
+[ext_resource type="Texture2D" uid="uid://1yr1dncch8gy" path="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Warrior/Run/Run-Sheet.png" id="4_j43g4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tenj7"]
+atlas = ExtResource("3_om3ai")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xkry"]
+atlas = ExtResource("3_om3ai")
+region = Rect2(64, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4ten"]
+atlas = ExtResource("3_om3ai")
+region = Rect2(128, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcpsp"]
+atlas = ExtResource("3_om3ai")
+region = Rect2(192, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krqs6"]
+atlas = ExtResource("3_om3ai")
+region = Rect2(256, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21c7g"]
+atlas = ExtResource("3_om3ai")
+region = Rect2(320, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1hhe"]
+atlas = ExtResource("4_j43g4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vcql"]
+atlas = ExtResource("4_j43g4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76qip"]
+atlas = ExtResource("4_j43g4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tggh"]
+atlas = ExtResource("4_j43g4")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4go56"]
+atlas = ExtResource("4_j43g4")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oao8v"]
+atlas = ExtResource("4_j43g4")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfatn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tenj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xkry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4ten")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcpsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krqs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21c7g")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1hhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vcql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76qip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tggh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4go56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oao8v")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkqle"]
+size = Vector2(20, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h84ut"]
+size = Vector2(20, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynnev"]
+size = Vector2(20, 30)
+
+[node name="Skeleton_warrior" instance=ExtResource("1_suk6x")]
+script = ExtResource("2_n5qmi")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_gfatn")
+animation = &"Run"
+
+[node name="DamageAreaComponent" parent="." index="2"]
+damage = 30
+
+[node name="CollisionShape2D" parent="DamageAreaComponent" index="0"]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_gkqle")
+
+[node name="HealthComponent" parent="." index="4"]
+maxHealth = 175.0
+
+[node name="Velocity" parent="." index="5"]
+base_mov_speed = 75.0
+
+[node name="Hitbox" parent="HitboxComponent" index="1"]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_h84ut")
+
+[node name="CharacterBodyShape" parent="." index="7"]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_ynnev")

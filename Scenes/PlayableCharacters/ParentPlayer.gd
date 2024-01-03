@@ -30,6 +30,7 @@ func _physics_process(_delta):
 
 
 func _on_health_component_dead():
+	print("a")
 	hitbox_component.disable_hitbox()
 	velocity_component.stop_moving()
 	dead = true

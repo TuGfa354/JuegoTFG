@@ -1,0 +1,140 @@
+[gd_scene load_steps=21 format=3 uid="uid://cwfqn8vm5qfr4"]
+
+[ext_resource type="PackedScene" uid="uid://cphgxeuhywdfg" path="res://Scenes/Enemies/enemy_parent.tscn" id="1_aqchh"]
+[ext_resource type="Script" path="res://Scenes/Enemies/orc_warrior.gd" id="2_0y1gj"]
+[ext_resource type="Texture2D" uid="uid://dej2r3qmh1547" path="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Orc Crew/Orc - Warrior/Death/Death-Sheet.png" id="2_qa0ww"]
+[ext_resource type="Texture2D" uid="uid://c88q81rke2q60" path="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Orc Crew/Orc - Warrior/Run/Run-Sheet.png" id="3_f7wfm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y68vi"]
+atlas = ExtResource("2_qa0ww")
+region = Rect2(0, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d6qa"]
+atlas = ExtResource("2_qa0ww")
+region = Rect2(96, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxsm1"]
+atlas = ExtResource("2_qa0ww")
+region = Rect2(192, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t18vj"]
+atlas = ExtResource("2_qa0ww")
+region = Rect2(288, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p44l"]
+atlas = ExtResource("2_qa0ww")
+region = Rect2(384, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85t50"]
+atlas = ExtResource("2_qa0ww")
+region = Rect2(480, 0, 96, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnnyl"]
+atlas = ExtResource("3_f7wfm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4no4"]
+atlas = ExtResource("3_f7wfm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ncx5"]
+atlas = ExtResource("3_f7wfm")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06sxu"]
+atlas = ExtResource("3_f7wfm")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5hcq"]
+atlas = ExtResource("3_f7wfm")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cftwk"]
+atlas = ExtResource("3_f7wfm")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nkf8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y68vi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d6qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxsm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t18vj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6p44l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85t50")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnnyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4no4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ncx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06sxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5hcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cftwk")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wyuv"]
+size = Vector2(20, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opj5k"]
+size = Vector2(20, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq51i"]
+size = Vector2(20, 32)
+
+[node name="Orc_warrior" instance=ExtResource("1_aqchh")]
+script = ExtResource("2_0y1gj")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_nkf8k")
+animation = &"Run"
+
+[node name="DamageAreaComponent" parent="." index="2"]
+damage = 30
+
+[node name="CollisionShape2D" parent="DamageAreaComponent" index="0"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_4wyuv")
+
+[node name="HealthComponent" parent="." index="4"]
+maxHealth = 175.0
+
+[node name="Velocity" parent="." index="5"]
+base_mov_speed = 75.0
+
+[node name="Hitbox" parent="HitboxComponent" index="1"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_opj5k")
+
+[node name="CharacterBodyShape" parent="." index="7"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_aq51i")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://dm3k822oyrqi"]
 
 [ext_resource type="PackedScene" uid="uid://cphgxeuhywdfg" path="res://Scenes/Enemies/enemy_parent.tscn" id="1_faiin"]
-[ext_resource type="Script" path="res://Scenes/Enemies/Skeleton.gd" id="2_k338a"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Skeletons/Skeleton.gd" id="2_k338a"]
 [ext_resource type="Texture2D" uid="uid://bsgg6p8kfxyuq" path="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Base/Death/Death-Sheet.png" id="3_3ci6y"]
 [ext_resource type="Texture2D" uid="uid://ca7gx430olxe4" path="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Base/Run/Run-Sheet.png" id="3_hpcun"]
 
@@ -131,15 +131,14 @@ script = ExtResource("2_k338a")
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(1, -24)
 sprite_frames = SubResource("SpriteFrames_jdh1f")
-animation = &"Death"
-autoplay = "Run"
+animation = &"Run"
 
 [node name="CollisionShape2D" parent="DamageAreaComponent" index="0"]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_lcfjo")
 
 [node name="HealthComponent" parent="." index="4"]
-maxHealth = 50.0
+maxHealth = 125.0
 
 [node name="Velocity" parent="." index="5"]
 base_mov_speed = 125.0

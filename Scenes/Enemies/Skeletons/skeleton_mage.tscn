@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://b8vjrhk626qel"]
 
 [ext_resource type="PackedScene" uid="uid://ctpqddvtilysj" path="res://Scenes/Enemies/enemy_ranged_parent.tscn" id="1_ta74d"]
-[ext_resource type="Script" path="res://Scenes/Enemies/skeleton_mage.gd" id="2_b65tl"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Skeletons/skeleton_mage.gd" id="2_b65tl"]
 [ext_resource type="Texture2D" uid="uid://xiosbg2gjfdy" path="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Mage/Death/Death-Sheet.png" id="2_sjfqo"]
 [ext_resource type="Texture2D" uid="uid://k1unhycjtjg3" path="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Mage/Idle/Idle-Sheet.png" id="3_0m73k"]
 [ext_resource type="Texture2D" uid="uid://cb6g021cjjtlf" path="res://Graphics/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Mage/Run/Run-Sheet.png" id="4_cdjuc"]
@@ -145,7 +145,7 @@ size = Vector2(20, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ostu"]
 size = Vector2(20, 32)
 
-[node name="Skeleton Mage" groups=["Mages"] instance=ExtResource("1_ta74d")]
+[node name="Skeleton Mage" instance=ExtResource("1_ta74d")]
 script = ExtResource("2_b65tl")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
@@ -157,7 +157,7 @@ shape = SubResource("CircleShape2D_5x87m")
 debug_color = Color(0.862745, 0.32549, 0.411765, 0.419608)
 
 [node name="HealthComponent" parent="." index="4"]
-maxHealth = 40.0
+maxHealth = 75.0
 
 [node name="Velocity" parent="." index="5"]
 base_mov_speed = 100.0

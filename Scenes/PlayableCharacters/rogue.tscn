@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://dfm0u3qhpqkg3"]
 
 [ext_resource type="PackedScene" uid="uid://2vriyonhucnw" path="res://Scenes/PlayableCharacters/ParentPlayer.tscn" id="1_ymxt7"]
-[ext_resource type="Script" path="res://Rogue.gd" id="2_dibs6"]
+[ext_resource type="Script" path="res://Scenes/PlayableCharacters/Rogue.gd" id="2_dibs6"]
 [ext_resource type="Texture2D" uid="uid://dkwu5dxnaj2e2" path="res://Graphics/Pixel Crawler - FREE - 1.8/Heroes/Rogue/Death/Death-Sheet.png" id="3_kxa1t"]
 [ext_resource type="Texture2D" uid="uid://cnpvlcvxpj6g6" path="res://Graphics/Pixel Crawler - FREE - 1.8/Heroes/Rogue/Idle/Idle-Sheet.png" id="4_emg3w"]
 [ext_resource type="Texture2D" uid="uid://cjtid5uhxq7qt" path="res://Graphics/Pixel Crawler - FREE - 1.8/Heroes/Rogue/Run/Run-Sheet.png" id="5_y1wty"]
@@ -93,7 +93,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Death",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -110,7 +110,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -133,7 +133,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31ied"]
