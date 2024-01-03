@@ -1,15 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsqbgs2fjjk4a"]
+[gd_scene load_steps=3 format=3 uid="uid://dsqbgs2fjjk4a"]
 
 [ext_resource type="Script" path="res://Scenes/Ui/MainMenu.gd" id="1_fctfe"]
 [ext_resource type="Theme" uid="uid://c80piyxahit8y" path="res://Scenes/Ui/button.tres" id="2_j3pew"]
-[ext_resource type="Script" path="res://Scenes/Ui/Start.gd" id="3_kw8mf"]
-
-[sub_resource type="GDScript" id="GDScript_v1acq"]
-script/source = "extends Button
-
-
-
-"
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -43,7 +35,6 @@ focus_neighbor_bottom = NodePath("../Options")
 theme = ExtResource("2_j3pew")
 text = "start"
 language = "English"
-script = ExtResource("3_kw8mf")
 
 [node name="Options" type="Button" parent="Menu"]
 layout_mode = 2
@@ -92,7 +83,6 @@ focus_neighbor_bottom = NodePath("../Audio")
 theme = ExtResource("2_j3pew")
 text = "video"
 language = "English"
-script = SubResource("GDScript_v1acq")
 
 [node name="Audio" type="Button" parent="Options/VBoxContainer"]
 layout_mode = 2

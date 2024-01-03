@@ -54,6 +54,7 @@ func _on_start_pressed():
 
 func _on_options_pressed():
 	show_and_hide(options, menu)
+	$Options/VBoxContainer/Video.grab_focus()
 
 
 func _on_exit_pressed():
@@ -61,12 +62,15 @@ func _on_exit_pressed():
 
 func _on_video_pressed():
 	show_and_hide(video, options)
+	$Video/HBoxContainer/Checks/Fullscreen.grab_focus()
 
 func _on_audio_pressed():
 	show_and_hide(audio, options)
+	$Audio/HBoxContainer/Slider/Master.grab_focus()
 
 func _on_back_from_options_pressed():
 	show_and_hide(menu, options)
+	$Menu/Start.grab_focus()
 
 func _on_fullscreen_toggled(toggled_on):
 	if toggled_on:
@@ -88,9 +92,11 @@ func _on_v_sync_toggled(toggled_on):
 
 func _on_back_from_video_pressed():
 	show_and_hide(menu, video)
+	$Options/VBoxContainer/Video.grab_focus()
 
 func _on_back_from_audio_pressed():
 	show_and_hide(menu, audio)
+	$Options/VBoxContainer/Audio.grab_focus()
 
 
 func _on_master_value_changed(value):
