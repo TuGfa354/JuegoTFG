@@ -3,13 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Ui/MainMenu.gd" id="1_fctfe"]
 [ext_resource type="Theme" uid="uid://c80piyxahit8y" path="res://Scenes/Ui/button.tres" id="2_j3pew"]
 [ext_resource type="Script" path="res://Scenes/Ui/Start.gd" id="3_kw8mf"]
-
-[sub_resource type="GDScript" id="GDScript_v1acq"]
-script/source = "extends Button
-
-
-
-"
+[ext_resource type="Script" path="res://Scenes/Ui/Video.gd" id="4_ot7s2"]
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -39,7 +33,6 @@ theme_override_constants/separation = 20
 [node name="Start" type="Button" parent="Menu"]
 layout_mode = 2
 auto_translate = false
-focus_neighbor_bottom = NodePath("../Options")
 theme = ExtResource("2_j3pew")
 text = "start"
 language = "English"
@@ -48,8 +41,6 @@ script = ExtResource("3_kw8mf")
 [node name="Options" type="Button" parent="Menu"]
 layout_mode = 2
 auto_translate = false
-focus_neighbor_top = NodePath("../Start")
-focus_neighbor_bottom = NodePath("../Exit")
 theme = ExtResource("2_j3pew")
 text = "options"
 language = "English"
@@ -57,7 +48,6 @@ language = "English"
 [node name="Exit" type="Button" parent="Menu"]
 layout_mode = 2
 auto_translate = false
-focus_neighbor_left = NodePath("../Start")
 theme = ExtResource("2_j3pew")
 text = "exit"
 language = "en"
@@ -88,17 +78,14 @@ grow_vertical = 2
 [node name="Video" type="Button" parent="Options/VBoxContainer"]
 layout_mode = 2
 auto_translate = false
-focus_neighbor_bottom = NodePath("../Audio")
 theme = ExtResource("2_j3pew")
 text = "video"
 language = "English"
-script = SubResource("GDScript_v1acq")
+script = ExtResource("4_ot7s2")
 
 [node name="Audio" type="Button" parent="Options/VBoxContainer"]
 layout_mode = 2
 auto_translate = false
-focus_neighbor_top = NodePath("../Video")
-focus_neighbor_bottom = NodePath("../HBoxContainer/OptionButton")
 theme = ExtResource("2_j3pew")
 text = "audio"
 language = "English"
@@ -116,8 +103,6 @@ language = "English"
 [node name="OptionButton" type="OptionButton" parent="Options/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 auto_translate = false
-focus_neighbor_top = NodePath("../../Audio")
-focus_neighbor_bottom = NodePath("../../../BackFromOptions")
 theme = ExtResource("2_j3pew")
 language = "English"
 
@@ -134,7 +119,6 @@ offset_right = 23.5
 grow_horizontal = 2
 grow_vertical = 0
 auto_translate = false
-focus_neighbor_top = NodePath("../VBoxContainer/HBoxContainer/OptionButton")
 theme = ExtResource("2_j3pew")
 text = "back
 "
@@ -194,17 +178,12 @@ layout_mode = 2
 
 [node name="Fullscreen" type="CheckBox" parent="Video/HBoxContainer/Checks"]
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../Borderless")
 
 [node name="Borderless" type="CheckBox" parent="Video/HBoxContainer/Checks"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Fullscreen")
-focus_neighbor_bottom = NodePath("../VSync")
 
 [node name="VSync" type="CheckBox" parent="Video/HBoxContainer/Checks"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Borderless")
-focus_neighbor_bottom = NodePath("../../../BackFromVideo")
 
 [node name="BackFromVideo" type="Button" parent="Video"]
 layout_mode = 1
@@ -278,21 +257,16 @@ size_flags_horizontal = 3
 [node name="Master" type="HSlider" parent="Audio/HBoxContainer/Slider"]
 layout_mode = 2
 size_flags_vertical = 6
-focus_neighbor_bottom = NodePath("../../Labels/Music")
 value = 100.0
 
 [node name="Music" type="HSlider" parent="Audio/HBoxContainer/Slider"]
 layout_mode = 2
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../Master")
-focus_neighbor_bottom = NodePath("../Sound FX")
 value = 100.0
 
 [node name="Sound FX" type="HSlider" parent="Audio/HBoxContainer/Slider"]
 layout_mode = 2
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../Music")
-focus_neighbor_bottom = NodePath("../../../BackFromAudio")
 value = 100.0
 
 [node name="BackFromAudio" type="Button" parent="Audio"]
@@ -308,7 +282,6 @@ offset_right = 23.5
 grow_horizontal = 2
 grow_vertical = 0
 auto_translate = false
-focus_neighbor_top = NodePath("../HBoxContainer/Slider/Sound FX")
 theme = ExtResource("2_j3pew")
 text = "back
 "
