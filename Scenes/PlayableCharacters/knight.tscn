@@ -156,6 +156,9 @@ position = Vector2(27, -14)
 [node name="HealthComponent" parent="." index="2"]
 maxHealth = 100.0
 
+[node name="Velocity" parent="." index="3"]
+base_mov_speed = 200.0
+
 [node name="CollisionShape2D" parent="HitboxComponent" index="1"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_m6mn5")
@@ -163,9 +166,3 @@ shape = SubResource("RectangleShape2D_m6mn5")
 [node name="CharacterBodyShape" parent="." index="5"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_fjxrr")
-
-[node name="ProgressBar" parent="." index="6"]
-offset_left = -10.0
-offset_top = -25.0
-offset_right = 11.0
-offset_bottom = -19.0

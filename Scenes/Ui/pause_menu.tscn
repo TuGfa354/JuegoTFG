@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvgyqm01rsx33"]
+[gd_scene load_steps=3 format=3 uid="uid://dvgyqm01rsx33"]
 
 [ext_resource type="Script" path="res://Scenes/Ui/PauseMenu.gd" id="1_b0ake"]
+[ext_resource type="Theme" uid="uid://c80piyxahit8y" path="res://Scenes/Ui/button.tres" id="2_0a478"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,7 +42,7 @@ text = "Options"
 [node name="Exit" type="Button" parent="Menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "Exit"
+text = "Exit to menu"
 
 [node name="Options" type="Control" parent="."]
 visible = false
@@ -74,6 +74,22 @@ text = "Video"
 [node name="Audio" type="Button" parent="Options/VBoxContainer"]
 layout_mode = 2
 text = "Audio"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/VBoxContainer"]
+layout_mode = 2
+
+[node name="Language" type="Button" parent="Options/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+auto_translate = false
+theme = ExtResource("2_0a478")
+text = "language"
+language = "English"
+
+[node name="OptionButton" type="OptionButton" parent="Options/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+auto_translate = false
+theme = ExtResource("2_0a478")
+language = "English"
 
 [node name="BackFromOptions" type="Button" parent="Options"]
 layout_mode = 1
@@ -240,6 +256,7 @@ text = "Back
 [connection signal="pressed" from="Menu/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/Video" to="." method="_on_video_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="item_selected" from="Options/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="Options/BackFromOptions" to="." method="_on_back_from_options_pressed"]
 [connection signal="toggled" from="Video/HBoxContainer/Checks/Fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="toggled" from="Video/HBoxContainer/Checks/Borderless" to="." method="_on_borderless_toggled"]

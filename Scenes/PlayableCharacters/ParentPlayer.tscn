@@ -5,14 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://c8wqavxm6m0q" path="res://Scenes/Components/hitbox_component.tscn" id="3_iandt"]
 [ext_resource type="PackedScene" uid="uid://c73ovdjp0q4wx" path="res://Scenes/Components/velocity.tscn" id="4_r0ura"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4iu2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plhdv"]
 bg_color = Color(0.0117647, 0.0156863, 0.0196078, 0.662745)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihxcq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndmsn"]
 bg_color = Color(0.223529, 0.713726, 0.235294, 1)
 border_width_left = 1
 border_width_top = 1
@@ -37,7 +37,6 @@ unique_name_in_owner = true
 
 [node name="Velocity" parent="." instance=ExtResource("4_r0ura")]
 unique_name_in_owner = true
-base_mov_speed = 200.0
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component", "hit_box_shape") instance=ExtResource("3_iandt")]
 unique_name_in_owner = true
@@ -50,13 +49,26 @@ timerDuration = 0.2
 
 [node name="CharacterBodyShape" type="CollisionShape2D" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar2" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-offset_right = 4.0
-offset_bottom = 27.0
-theme_override_styles/background = SubResource("StyleBoxFlat_b4iu2")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ihxcq")
+z_index = 1
+offset_left = -10.0
+offset_top = -25.0
+offset_right = 11.0
+offset_bottom = -19.0
+theme_override_styles/background = SubResource("StyleBoxFlat_plhdv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ndmsn")
 show_percentage = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(117, 86)
+zoom = Vector2(3, 3)
+limit_left = 125
+limit_top = 55
+limit_right = 800
+limit_bottom = 525
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="dead" from="HealthComponent" to="." method="_on_health_component_dead"]

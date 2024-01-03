@@ -4,9 +4,37 @@ extends Control
 @onready var video = $Video
 @onready var audio = $Audio
 signal pause
+@onready var languages_drop_down = $Options/VBoxContainer/HBoxContainer/OptionButton
+#TODO Import the language from a save file so that u only change it the first time u open it
+func _ready():
+	visible = false
+	TranslationServer.set_locale(Globals.current_language)
+	add_languages()
+	translate()
+func translate():
+		$Menu/Start.text = tr("resume")
+		$Menu/Options.text = tr("options")
+		$Menu/Exit.text = tr("exit_menu")
+		$Options/VBoxContainer/Video.text = tr("video")
+		$Options/VBoxContainer/Audio.text= tr("audio")
+		$Options/VBoxContainer/HBoxContainer/Language.text= tr("language")
+		languages_drop_down.set_item_text(0,tr("english"))
+		languages_drop_down.set_item_text(1,tr("spanish"))
+		$Options/BackFromOptions.text= tr("back")
+		$Video/HBoxContainer/Labels/FullScreen.text= tr("fullscreen")
+		$Video/HBoxContainer/Labels/Borderless.text= tr("borderless")
+		$Video/HBoxContainer/Labels/VSync.text= tr("vsync")
+		$Video/BackFromVideo.text= tr("back")
+		$Audio/HBoxContainer/Labels/Master.text= tr("master")
+		$Audio/HBoxContainer/Labels/Music.text= tr("music")
+		$"Audio/HBoxContainer/Labels/Sound FX".text= tr("sound FX")
+		$Audio/BackFromAudio.text= tr("back")
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		toggle()
+func add_languages():
+	languages_drop_down.add_item("english",0)
+	languages_drop_down.add_item("spanish",1)
 
 func toggle():
 	visible = !visible
@@ -75,3 +103,14 @@ func _on_music_value_changed(value):
 
 func _on_sound_fx_value_changed(value):
 	volume(2, value)
+
+
+func _on_option_button_item_selected(index):
+	if index==0:
+		TranslationServer.set_locale("en")
+		Globals.current_language = "en"
+		translate()
+	else:
+		TranslationServer.set_locale("es")
+		Globals.current_language = "es"
+		translate()

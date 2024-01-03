@@ -7,11 +7,11 @@ class_name   PlayerParent
 var dead:bool = false
 signal death
 func _ready():
-	%ProgressBar.value = health_component.currentHealth
+	%ProgressBar2.value = health_component.currentHealth
 func _physics_process(_delta):
 	if dead:
 			$AnimatedSprite2D.play('Death')
-			death.emit()
+			get_parent().get_parent().get_node("GameOver").visible = true
 	else:
 		if Input.is_action_pressed("Down") or Input.is_action_pressed("Right") or Input.is_action_pressed("Left") or Input.is_action_pressed("Up"):
 			$AnimatedSprite2D.play("Run")

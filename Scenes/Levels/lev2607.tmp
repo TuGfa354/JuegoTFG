@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dy7kq4x1kmfqt" path="res://Graphics/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="3_1wo0x"]
 [ext_resource type="PackedScene" uid="uid://b8vjrhk626qel" path="res://Scenes/Enemies/skeleton_mage.tscn" id="3_80gnb"]
 [ext_resource type="PackedScene" uid="uid://dm3k822oyrqi" path="res://Scenes/Enemies/skeleton.tscn" id="3_biwr8"]
+[ext_resource type="PackedScene" uid="uid://pr383wo1yuuf" path="res://Scenes/PlayableCharacters/knight.tscn" id="3_r6v1l"]
 [ext_resource type="PackedScene" uid="uid://dvgyqm01rsx33" path="res://Scenes/Ui/pause_menu.tscn" id="7_3dl84"]
-[ext_resource type="PackedScene" uid="uid://dfm0u3qhpqkg3" path="res://Scenes/PlayableCharacters/rogue.tscn" id="8_ssx7p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vv0xo"]
 texture = ExtResource("2_ei3pb")
@@ -468,14 +468,27 @@ layer_0/tile_data = PackedInt32Array(-262149, 524288, 7, -196613, 524288, 8, -13
 position = Vector2(631, 293)
 
 [node name="Skeleton" parent="Enemies" index="1" instance=ExtResource("3_biwr8")]
-z_index = 0
 position = Vector2(416, 171)
 
-[node name="NavigationRegion2D" parent="." index="4"]
+[node name="Knight" parent="." index="4" instance=ExtResource("3_r6v1l")]
+position = Vector2(235, 185)
+collision_mask = 44
+
+[node name="Camera2D" type="Camera2D" parent="Knight" index="3"]
+position = Vector2(117, 86)
+zoom = Vector2(3, 3)
+limit_left = 125
+limit_top = 55
+limit_right = 800
+limit_bottom = 525
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="NavigationRegion2D" parent="." index="5"]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_2cu4t")
 
-[node name="LevelBarriers" type="Node2D" parent="." index="5"]
+[node name="LevelBarriers" type="Node2D" parent="." index="6"]
 
 [node name="LeftBarrier" type="StaticBody2D" parent="LevelBarriers" index="0"]
 position = Vector2(127, 54)
@@ -514,11 +527,11 @@ physics_material_override = SubResource("PhysicsMaterial_q3ric")
 position = Vector2(327, 0)
 shape = SubResource("RectangleShape2D_4tchd")
 
-[node name="GameOver" parent="." index="7"]
+[node name="GameOver" parent="." index="8"]
 unique_name_in_owner = true
 visible = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="8"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="9"]
 visible = false
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer" index="0"]
@@ -532,9 +545,5 @@ color = Color(0, 0, 0, 0.513726)
 [node name="PauseMenu" parent="CanvasLayer/ColorRect2" index="0" instance=ExtResource("7_3dl84")]
 layout_mode = 1
 
-[node name="Character" type="Node2D" parent="." index="9"]
-
-[node name="Rogue" parent="Character" index="0" instance=ExtResource("8_ssx7p")]
-position = Vector2(282, 338)
-
+[connection signal="death" from="Knight" to="." method="_on_knight_death"]
 [connection signal="pause" from="CanvasLayer/ColorRect2/PauseMenu" to="." method="_on_pause_menu_pause"]

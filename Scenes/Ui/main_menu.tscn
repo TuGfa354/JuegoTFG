@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsqbgs2fjjk4a"]
+[gd_scene load_steps=3 format=3 uid="uid://dsqbgs2fjjk4a"]
 
 [ext_resource type="Script" path="res://Scenes/Ui/MainMenu.gd" id="1_fctfe"]
+[ext_resource type="Theme" uid="uid://c80piyxahit8y" path="res://Scenes/Ui/button.tres" id="2_j3pew"]
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -29,19 +30,24 @@ theme_override_constants/separation = 20
 
 [node name="Start" type="Button" parent="Menu"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Start"
+auto_translate = false
+theme = ExtResource("2_j3pew")
+text = "start"
 language = "English"
 
 [node name="Options" type="Button" parent="Menu"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Options"
+auto_translate = false
+theme = ExtResource("2_j3pew")
+text = "options"
+language = "English"
 
 [node name="Exit" type="Button" parent="Menu"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Exit"
+auto_translate = false
+theme = ExtResource("2_j3pew")
+text = "exit"
+language = "en"
 
 [node name="Options" type="Control" parent="."]
 visible = false
@@ -68,11 +74,33 @@ grow_vertical = 2
 
 [node name="Video" type="Button" parent="Options/VBoxContainer"]
 layout_mode = 2
-text = "Video"
+auto_translate = false
+theme = ExtResource("2_j3pew")
+text = "video"
+language = "English"
 
 [node name="Audio" type="Button" parent="Options/VBoxContainer"]
 layout_mode = 2
-text = "Audio"
+auto_translate = false
+theme = ExtResource("2_j3pew")
+text = "audio"
+language = "English"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/VBoxContainer"]
+layout_mode = 2
+
+[node name="Language" type="Button" parent="Options/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+auto_translate = false
+theme = ExtResource("2_j3pew")
+text = "language"
+language = "English"
+
+[node name="OptionButton" type="OptionButton" parent="Options/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+auto_translate = false
+theme = ExtResource("2_j3pew")
+language = "English"
 
 [node name="BackFromOptions" type="Button" parent="Options"]
 layout_mode = 1
@@ -86,8 +114,11 @@ offset_top = -31.0
 offset_right = 23.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Back
+auto_translate = false
+theme = ExtResource("2_j3pew")
+text = "back
 "
+language = "English"
 
 [node name="Video" type="Control" parent="."]
 visible = false
@@ -118,19 +149,25 @@ layout_mode = 2
 [node name="FullScreen" type="Label" parent="Video/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "FullScreen"
+auto_translate = false
+text = "fullscreen"
+language = "English"
 
 [node name="Borderless" type="Label" parent="Video/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Borderless
+auto_translate = false
+text = "borderless
 "
+language = "English"
 
 [node name="VSync" type="Label" parent="Video/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 6
+auto_translate = false
 text = "VSync
 "
+language = "English"
 
 [node name="Checks" type="VBoxContainer" parent="Video/HBoxContainer"]
 layout_mode = 2
@@ -156,8 +193,11 @@ offset_top = -31.0
 offset_right = 23.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Back
+auto_translate = false
+theme = ExtResource("2_j3pew")
+text = "back
 "
+language = "English"
 
 [node name="Audio" type="Control" parent="."]
 visible = false
@@ -188,17 +228,23 @@ layout_mode = 2
 [node name="Master" type="Label" parent="Audio/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Master"
+auto_translate = false
+text = "master"
+language = "English"
 
 [node name="Music" type="Label" parent="Audio/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Music"
+auto_translate = false
+text = "music"
+language = "English"
 
 [node name="Sound FX" type="Label" parent="Audio/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Sound FX"
+auto_translate = false
+text = "sound FX"
+language = "English"
 
 [node name="Slider" type="VBoxContainer" parent="Audio/HBoxContainer"]
 layout_mode = 2
@@ -231,14 +277,18 @@ offset_top = -31.0
 offset_right = 23.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Back
+auto_translate = false
+theme = ExtResource("2_j3pew")
+text = "back
 "
+language = "English"
 
 [connection signal="pressed" from="Menu/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Menu/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/Video" to="." method="_on_video_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="item_selected" from="Options/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="Options/BackFromOptions" to="." method="_on_back_from_options_pressed"]
 [connection signal="toggled" from="Video/HBoxContainer/Checks/Fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="toggled" from="Video/HBoxContainer/Checks/Borderless" to="." method="_on_borderless_toggled"]
