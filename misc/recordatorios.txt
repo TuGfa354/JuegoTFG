@@ -1,10 +1,15 @@
 Cosas a revisar en un futuro en el desarrollo del juego:
 In playlist:
-Component Nodes(Heredar pero muy guapo)
-Aseprite wizard(Para importar todas las animaciones en un anuimationPlayer con sprite2d si tengo un archivo aseprite)
 Escalar resolución
 Multiplayer
 Port Forwarding
 Manejo con mando
-Traducción
+Transiciones entre escenas asíncronas
+Añadir todas las estadísticas a los personajes jugables
+autoguardado
+Añadir armas
+Añadir objetos pasivos
+Añadir menú selección de menús
+añadir exp/moneda para mejorar
+añadir leaderboard con bbdd
 Not In Playlist:

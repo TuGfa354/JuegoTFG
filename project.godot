@@ -13,6 +13,8 @@ config_version=5
 config/name="Tfg"
 config/tags=PackedStringArray("juego")
 run/main_scene="res://Scenes/Ui/main_menu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Save"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
