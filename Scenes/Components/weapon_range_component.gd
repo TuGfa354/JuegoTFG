@@ -13,62 +13,69 @@ var level
 var weapon
 var weapons
 var current_position
-
+signal attack(delta, direction, travelled_distance, current_position, initial_position, rotationdeg, range_area)
+signal sword_back()
 func _ready():
 	$AttackCooldown.wait_time=attack_speed
 	collisionShape = get_child(1)
 	collisionShape.shape.radius = range_area
 	initial_position = get_parent().position
-	level= get_parent().get_parent().get_parent().get_parent().get_parent()
+	level= get_node("/root/Level1")
 	weapon = get_parent()
-	weapons = get_parent().get_parent()
-	print("level", level,"weapon", weapon, "character", weapons)
+	weapons = get_node("root/Level1/Character/Knight/Weapons")
+
+
+
 func _physics_process(delta):
 	var enemies_in_range = get_overlapping_areas()
 	if enemies_in_range.size() > 0:
 		var aa = areaframe.global_position
 		direction = (aa- global_position).normalized()
-		get_parent().rotation_degrees = rad_to_deg(direction.angle()) + 90
+		var rotationdeg = rad_to_deg(direction.angle()) + 90
+		get_parent().rotation_degrees = rotationdeg
 		if can_attack:
-			attack(delta)
+			current_position = get_parent().global_position
+			if get_parent().get_parent()==level:
+				#This directions in a oneshot, not working
+				var direction2 =(aa- global_position).normalized()
+				attacka(delta, direction2)
+			else:
+				if get_tree().get_nodes_in_group("Weapons").size() ==1:
+					attack.emit(delta, direction, travelled_distance, current_position, initial_position, rotationdeg, range_area)
+					weapon.visible = false
+					weapon.get_child(0).set_deferred("disabled", true)
 
 
+#func sword_back_function():
+	#$AttackCooldown.start()
 
-func attack(delta):
-	current_position = get_parent().global_position
 	
-	const SPEED :float =500
-	move_sword()
+func attacka(delta, direction):
+	const SPEED :float = 300
 	get_parent().global_position += direction * SPEED * delta
 	travelled_distance+=SPEED*delta
 	if travelled_distance>range_area:
-		print("a")
-		can_attack = false
 		travelled_distance = 0
-		$AttackCooldown.start()
-		level.remove_child(weapon)
-		weapons.add_child(weapon)
-		weapon.position = initial_position
+		get_node("/root/Level1/Character/Knight/Weapons/TestSword").visible = true
+		get_node("/root/Level1/Character/Knight/Weapons/TestSword").get_child(0).set_deferred("disabled", false)
+		print("wait time",get_node("/root/Level1/Character/Knight/Weapons/TestSword").get_child(3).get_child(0).wait_time)
+		get_node("/root/Level1/Character/Knight/Weapons/TestSword").get_child(3).get_child(0).start()
+		get_node("/root/Level1/Character/Knight/Weapons/TestSword").get_child(3).can_attack = false
+		get_parent().queue_free()
 
 
-#IDEA, HACERLA INVISIBLE E INSTANCIARLA 
 
-func move_sword():
-		weapons.remove_child(weapon)
-		level.add_child(weapon)
-		var final_number=level.get_children().size()-1
-		level.get_child(final_number).global_position = current_position
+
 
 func _on_attack_cooldown_timeout():
-	
-	can_attack = true
+	print("cooldown")
+	get_node("/root/Level1/Character/Knight/Weapons/TestSword").get_child(3).can_attack = true
 
 
 
 
 func _on_area_entered(area):
 	areaframe = area
-	print(areaframe)
 
 
 

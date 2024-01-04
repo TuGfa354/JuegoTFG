@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b2afe7m6pke43" path="res://Scenes/Components/weapon_range_component.tscn" id="1_kfuwp"]
 [ext_resource type="Script" path="res://Scenes/Weapons/parent_weapon.gd" id="1_ps4xk"]
 
-[node name="ParentWeapon" type="Area2D"]
+[node name="ParentWeapon" type="Area2D" groups=["Weapons"]]
 z_index = 1
 collision_layer = 64
 collision_mask = 130

@@ -166,3 +166,5 @@ shape = SubResource("RectangleShape2D_m6mn5")
 [node name="CharacterBodyShape" parent="." index="5"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fjxrr")
+
+[connection signal="attack" from="Weapons/TestSword" to="." method="_on_test_sword_attack"]

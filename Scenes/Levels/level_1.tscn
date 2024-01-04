@@ -545,3 +545,4 @@ layout_mode = 1
 position = Vector2(278, 346)
 
 [connection signal="pause" from="CanvasLayer/ColorRect2/PauseMenu" to="." method="_on_pause_menu_pause"]
+[connection signal="attack" from="Character/Knight" to="." method="_on_knight_attack"]
