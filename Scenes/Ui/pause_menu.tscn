@@ -30,19 +30,16 @@ theme_override_constants/separation = 20
 
 [node name="Start" type="Button" parent="Menu"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Resume"
+text = "resume"
 language = "English"
 
 [node name="Options" type="Button" parent="Menu"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Options"
+text = "options"
 
 [node name="Exit" type="Button" parent="Menu"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Exit to menu"
+text = "exit_menu"
 
 [node name="Options" type="Control" parent="."]
 visible = false
@@ -69,11 +66,11 @@ grow_vertical = 2
 
 [node name="Video" type="Button" parent="Options/VBoxContainer"]
 layout_mode = 2
-text = "Video"
+text = "video"
 
 [node name="Audio" type="Button" parent="Options/VBoxContainer"]
 layout_mode = 2
-text = "Audio"
+text = "audio"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Options/VBoxContainer"]
 layout_mode = 2
@@ -103,7 +100,7 @@ offset_top = -31.0
 offset_right = 23.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Back
+text = "back
 "
 
 [node name="Video" type="Control" parent="."]
@@ -135,18 +132,18 @@ layout_mode = 2
 [node name="FullScreen" type="Label" parent="Video/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "FullScreen"
+text = "fullscreen"
 
 [node name="Borderless" type="Label" parent="Video/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Borderless
+text = "borderless
 "
 
 [node name="VSync" type="Label" parent="Video/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "VSync
+text = "vsync
 "
 
 [node name="Checks" type="VBoxContainer" parent="Video/HBoxContainer"]
@@ -173,7 +170,7 @@ offset_top = -31.0
 offset_right = 23.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Back
+text = "back
 "
 
 [node name="Audio" type="Control" parent="."]
@@ -205,17 +202,17 @@ layout_mode = 2
 [node name="Master" type="Label" parent="Audio/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Master"
+text = "master"
 
 [node name="Music" type="Label" parent="Audio/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Music"
+text = "music"
 
 [node name="Sound FX" type="Label" parent="Audio/HBoxContainer/Labels"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Sound FX"
+text = "sound FX"
 
 [node name="Slider" type="VBoxContainer" parent="Audio/HBoxContainer"]
 layout_mode = 2
@@ -248,7 +245,7 @@ offset_top = -31.0
 offset_right = 23.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Back
+text = "back
 "
 
 [connection signal="pressed" from="Menu/Start" to="." method="_on_start_pressed"]

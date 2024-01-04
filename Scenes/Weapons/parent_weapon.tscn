@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://yvbendgnmae8"]
+
+[ext_resource type="PackedScene" uid="uid://b2afe7m6pke43" path="res://Scenes/Components/weapon_range_component.tscn" id="1_kfuwp"]
+[ext_resource type="Script" path="res://Scenes/Weapons/parent_weapon.gd" id="1_ps4xk"]
+
+[node name="ParentWeapon" type="Area2D"]
+script = ExtResource("1_ps4xk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="WeaponRangeComponent" parent="." instance=ExtResource("1_kfuwp")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponRangeComponent"]

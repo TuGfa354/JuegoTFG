@@ -6,10 +6,7 @@ class_name HitboxComponent
 @export var timerDuration:float
 var vulnerable = true
 var areaframe
-#func _on_body_entered(body):
-	#print(body)
-	#if(body is EnemyMeleeParent):
-		#health_component.damage(body.damage)
+
 
 func _ready():
 	$Timer.wait_time = timerDuration

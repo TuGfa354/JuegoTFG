@@ -151,6 +151,7 @@ sprite_frames = SubResource("SpriteFrames_3t43b")
 animation = &"Idle"
 
 [node name="BoneSword" parent="Weapons" index="0" instance=ExtResource("6_ps3d2")]
+visible = false
 position = Vector2(27, -14)
 
 [node name="HealthComponent" parent="." index="2"]
@@ -164,5 +165,5 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_m6mn5")
 
 [node name="CharacterBodyShape" parent="." index="5"]
-position = Vector2(0, -0.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fjxrr")

@@ -2,6 +2,8 @@ Planificación
 
 Estadísticas:
 Vida, ataque, defensa, velocidad, cooldown, magia, regeneración de vida, robo de vida, rango, prob crit, daño crit.
+Estadísticas armas:
+	rango, daño(calculado de player stats), cooldown(escala con  el cooldown de player stats),
 
 Categorías armas?¿:
 Espadas, claymore, hachas, lanzas, mazos,arcos(no tengo sprites), varitas(no tengo sprites)
