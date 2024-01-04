@@ -3,4 +3,12 @@
 [ext_resource type="Script" path="res://Scenes/Components/weapon_range_component.gd" id="1_5y42a"]
 
 [node name="WeaponRangeComponent" type="Area2D"]
+collision_layer = 0
+collision_mask = 128
 script = ExtResource("1_5y42a")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

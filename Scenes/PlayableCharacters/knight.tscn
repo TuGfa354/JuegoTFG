@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scenes/PlayableCharacters/knight.gd" id="2_lsgc5"]
 [ext_resource type="Texture2D" uid="uid://dk8wk574lrau0" path="res://Graphics/Pixel Crawler - FREE - 1.8/Heroes/Knight/Run/Run-Sheet.png" id="3_s8ee1"]
 [ext_resource type="Texture2D" uid="uid://cvqf0txl2v0s5" path="res://Graphics/Pixel Crawler - FREE - 1.8/Heroes/Knight/Death/Death-Sheet.png" id="4_shaax"]
-[ext_resource type="PackedScene" uid="uid://55mfcufushpo" path="res://Scenes/Weapons/bone_sword.tscn" id="6_ps3d2"]
+[ext_resource type="PackedScene" uid="uid://c16ge3t3a54q3" path="res://Scenes/Weapons/test_sword.tscn" id="6_21ppj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6i1g8"]
 atlas = ExtResource("4_shaax")
@@ -150,9 +150,8 @@ script = ExtResource("2_lsgc5")
 sprite_frames = SubResource("SpriteFrames_3t43b")
 animation = &"Idle"
 
-[node name="BoneSword" parent="Weapons" index="0" instance=ExtResource("6_ps3d2")]
-visible = false
-position = Vector2(27, -14)
+[node name="TestSword" parent="Weapons" index="6" instance=ExtResource("6_21ppj")]
+position = Vector2(41, -7)
 
 [node name="HealthComponent" parent="." index="2"]
 maxHealth = 100.0

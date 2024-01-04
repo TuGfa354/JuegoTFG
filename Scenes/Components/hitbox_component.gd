@@ -27,6 +27,7 @@ func _physics_process(_delta):
 
 func _on_area_entered(area):
 	if(area is ParentWeapon  or Attack or MeleeAttack):
+
 		areaframe = area
 
 func _on_timer_timeout():

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c16ge3t3a54q3"]
+
+[ext_resource type="PackedScene" uid="uid://yvbendgnmae8" path="res://Scenes/Weapons/parent_weapon.tscn" id="1_cqlm0"]
+[ext_resource type="Script" path="res://Scenes/Weapons/test_sword.gd" id="2_8sdsl"]
+[ext_resource type="Texture2D" uid="uid://djvj2lb5mjqvy" path="res://Graphics/Pixel Crawler - FREE - 1.8/Weapons/Wood/Wood.png" id="3_jv14i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jobdd"]
+size = Vector2(10, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdkbd"]
+
+[node name="TestSword" instance=ExtResource("1_cqlm0")]
+collision_mask = 128
+script = ExtResource("2_8sdsl")
+damage = 30.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_jobdd")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_jv14i")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 48)
+
+[node name="WeaponRangeComponent" parent="." index="3"]
+range_area = 100.0
+attack_speed = 1.5
+weapon = null
+
+[node name="CollisionShape2D" parent="WeaponRangeComponent" index="1"]
+shape = SubResource("CircleShape2D_qdkbd")

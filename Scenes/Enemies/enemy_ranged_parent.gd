@@ -8,7 +8,7 @@ class_name EnemyRangedParent
 @onready var damage_range_component = %DamageRangeComponent as DamageRangeComponent
 var direction: Vector2
 var running:bool = true
-var SPEED: int
+var SPEED: float
 var dead:bool = false
 
 
