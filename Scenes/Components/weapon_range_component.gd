@@ -22,7 +22,7 @@ func _ready():
 	initial_position = get_parent().position
 	level= get_node("/root/Level1")
 	weapon = get_parent()
-	weapons = get_node("root/Level1/Character/Knight/Weapons")
+	weapons = get_node("/root/Level1/Character/Knight/Weapons")
 
 
 
@@ -41,7 +41,7 @@ func _physics_process(delta):
 				attacka(delta, direction2)
 			else:
 				if get_tree().get_nodes_in_group("Weapons").size() ==1:
-					attack.emit(delta, direction, travelled_distance, current_position, initial_position, rotationdeg, range_area)
+					attack.emit(delta, direction, current_position, rotationdeg)
 					weapon.visible = false
 					weapon.get_child(0).set_deferred("disabled", true)
 

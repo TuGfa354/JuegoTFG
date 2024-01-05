@@ -8,7 +8,7 @@ func _on_pause_menu_pause(visible2):
 	$CanvasLayer/ColorRect2/PauseMenu/Menu/Start.grab_focus()
 
 
-func _on_knight_attack(delta, direction, travelled_distance, current_position, initial_position, rotationdeg, range_area):
+func _on_knight_attack(delta, direction, current_position, rotationdeg):
 	if get_tree().get_nodes_in_group("Weapons").size() ==1:
 		var new_weapon = sword.instantiate()
 		new_weapon.global_position = current_position
