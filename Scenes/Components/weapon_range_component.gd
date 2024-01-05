@@ -3,7 +3,7 @@ class_name WeaponRangeComponent
 @export var range_area:float
 @export var attack_speed:float
 var can_attack:bool = true
-
+var travelled:bool = false
 var collisionShape
 var travelled_distance:float
 var initial_position:Vector2
@@ -36,7 +36,7 @@ func _physics_process(delta):
 		if can_attack:
 			current_position = get_parent().global_position
 			if get_parent().get_parent()==level:
-				#This directions in a oneshot, not working
+				#This directions in a oneshot
 				var direction2 =(aa- global_position).normalized()
 				attacka(delta, direction2)
 			else:
@@ -50,15 +50,12 @@ func _physics_process(delta):
 	#$AttackCooldown.start()
 
 	
-func attacka(delta, direction):
-	const SPEED :float = 300
-	get_parent().global_position += direction * SPEED * delta
-	travelled_distance+=SPEED*delta
-	if travelled_distance>range_area:
-		travelled_distance = 0
+func attacka(delta, direction2):
+	const SPEED :float = 100
+	get_parent().global_position += direction2 * SPEED * delta
+	if travelled:
 		get_node("/root/Level1/Character/Knight/Weapons/TestSword").visible = true
 		get_node("/root/Level1/Character/Knight/Weapons/TestSword").get_child(0).set_deferred("disabled", false)
-		print("wait time",get_node("/root/Level1/Character/Knight/Weapons/TestSword").get_child(3).get_child(0).wait_time)
 		get_node("/root/Level1/Character/Knight/Weapons/TestSword").get_child(3).get_child(0).start()
 		get_node("/root/Level1/Character/Knight/Weapons/TestSword").get_child(3).can_attack = false
 		get_parent().queue_free()
@@ -68,8 +65,10 @@ func attacka(delta, direction):
 
 
 func _on_attack_cooldown_timeout():
-	print("cooldown")
+
+	#get_node("/root/Level1/Character/Knight/Weapons/TestSword").global_position = initial_position
 	get_node("/root/Level1/Character/Knight/Weapons/TestSword").get_child(3).can_attack = true
+	
 
 
 

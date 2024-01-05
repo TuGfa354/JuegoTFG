@@ -30,5 +30,6 @@ attack_speed = 2.0
 [node name="CollisionShape2D" parent="WeaponRangeComponent" index="1"]
 shape = SubResource("CircleShape2D_qdkbd")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="attack" from="." to="." method="_on_attack"]
 [connection signal="attack" from="WeaponRangeComponent" to="." method="_on_weapon_range_component_attack"]
