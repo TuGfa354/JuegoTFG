@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://btjtg18vhmths"]
+
+[ext_resource type="Script" path="res://Scenes/Weapons/parent_ranged_weapon.gd" id="1_0l8b0"]
+
+[node name="parent_ranged_weapon" type="Area2D"]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("1_0l8b0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="WeaponPivot"]
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Sprite2D"]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

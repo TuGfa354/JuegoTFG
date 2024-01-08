@@ -53,7 +53,8 @@ func _physics_process(delta):
 func attacka(delta, direction2):
 	const SPEED :float = 100
 	get_parent().global_position += direction2 * SPEED * delta
-	if travelled:
+	travelled_distance+=SPEED*delta
+	if travelled or travelled_distance>=range_area:
 		get_node("/root/Level1/Character/Knight/Weapons/TestSword").visible = true
 		get_node("/root/Level1/Character/Knight/Weapons/TestSword").get_child(0).set_deferred("disabled", false)
 		get_node("/root/Level1/Character/Knight/Weapons/TestSword").get_child(3).get_child(0).start()

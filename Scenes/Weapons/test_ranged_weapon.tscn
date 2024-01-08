@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbc3m4wkyx1bb"]
+
+[ext_resource type="PackedScene" uid="uid://btjtg18vhmths" path="res://Scenes/Weapons/parent_ranged_weapon.tscn" id="1_j3tso"]
+[ext_resource type="Texture2D" uid="uid://c0qaktiqwnq8p" path="res://Graphics/armas/modern/1.png" id="2_ddskk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5tytq"]
+
+[node name="Test_ranged_weapon" instance=ExtResource("1_j3tso")]
+z_index = 1
+range_area = 200.0
+attack_speed = 2.0
+damage = 20.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(16, 0)
+shape = SubResource("CircleShape2D_5tytq")
+debug_color = Color(0.713726, 0.262745, 0.988235, 0.419608)
+
+[node name="Sprite2D" parent="WeaponPivot" index="0"]
+position = Vector2(18, -4)
+texture = ExtResource("2_ddskk")
+region_enabled = true
+region_rect = Rect2(96, 96, 24, 16)

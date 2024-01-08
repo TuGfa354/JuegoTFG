@@ -26,14 +26,15 @@ func _physics_process(_delta):
 				$Timer.start()
 
 func _on_area_entered(area):
-	if(area is ParentWeapon  or Attack or MeleeAttack):
-
+	if(area is ParentWeapon  or EnemyAttack or MeleeAttack or Attack):
 		areaframe = area
+		if(area is EnemyAttack or Attack):
+			area.queue_free()
 
 func _on_timer_timeout():
 	vulnerable = true
 
 
 func _on_area_exited(area):
-	if(area is ParentWeapon  or Attack or MeleeAttack):
+	if(area is ParentWeapon  or EnemyAttack or MeleeAttack or Attack):
 		areaframe = null

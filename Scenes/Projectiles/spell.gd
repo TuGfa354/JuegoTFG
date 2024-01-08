@@ -1,17 +1,13 @@
 extends Area2D
-class_name   Attack
+class_name  EnemyAttack
 var direction: Vector2
-var damage:float
-
-
+var damage:int
 
 func _physics_process(delta):
-	const SPEED: float = 100
+	const SPEED: int = 100
 	damage = 30
 	position += direction * SPEED * delta
 
 
 func _on_body_entered(body):
-	if "hit" in body:
-		body.hit()
 	queue_free()
