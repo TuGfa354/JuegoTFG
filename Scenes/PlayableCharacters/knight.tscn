@@ -1,11 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://pr383wo1yuuf"]
+[gd_scene load_steps=26 format=3 uid="uid://pr383wo1yuuf"]
 
 [ext_resource type="PackedScene" uid="uid://2vriyonhucnw" path="res://Scenes/PlayableCharacters/ParentPlayer.tscn" id="1_eg81x"]
 [ext_resource type="Texture2D" uid="uid://dhdd3hu6rn2op" path="res://Graphics/Pixel Crawler - FREE - 1.8/Heroes/Knight/Idle/Idle-Sheet.png" id="2_ac4x4"]
 [ext_resource type="Script" path="res://Scenes/PlayableCharacters/knight.gd" id="2_lsgc5"]
 [ext_resource type="Texture2D" uid="uid://dk8wk574lrau0" path="res://Graphics/Pixel Crawler - FREE - 1.8/Heroes/Knight/Run/Run-Sheet.png" id="3_s8ee1"]
 [ext_resource type="Texture2D" uid="uid://cvqf0txl2v0s5" path="res://Graphics/Pixel Crawler - FREE - 1.8/Heroes/Knight/Death/Death-Sheet.png" id="4_shaax"]
-[ext_resource type="PackedScene" uid="uid://c16ge3t3a54q3" path="res://Scenes/Weapons/test_sword.tscn" id="6_21ppj"]
 [ext_resource type="PackedScene" uid="uid://bbc3m4wkyx1bb" path="res://Scenes/Weapons/test_ranged_weapon.tscn" id="7_k4mix"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6i1g8"]
@@ -151,12 +150,9 @@ script = ExtResource("2_lsgc5")
 sprite_frames = SubResource("SpriteFrames_3t43b")
 animation = &"Idle"
 
-[node name="TestSword" parent="Weapons" index="6" instance=ExtResource("6_21ppj")]
-visible = false
-position = Vector2(41, -7)
+[node name="Test_ranged_weapon2" parent="Weapons/Marker2D5" index="0" instance=ExtResource("7_k4mix")]
 
-[node name="Test_ranged_weapon" parent="Weapons" index="7" instance=ExtResource("7_k4mix")]
-position = Vector2(15, -33)
+[node name="Test_ranged_weapon" parent="Weapons/Marker2D6" index="0" instance=ExtResource("7_k4mix")]
 
 [node name="HealthComponent" parent="." index="2"]
 maxHealth = 100.0
@@ -171,5 +167,3 @@ shape = SubResource("RectangleShape2D_m6mn5")
 [node name="CharacterBodyShape" parent="." index="5"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fjxrr")
-
-[connection signal="attack" from="Weapons/TestSword" to="." method="_on_test_sword_attack"]

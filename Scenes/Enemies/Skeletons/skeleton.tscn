@@ -144,13 +144,11 @@ maxHealth = 125.0
 base_mov_speed = 125.0
 
 [node name="HitboxComponent" parent="." index="6"]
-visible = false
+position = Vector2(0, -6)
 
 [node name="Hitbox" parent="HitboxComponent" index="1"]
-position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_fg2gw")
 
 [node name="CharacterBodyShape" parent="." index="7"]
-visible = false
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_bw5mc")

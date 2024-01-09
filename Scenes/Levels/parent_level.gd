@@ -2,7 +2,7 @@ extends Node2D
 class_name ParentLevel
 var sword:PackedScene = preload("res://Scenes/Weapons/test_sword.tscn")
 signal sword_back
-	
+
 func _on_pause_menu_pause(visible2):
 	$CanvasLayer.visible = visible2
 	$CanvasLayer/ColorRect2/PauseMenu/Menu/Start.grab_focus()
