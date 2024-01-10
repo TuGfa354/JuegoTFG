@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://bt6sh5hh7awu8"]
 
-[ext_resource type="Script" path="res://Scenes/Components/damage_range_component.gd" id="1_q0gqk"]
+[ext_resource type="Script" path="res://Scenes/Components/DamageRange/damage_range_component.gd" id="1_q0gqk"]
+
 
 [node name="DamageRangeComponent" type="Area2D"]
 script = ExtResource("1_q0gqk")

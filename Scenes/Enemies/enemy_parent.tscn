@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://cphgxeuhywdfg"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/enemy_parent.gd" id="1_wm476"]
-[ext_resource type="PackedScene" uid="uid://b3wmjqb34cqs5" path="res://Scenes/Components/damage_area_component.tscn" id="2_1leip"]
-[ext_resource type="PackedScene" uid="uid://d2c4ccnfltmr1" path="res://Scenes/Components/health_component.tscn" id="2_hvinq"]
-[ext_resource type="PackedScene" uid="uid://c73ovdjp0q4wx" path="res://Scenes/Components/velocity.tscn" id="3_t6aan"]
-[ext_resource type="PackedScene" uid="uid://c8wqavxm6m0q" path="res://Scenes/Components/hitbox_component.tscn" id="4_gw4np"]
+[ext_resource type="PackedScene" uid="uid://b3wmjqb34cqs5" path="res://Scenes/Components/DamageArea/damage_area_component.tscn" id="2_1leip"]
+[ext_resource type="PackedScene" uid="uid://d2c4ccnfltmr1" path="res://Scenes/Components/Health/health_component.tscn" id="2_hvinq"]
+[ext_resource type="PackedScene" uid="uid://c73ovdjp0q4wx" path="res://Scenes/Components/Velocity/velocity.tscn" id="3_t6aan"]
+[ext_resource type="PackedScene" uid="uid://c8wqavxm6m0q" path="res://Scenes/Components/Hitbox/hitbox_component.tscn" id="4_gw4np"]
+
 
 [node name="EnemyMeleeParent" type="CharacterBody2D"]
 z_index = 1

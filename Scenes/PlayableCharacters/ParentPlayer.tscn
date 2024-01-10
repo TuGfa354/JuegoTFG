@@ -1,9 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://2vriyonhucnw"]
 
 [ext_resource type="Script" path="res://Scenes/PlayableCharacters/ParentPlayer.gd" id="1_wimjr"]
-[ext_resource type="PackedScene" uid="uid://d2c4ccnfltmr1" path="res://Scenes/Components/health_component.tscn" id="2_j1i6e"]
-[ext_resource type="PackedScene" uid="uid://c8wqavxm6m0q" path="res://Scenes/Components/hitbox_component.tscn" id="3_iandt"]
-[ext_resource type="PackedScene" uid="uid://c73ovdjp0q4wx" path="res://Scenes/Components/velocity.tscn" id="4_r0ura"]
+[ext_resource type="PackedScene" uid="uid://d2c4ccnfltmr1" path="res://Scenes/Components/Health/health_component.tscn" id="2_j1i6e"]
+[ext_resource type="PackedScene" uid="uid://c8wqavxm6m0q" path="res://Scenes/Components/Hitbox/hitbox_component.tscn" id="3_iandt"]
+[ext_resource type="PackedScene" uid="uid://c73ovdjp0q4wx" path="res://Scenes/Components/Velocity/velocity.tscn" id="4_r0ura"]
+
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plhdv"]
 bg_color = Color(0.0117647, 0.0156863, 0.0196078, 0.662745)

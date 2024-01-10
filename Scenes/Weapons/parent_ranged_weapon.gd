@@ -14,7 +14,6 @@ func _physics_process(_delta):
 		for target_enemy in enemies_in_range:
 			distances.append(global_position.distance_to(target_enemy.global_position))
 		var target_enemy = enemies_in_range[distances.find(distances.min())]
-		print (distances)
 		look_at(target_enemy.global_position)
 		if can_shoot:
 			shoot()

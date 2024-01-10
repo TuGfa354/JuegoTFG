@@ -143,7 +143,7 @@ size = Vector2(20, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjxrr"]
 size = Vector2(20, 31)
 
-[node name="Knight" instance=ExtResource("1_eg81x")]
+[node name="Knight" groups=["Player"] instance=ExtResource("1_eg81x")]
 script = ExtResource("2_lsgc5")
 
 [node name="AnimatedSprite2D" parent="." index="0"]

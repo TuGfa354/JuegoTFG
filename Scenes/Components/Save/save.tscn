@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://cp3tun6ts8xrm"]
 
-[ext_resource type="Script" path="res://Scenes/Components/save.gd" id="1_dalpg"]
+[ext_resource type="Script" path="res://Scenes/Components/Save/save.gd" id="1_dalpg"]
+
 
 [node name="Save" type="Node2D"]
 script = ExtResource("1_dalpg")
