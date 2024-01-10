@@ -150,6 +150,14 @@ script = ExtResource("2_lsgc5")
 sprite_frames = SubResource("SpriteFrames_3t43b")
 animation = &"Idle"
 
+[node name="Test_ranged_weapon5" parent="Weapons/Marker2D" index="0" instance=ExtResource("7_k4mix")]
+
+[node name="Test_ranged_weapon4" parent="Weapons/Marker2D2" index="0" instance=ExtResource("7_k4mix")]
+
+[node name="Test_ranged_weapon5" parent="Weapons/Marker2D3" index="0" instance=ExtResource("7_k4mix")]
+
+[node name="Test_ranged_weapon3" parent="Weapons/Marker2D4" index="0" instance=ExtResource("7_k4mix")]
+
 [node name="Test_ranged_weapon2" parent="Weapons/Marker2D5" index="0" instance=ExtResource("7_k4mix")]
 
 [node name="Test_ranged_weapon" parent="Weapons/Marker2D6" index="0" instance=ExtResource("7_k4mix")]
@@ -158,7 +166,7 @@ animation = &"Idle"
 maxHealth = 100.0
 
 [node name="Velocity" parent="." index="3"]
-base_mov_speed = 175.0
+base_mov_speed = 525.0
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="1"]
 position = Vector2(0, 0.5)
@@ -167,3 +175,10 @@ shape = SubResource("RectangleShape2D_m6mn5")
 [node name="CharacterBodyShape" parent="." index="5"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fjxrr")
+
+[node name="Camera2D" parent="." index="7"]
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+position_smoothing_enabled = false

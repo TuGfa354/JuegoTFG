@@ -141,7 +141,7 @@ shape = SubResource("RectangleShape2D_lcfjo")
 maxHealth = 125.0
 
 [node name="Velocity" parent="." index="5"]
-base_mov_speed = 125.0
+base_mov_speed = 375.0
 
 [node name="HitboxComponent" parent="." index="6"]
 position = Vector2(0, -6)

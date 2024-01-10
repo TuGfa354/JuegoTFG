@@ -99,8 +99,7 @@ func _on_back_from_video_pressed():
 
 func _on_back_from_audio_pressed():
 	show_and_hide(options, audio)
-
-	
+	$Options/VBoxContainer/Audio.grab_focus()
 
 
 func _on_master_value_changed(value):

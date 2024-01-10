@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://c8wqavxm6m0q" path="res://Scenes/Components/Hitbox/hitbox_component.tscn" id="3_iandt"]
 [ext_resource type="PackedScene" uid="uid://c73ovdjp0q4wx" path="res://Scenes/Components/Velocity/velocity.tscn" id="4_r0ura"]
 
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plhdv"]
 bg_color = Color(0.0117647, 0.0156863, 0.0196078, 0.662745)
 corner_radius_top_left = 16
@@ -26,6 +25,7 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [node name="PlayableCharacter" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 collision_mask = 8
 script = ExtResource("1_wimjr")
 
@@ -80,8 +80,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ndmsn")
 show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(117, 86)
-zoom = Vector2(3, 3)
+zoom = Vector2(1.5, 1.5)
 limit_left = 125
 limit_top = 55
 limit_right = 800

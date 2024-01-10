@@ -52,6 +52,8 @@ func _on_start_pressed():
 
 
 
+#region signals
+
 func _on_options_pressed():
 	show_and_hide(options, menu)
 	$Options/VBoxContainer/Video.grab_focus()
@@ -91,11 +93,11 @@ func _on_v_sync_toggled(toggled_on):
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
 func _on_back_from_video_pressed():
-	show_and_hide(menu, video)
+	show_and_hide(options, video)
 	$Options/VBoxContainer/Video.grab_focus()
 
 func _on_back_from_audio_pressed():
-	show_and_hide(menu, audio)
+	show_and_hide(options, audio)
 	$Options/VBoxContainer/Audio.grab_focus()
 
 
@@ -120,3 +122,4 @@ func _on_option_button_item_selected(index):
 		TranslationServer.set_locale("es")
 		Globals.current_language = "es"
 		translate()
+#endregion

@@ -24,12 +24,16 @@ func _on_timer_timeout():
 					counter+=1
 
 func get_random_position():
-	#Cambiar por valores menos de 1 para que sea dentro de la cámara
-	var vpr = get_viewport_rect().size * randf_range(0.1, 0.8)
-	var top_left = Vector2(player.global_position.x - vpr.x/2, player.global_position.y -vpr.y/2)
-	var top_right = Vector2(player.global_position.x + vpr.x/2, player.global_position.y -vpr.y/2)
-	var bottom_left = Vector2(player.global_position.x - vpr.x/2, player.global_position.y +vpr.y/2)
-	var bottom_right = Vector2(player.global_position.x + vpr.x/2, player.global_position.y +vpr.y/2)
+	var top_left = Vector2(60,60)
+	var top_right = Vector2(1880,60)
+	var bottom_right= Vector2(1880,1000)
+	var bottom_left = Vector2(60,1000)
+	#Outside camera
+	#var vpr = get_viewport_rect().size * randf_range(1.1, 1.4)
+	#var top_left = Vector2(player.global_position.x - vpr.x/2, player.global_position.y -vpr.y/2)
+	#var top_right = Vector2(player.global_position.x + vpr.x/2, player.global_position.y -vpr.y/2)
+	#var bottom_left = Vector2(player.global_position.x - vpr.x/2, player.global_position.y +vpr.y/2)
+	#var bottom_right = Vector2(player.global_position.x + vpr.x/2, player.global_position.y +vpr.y/2)
 	var pos_side = ["up", "down","right","left"].pick_random()
 	var spawn_pos1 = Vector2.ZERO
 	var spawn_pos2 = Vector2.ZERO
@@ -49,6 +53,7 @@ func get_random_position():
 	var x_spawn = randf_range(spawn_pos1.x, spawn_pos2.x)
 	var y_spawn = randf_range(spawn_pos1.y, spawn_pos2.y)
 	return Vector2(x_spawn, y_spawn)
+	#IN A CIRCLE OR SOMETHING
 	#var vpr = get_viewport_rect().size
 	#var bottom_right_corner = Vector2(vpr.x/2, vpr.y/2)
 	#var radius = Vector2.ZERO.distance_to(bottom_right_corner) * randf_range(1.1,1.4)

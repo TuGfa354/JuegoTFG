@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Scenes/Components/Health/health_component.gd" id="1_v1j1p"]
 
-
 [node name="HealthComponent" type="Node"]
 script = ExtResource("1_v1j1p")
 
