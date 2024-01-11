@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bn4q4fyry8aop"]
+[gd_scene load_steps=24 format=3 uid="uid://bn4q4fyry8aop"]
 
 [ext_resource type="PackedScene" uid="uid://clea0mhs5s5q" path="res://Scenes/Levels/parent_level.tscn" id="1_mx8lj"]
 [ext_resource type="Texture2D" uid="uid://d01q7fsb7dm73" path="res://Graphics/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Tiles.png" id="2_ei3pb"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://pr383wo1yuuf" path="res://Scenes/PlayableCharacters/knight.tscn" id="3_r6v1l"]
 [ext_resource type="PackedScene" uid="uid://dip2fjdsywft2" path="res://Scenes/Components/EnemySpawner/enemy_spawner.tscn" id="5_bi14k"]
 [ext_resource type="PackedScene" uid="uid://dm3k822oyrqi" path="res://Scenes/Enemies/Skeletons/skeleton.tscn" id="6_ui2lj"]
-[ext_resource type="PackedScene" uid="uid://dvgyqm01rsx33" path="res://Scenes/Ui/pause_menu.tscn" id="7_3dl84"]
 [ext_resource type="Script" path="res://Scenes/Components/EnemySpawner/spawn_info.gd" id="7_8nvke"]
 [ext_resource type="PackedScene" uid="uid://b8vjrhk626qel" path="res://Scenes/Enemies/Skeletons/skeleton_mage.tscn" id="8_bocdj"]
 
@@ -450,7 +449,7 @@ enemy_spawn_delay = 0
 [sub_resource type="Resource" id="Resource_o6clt"]
 script = ExtResource("7_8nvke")
 time_start = 10
-time_end = 15
+time_end = 16
 enemy = ExtResource("8_bocdj")
 enemy_number = 1
 enemy_spawn_delay = 0
@@ -577,31 +576,12 @@ position = Vector2(1893, 1045)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBarriers/BottomRight" index="0"]
 position = Vector2(1, -18)
 rotation = 0.817146
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lw5y3")
 
 [node name="GameOver" parent="." index="7"]
 unique_name_in_owner = true
-visible = false
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="8"]
-visible = false
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" index="0"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.513726)
-
-[node name="PauseMenu" parent="CanvasLayer/ColorRect2" index="0" instance=ExtResource("7_3dl84")]
-layout_mode = 1
-
-[node name="Character" type="Node2D" parent="." index="9"]
 
 [node name="Knight" parent="Character" index="0" instance=ExtResource("3_r6v1l")]
-position = Vector2(880, 458)
+position = Vector2(946, 529)
 
-[connection signal="pause" from="CanvasLayer/ColorRect2/PauseMenu" to="." method="_on_pause_menu_pause"]
-[connection signal="attack" from="Character/Knight" to="." method="_on_knight_attack"]
+[connection signal="wave_ended" from="Enemies/EnemySpawner" to="." method="_on_enemy_spawner_wave_ended"]

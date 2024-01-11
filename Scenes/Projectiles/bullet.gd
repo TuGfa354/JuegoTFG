@@ -4,8 +4,8 @@ var travelled_distance:float = 0
 var damage:float
 
 func _physics_process(delta):
-	const SPEED :int =100
-	const RANGE = 1200
+	const SPEED :int =750
+	const RANGE = 10000
 	var direction = Vector2.RIGHT.rotated(rotation)
 	position += direction * SPEED * delta
 	travelled_distance+=SPEED*delta

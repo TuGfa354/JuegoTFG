@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2whbnf5sjrer"]
+
+[ext_resource type="Script" path="res://Scenes/Ui/upgrade_menu.gd" id="1_li4rh"]
+
+[node name="UpgradeMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_li4rh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -9.0
+offset_right = 9.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "aa"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -11.5
+offset_right = 9.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Continue" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
+auto_translate = false
+text = "Continue"
+language = "English"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -23.0
+offset_right = 9.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="HBoxContainer3"]
+layout_mode = 2
+text = "aa"
+
+[connection signal="pressed" from="HBoxContainer2/Continue" to="." method="_on_label_pressed"]

@@ -1,13 +1,18 @@
 extends Node2D
-
+signal wave_ended
 @export var spawns: Array[SpawnInfo]= []
 @onready var player = get_tree().get_first_node_in_group("Player")
 var time = 0
+var total_time= 30
 
 
 
 func _on_timer_timeout():
+	print(time)
+	if time==29:
+		wave_ended.emit()
 	time+=1
+	get_node("/root/Level1/InGameUi/InGameUi/Timer").text = str(total_time-time)
 	var enemy_spawns = spawns
 	for i in enemy_spawns:
 		if time>= i.time_start and time <= i.time_end:
@@ -21,6 +26,7 @@ func _on_timer_timeout():
 					var enemy_spawn = new_enemy.instantiate()
 					enemy_spawn.global_position = get_random_position()
 					add_child(enemy_spawn)
+
 					counter+=1
 
 func get_random_position():

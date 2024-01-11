@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://clea0mhs5s5q"]
+[gd_scene load_steps=5 format=3 uid="uid://clea0mhs5s5q"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/parent_level.gd" id="1_4aggb"]
+[ext_resource type="PackedScene" uid="uid://dvgyqm01rsx33" path="res://Scenes/Ui/pause_menu.tscn" id="2_x2u8c"]
+[ext_resource type="PackedScene" uid="uid://v2rbj8psihhh" path="res://Scenes/Ui/in_game_ui.tscn" id="3_en336"]
+[ext_resource type="PackedScene" uid="uid://b2whbnf5sjrer" path="res://Scenes/Ui/upgrade_menu.tscn" id="8_wa5w5"]
 
 [node name="ParentLevel" type="Node2D"]
 script = ExtResource("1_4aggb")
@@ -18,6 +21,7 @@ script = ExtResource("1_4aggb")
 [node name="Timers" type="Node" parent="."]
 
 [node name="GameOver" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="GameOver"]
 anchors_preset = 15
@@ -42,3 +46,31 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 150
 text = "Game Over"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.513726)
+
+[node name="PauseMenu" parent="CanvasLayer/ColorRect2" instance=ExtResource("2_x2u8c")]
+layout_mode = 1
+
+[node name="Character" type="Node2D" parent="."]
+
+[node name="InGameUi" type="CanvasLayer" parent="."]
+
+[node name="InGameUi" parent="InGameUi" instance=ExtResource("3_en336")]
+
+[node name="UpgradeMenu" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="UpgradeMenu" parent="UpgradeMenu" instance=ExtResource("8_wa5w5")]
+
+[connection signal="pause" from="CanvasLayer/ColorRect2/PauseMenu" to="." method="_on_pause_menu_pause"]
+[connection signal="resume" from="UpgradeMenu/UpgradeMenu" to="." method="_on_upgrade_menu_resume"]

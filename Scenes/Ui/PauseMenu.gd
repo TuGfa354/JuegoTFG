@@ -30,6 +30,7 @@ func translate():
 		$"Audio/HBoxContainer/Labels/Sound FX".text= tr("sound FX")
 		$Audio/BackFromAudio.text= tr("back")
 func _process(_delta):
+
 	if Input.is_action_just_pressed("ui_cancel"):
 		toggle()
 func add_languages():
@@ -39,6 +40,7 @@ func add_languages():
 func toggle():
 	visible = !visible
 	get_tree().paused = visible
+	print("oooo")
 	pause.emit(visible)
 
 func show_and_hide(first, second):

@@ -23,7 +23,7 @@ func shoot():
 	var new_bullet = BULLET.instantiate()
 	new_bullet.global_position =%ShootingPoint.global_position
 	new_bullet.global_rotation =%ShootingPoint.global_rotation
-	print(damage)
+
 	new_bullet.damage = damage
 	get_node("/root/Level1/Projectiles").add_child(new_bullet)
 	can_shoot = false
