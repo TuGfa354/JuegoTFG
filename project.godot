@@ -105,7 +105,7 @@ Down={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://misc/TranslationFile - Hoja 1 (1).en.translation", "res://misc/TranslationFile - Hoja 1 (1).es.translation")
+locale/translations=PackedStringArray("res://misc/TranslationFile - Hoja 1.en.translation", "res://misc/TranslationFile - Hoja 1.es.translation")
 locale/locale_filter_mode=0
 
 [layer_names]

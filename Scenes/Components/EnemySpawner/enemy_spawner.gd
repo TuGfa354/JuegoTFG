@@ -8,7 +8,6 @@ var total_time= 30
 
 
 func _on_timer_timeout():
-	print(time)
 	if time==29:
 		wave_ended.emit()
 	time+=1
@@ -25,7 +24,7 @@ func _on_timer_timeout():
 				while counter<i.enemy_number:
 					var enemy_spawn = new_enemy.instantiate()
 					enemy_spawn.global_position = get_random_position()
-					add_child(enemy_spawn)
+					$enemies.add_child(enemy_spawn)
 
 					counter+=1
 

@@ -1,4 +1,5 @@
 extends Control
+#TODO Can't click, only use arrows
 @onready var menu =$Menu
 @onready var options = $Options
 @onready var video = $Video
