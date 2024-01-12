@@ -1,4 +1,15 @@
-[gd_scene format=3 uid="uid://v2rbj8psihhh"]
+[gd_scene load_steps=3 format=3 uid="uid://v2rbj8psihhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1dv0"]
+bg_color = Color(0.0117647, 0.0156863, 0.0196078, 0.662745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrmo4"]
+bg_color = Color(0.223529, 0.713726, 0.235294, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 
 [node name="InGameUi" type="Control"]
 layout_mode = 3
@@ -18,3 +29,28 @@ offset_right = 20.0
 offset_bottom = 18.0
 grow_horizontal = 2
 horizontal_alignment = 1
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+offset_top = 10.0
+offset_right = 241.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_p1dv0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mrmo4")
+show_percentage = false
+
+[node name="Label" type="Label" parent="ProgressBar2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -9.0
+offset_right = 20.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2

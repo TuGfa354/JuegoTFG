@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Scenes/Components/DamageArea/DamageAreaComponent.gd" id="1_ocpao"]
 
-
 [node name="DamageAreaComponent" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_ocpao")

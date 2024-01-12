@@ -7,7 +7,15 @@ class_name   PlayerParent
 var dead:bool = false
 signal death
 func _ready():
+	%ProgressBar2.max_value = health_component.maxHealth
 	%ProgressBar2.value = health_component.currentHealth
+
+	print(health_component.currentHealth)
+	print(health_component.maxHealth)
+	get_node("/root/Level1/InGameUi/InGameUi/ProgressBar2").max_value = health_component.maxHealth
+	get_node("/root/Level1/InGameUi/InGameUi/ProgressBar2").value = health_component.currentHealth
+
+	get_node("/root/Level1/InGameUi/InGameUi/ProgressBar2/Label").text = str(health_component.currentHealth,"/",health_component.maxHealth)
 func _physics_process(_delta):
 	if dead:
 			$AnimatedSprite2D.play('Death')

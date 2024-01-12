@@ -163,7 +163,7 @@ animation = &"Idle"
 [node name="Test_ranged_weapon" parent="Weapons/Marker2D6" index="0" instance=ExtResource("7_k4mix")]
 
 [node name="HealthComponent" parent="." index="2"]
-maxHealth = 100.0
+maxHealth = 120.0
 
 [node name="Velocity" parent="." index="3"]
 base_mov_speed = 525.0
@@ -175,6 +175,9 @@ shape = SubResource("RectangleShape2D_m6mn5")
 [node name="CharacterBodyShape" parent="." index="5"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fjxrr")
+
+[node name="ProgressBar2" parent="." index="6"]
+visible = false
 
 [node name="Camera2D" parent="." index="7"]
 limit_left = 0

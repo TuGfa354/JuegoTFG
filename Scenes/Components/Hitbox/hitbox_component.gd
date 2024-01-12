@@ -17,6 +17,7 @@ func disable_hitbox() -> void:
 func enable_hitbox() -> void:
 	hit_box_shape.set_deferred("disabled", false)
 #TODO cambiar los timers de los daños a las armas a melee en vez de dentro de la hitbox para que si reciben muchos proyectiles les hagan daño todos
+#TODO si te quedas quieto con un enemigo encima no te hace daño constante
 func _physics_process(_delta):
 	if areaframe:
 		if areaframe.overlaps_area(self):
@@ -28,8 +29,10 @@ func _physics_process(_delta):
 func _on_area_entered(area):
 	if(area is ParentWeapon  or EnemyAttack or MeleeAttack or Attack):
 		areaframe = area
-		if(area is EnemyAttack or Attack):
-			area.queue_free()
+		#if(area is EnemyAttack or Attack):
+			#area.queue_free()
+		#else:
+			#pass
 
 func _on_timer_timeout():
 	vulnerable = true
