@@ -20,10 +20,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -53.0
-offset_right = 23.0
-offset_bottom = 53.0
+offset_left = -28.0
+offset_top = -80.0
+offset_right = 96.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
@@ -265,25 +265,52 @@ language = "English"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Master" type="HSlider" parent="Audio/HBoxContainer/Slider"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Audio/HBoxContainer/Slider"]
 layout_mode = 2
-size_flags_vertical = 6
-focus_neighbor_bottom = NodePath("../../Labels/Music")
+
+[node name="Master" type="HSlider" parent="Audio/HBoxContainer/Slider/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+focus_neighbor_bottom = NodePath("../../HBoxContainer2/Music")
 value = 100.0
 
-[node name="Music" type="HSlider" parent="Audio/HBoxContainer/Slider"]
+[node name="Label" type="Label" parent="Audio/HBoxContainer/Slider/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
+text = "10"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Audio/HBoxContainer/Slider"]
+layout_mode = 2
+
+[node name="Music" type="HSlider" parent="Audio/HBoxContainer/Slider/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../Master")
-focus_neighbor_bottom = NodePath("../Sound FX")
+focus_neighbor_top = NodePath("../../HBoxContainer/Master")
+focus_neighbor_bottom = NodePath("../../HBoxContainer3/Sound FX")
 value = 100.0
 
-[node name="Sound FX" type="HSlider" parent="Audio/HBoxContainer/Slider"]
+[node name="Label" type="Label" parent="Audio/HBoxContainer/Slider/HBoxContainer2"]
 layout_mode = 2
+text = "10
+"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Audio/HBoxContainer/Slider"]
+layout_mode = 2
+
+[node name="Sound FX" type="HSlider" parent="Audio/HBoxContainer/Slider/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../Music")
-focus_neighbor_bottom = NodePath("../../../BackFromAudio")
+focus_neighbor_top = NodePath("../../HBoxContainer2/Music")
+focus_neighbor_bottom = NodePath("../../../../BackFromAudio")
 value = 100.0
+
+[node name="Label" type="Label" parent="Audio/HBoxContainer/Slider/HBoxContainer3"]
+layout_mode = 2
+text = "10"
 
 [node name="BackFromAudio" type="Button" parent="Audio"]
 layout_mode = 1
@@ -298,7 +325,7 @@ offset_right = 23.5
 grow_horizontal = 2
 grow_vertical = 0
 auto_translate = false
-focus_neighbor_top = NodePath("../HBoxContainer/Slider/Sound FX")
+focus_neighbor_top = NodePath("../HBoxContainer/Slider/HBoxContainer3/Sound FX")
 theme = ExtResource("2_j3pew")
 text = "back
 "
@@ -315,7 +342,7 @@ language = "English"
 [connection signal="toggled" from="Video/HBoxContainer/Checks/Borderless" to="." method="_on_borderless_toggled"]
 [connection signal="toggled" from="Video/HBoxContainer/Checks/VSync" to="." method="_on_v_sync_toggled"]
 [connection signal="pressed" from="Video/BackFromVideo" to="." method="_on_back_from_video_pressed"]
-[connection signal="value_changed" from="Audio/HBoxContainer/Slider/Master" to="." method="_on_master_value_changed"]
-[connection signal="value_changed" from="Audio/HBoxContainer/Slider/Music" to="." method="_on_music_value_changed"]
-[connection signal="value_changed" from="Audio/HBoxContainer/Slider/Sound FX" to="." method="_on_sound_fx_value_changed"]
+[connection signal="value_changed" from="Audio/HBoxContainer/Slider/HBoxContainer/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="Audio/HBoxContainer/Slider/HBoxContainer2/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="Audio/HBoxContainer/Slider/HBoxContainer3/Sound FX" to="." method="_on_sound_fx_value_changed"]
 [connection signal="pressed" from="Audio/BackFromAudio" to="." method="_on_back_from_audio_pressed"]

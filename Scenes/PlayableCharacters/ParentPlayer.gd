@@ -47,4 +47,4 @@ func _on_health_component_dead():
 
 
 func _on_animated_sprite_2d_animation_finished():
-	get_tree().free()
+	get_tree().change_scene_to_file("res://Scenes/Ui/main_menu.tscn")

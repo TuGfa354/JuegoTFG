@@ -3,7 +3,6 @@ In playlist:
 Escalar resolución
 Multiplayer
 Port Forwarding
-Manejo con mando
 Transiciones entre escenas asíncronas
 Añadir todas las estadísticas a los personajes jugables
 autoguardado
@@ -13,3 +12,9 @@ Añadir menú selección de menús
 añadir exp/moneda para mejorar
 añadir leaderboard con bbdd
 Not In Playlist:
+
+
+
+
+Bugs conocidos:
+	

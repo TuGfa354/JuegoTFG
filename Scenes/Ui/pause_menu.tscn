@@ -70,6 +70,7 @@ text = "video"
 
 [node name="Audio" type="Button" parent="Options/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../HBoxContainer/OptionButton")
 text = "audio"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Options/VBoxContainer"]
@@ -218,20 +219,46 @@ text = "sound FX"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Master" type="HSlider" parent="Audio/HBoxContainer/Slider"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Audio/HBoxContainer/Slider"]
 layout_mode = 2
+
+[node name="Master" type="HSlider" parent="Audio/HBoxContainer/Slider/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 6
+focus_neighbor_bottom = NodePath("../../HBoxContainer2/Music")
 value = 100.0
 
-[node name="Music" type="HSlider" parent="Audio/HBoxContainer/Slider"]
+[node name="Label" type="Label" parent="Audio/HBoxContainer/Slider/HBoxContainer"]
 layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Audio/HBoxContainer/Slider"]
+layout_mode = 2
+
+[node name="Music" type="HSlider" parent="Audio/HBoxContainer/Slider/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 6
+focus_neighbor_top = NodePath("../../HBoxContainer/Master")
+focus_neighbor_bottom = NodePath("../../HBoxContainer3/Sound FX")
 value = 100.0
 
-[node name="Sound FX" type="HSlider" parent="Audio/HBoxContainer/Slider"]
+[node name="Label" type="Label" parent="Audio/HBoxContainer/Slider/HBoxContainer2"]
 layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Audio/HBoxContainer/Slider"]
+layout_mode = 2
+
+[node name="Sound FX" type="HSlider" parent="Audio/HBoxContainer/Slider/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 6
+focus_neighbor_top = NodePath("../../HBoxContainer2/Music")
+focus_neighbor_bottom = NodePath("../../../../BackFromAudio")
 value = 100.0
+
+[node name="Label" type="Label" parent="Audio/HBoxContainer/Slider/HBoxContainer3"]
+layout_mode = 2
 
 [node name="BackFromAudio" type="Button" parent="Audio"]
 layout_mode = 1
@@ -259,7 +286,7 @@ text = "back
 [connection signal="toggled" from="Video/HBoxContainer/Checks/Borderless" to="." method="_on_borderless_toggled"]
 [connection signal="toggled" from="Video/HBoxContainer/Checks/VSync" to="." method="_on_v_sync_toggled"]
 [connection signal="pressed" from="Video/BackFromVideo" to="." method="_on_back_from_video_pressed"]
-[connection signal="value_changed" from="Audio/HBoxContainer/Slider/Master" to="." method="_on_master_value_changed"]
-[connection signal="value_changed" from="Audio/HBoxContainer/Slider/Music" to="." method="_on_music_value_changed"]
-[connection signal="value_changed" from="Audio/HBoxContainer/Slider/Sound FX" to="." method="_on_sound_fx_value_changed"]
+[connection signal="value_changed" from="Audio/HBoxContainer/Slider/HBoxContainer/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="Audio/HBoxContainer/Slider/HBoxContainer2/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="Audio/HBoxContainer/Slider/HBoxContainer3/Sound FX" to="." method="_on_sound_fx_value_changed"]
 [connection signal="pressed" from="Audio/BackFromAudio" to="." method="_on_back_from_audio_pressed"]
