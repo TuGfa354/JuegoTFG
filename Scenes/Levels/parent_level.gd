@@ -21,7 +21,8 @@ func _on_knight_attack(delta, direction, current_position, rotationdeg):
 
 func _on_enemy_spawner_wave_ended():
 	$UpgradeMenu.visible = !$UpgradeMenu.visible
-	$UpgradeMenu/UpgradeMenu/HBoxContainer2/Continue.grab_focus()
+	$InGameUi.visible = !$InGameUi.visible
+	$UpgradeMenu/UpgradeMenu/Continue.grab_focus()
 	for i in $Enemies/EnemySpawner/enemies.get_children():
 		i.queue_free()
 	get_tree().paused = $UpgradeMenu.visible
@@ -30,6 +31,8 @@ func _on_enemy_spawner_wave_ended():
 
 func _on_upgrade_menu_resume():
 	$UpgradeMenu.visible = !$UpgradeMenu.visible
+	$InGameUi.visible = !$InGameUi.visible
 	get_tree().paused = $UpgradeMenu.visible
 	$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.text= str($Enemies/EnemySpawner.total_time)
 	$Enemies/EnemySpawner.time = 0
+	

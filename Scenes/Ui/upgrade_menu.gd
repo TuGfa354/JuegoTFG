@@ -1,10 +1,14 @@
 extends Control
 signal resume
-func _on_label_pressed():
-	resume.emit()
+
 
 func _ready():
 	TranslationServer.set_locale(Globals.current_language)
 	translate()
 func translate():
-	$HBoxContainer2/Continue.text = tr("continue")
+	%Continue.text= tr("continue")
+	
+#TODO pensar si poner las armas abajo a la derecha y mantener la ingame ui para ver las barras de vida.
+
+func _on_continue_pressed():
+	resume.emit()
