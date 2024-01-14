@@ -12,10 +12,10 @@ func _ready():
 
 	print(health_component.currentHealth)
 	print(health_component.maxHealth)
-	get_node("/root/Level1/InGameUi/InGameUi/ProgressBar2").max_value = health_component.maxHealth
-	get_node("/root/Level1/InGameUi/InGameUi/ProgressBar2").value = health_component.currentHealth
+	get_node("/root/Level1/InGameUi/InGameUi/MarginContainer2/VBoxContainer/ProgressBar2").max_value = health_component.maxHealth
+	get_node("/root/Level1/InGameUi/InGameUi/MarginContainer2/VBoxContainer/ProgressBar2").value = health_component.currentHealth
 
-	get_node("/root/Level1/InGameUi/InGameUi/ProgressBar2/Label").text = str(health_component.currentHealth,"/",health_component.maxHealth)
+	get_node("/root/Level1/InGameUi/InGameUi/MarginContainer2/VBoxContainer/ProgressBar2/Label").text = str(health_component.currentHealth,"/",health_component.maxHealth)
 func _physics_process(_delta):
 	if dead:
 			$AnimatedSprite2D.play('Death')

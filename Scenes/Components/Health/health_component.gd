@@ -23,11 +23,12 @@ func _ready():
 
 func damage(damage_amount: float):
 	currentHealth = maxf(0.0, currentHealth - damage_amount)
+	print(currentHealth)
 	if get_parent() is PlayerParent:
 		
 		get_parent().get_node("ProgressBar2").value = currentHealth
-		get_node("/root/Level1/InGameUi/InGameUi/ProgressBar2").value = currentHealth
-		get_node("/root/Level1/InGameUi/InGameUi/ProgressBar2/Label").text = str(currentHealth,"/",maxHealth)
+		get_node("/root/Level1/InGameUi/InGameUi/MarginContainer2/VBoxContainer/ProgressBar2").value = currentHealth
+		get_node("/root/Level1/InGameUi/InGameUi/MarginContainer2/VBoxContainer/ProgressBar2/Label").text = str(currentHealth,"/",maxHealth)
 		if get_parent().get_node("ProgressBar2").value == get_parent().get_node("ProgressBar2").max_value:
 			get_parent().get_node("ProgressBar2").visible = false
 		else:
