@@ -9,26 +9,30 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fctfe")
 
 [node name="Menu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -28.0
-offset_top = -80.0
-offset_right = 96.0
-offset_bottom = 80.0
+offset_left = -62.0
+offset_top = -60.0
+offset_right = 62.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
 [node name="Start" type="Button" parent="Menu"]
+unique_name_in_owner = true
 layout_mode = 2
 auto_translate = false
 focus_neighbor_bottom = NodePath("../Options")
@@ -37,6 +41,7 @@ text = "start"
 language = "English"
 
 [node name="Options" type="Button" parent="Menu"]
+unique_name_in_owner = true
 layout_mode = 2
 auto_translate = false
 focus_neighbor_top = NodePath("../Start")
@@ -46,6 +51,7 @@ text = "options"
 language = "English"
 
 [node name="Exit" type="Button" parent="Menu"]
+unique_name_in_owner = true
 layout_mode = 2
 auto_translate = false
 focus_neighbor_left = NodePath("../Start")
@@ -53,30 +59,34 @@ theme = ExtResource("2_j3pew")
 text = "exit"
 language = "en"
 
-[node name="Options" type="Control" parent="."]
+[node name="OptionsMenu" type="Control" parent="."]
+unique_name_in_owner = true
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -28.0
-offset_top = -33.0
-offset_right = 28.0
-offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Video" type="Button" parent="Options/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -52.0
+offset_right = 45.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Video" type="Button" parent="OptionsMenu/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 auto_translate = false
 focus_neighbor_bottom = NodePath("../Audio")
@@ -84,7 +94,8 @@ theme = ExtResource("2_j3pew")
 text = "video"
 language = "English"
 
-[node name="Audio" type="Button" parent="Options/VBoxContainer"]
+[node name="Audio" type="Button" parent="OptionsMenu/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 auto_translate = false
 focus_neighbor_top = NodePath("../Video")
@@ -93,44 +104,39 @@ theme = ExtResource("2_j3pew")
 text = "audio"
 language = "English"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Options/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu/VBoxContainer"]
 layout_mode = 2
 
-[node name="Language" type="Button" parent="Options/VBoxContainer/HBoxContainer"]
+[node name="Language" type="Button" parent="OptionsMenu/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 auto_translate = false
 theme = ExtResource("2_j3pew")
 text = "language"
 language = "English"
 
-[node name="OptionButton" type="OptionButton" parent="Options/VBoxContainer/HBoxContainer"]
+[node name="OptionButton" type="OptionButton" parent="OptionsMenu/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 auto_translate = false
 focus_neighbor_top = NodePath("../../Audio")
-focus_neighbor_bottom = NodePath("../../../BackFromOptions")
+focus_neighbor_bottom = NodePath("../../BackFromOptions")
 theme = ExtResource("2_j3pew")
 language = "English"
 
-[node name="BackFromOptions" type="Button" parent="Options"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -23.5
-offset_top = -31.0
-offset_right = 23.5
-grow_horizontal = 2
-grow_vertical = 0
+[node name="BackFromOptions" type="Button" parent="OptionsMenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
 auto_translate = false
-focus_neighbor_top = NodePath("../VBoxContainer/HBoxContainer/OptionButton")
+focus_neighbor_top = NodePath("../HBoxContainer/OptionButton")
 theme = ExtResource("2_j3pew")
 text = "back
 "
 language = "English"
 
-[node name="Video" type="Control" parent="."]
+[node name="VideoMenu" type="Control" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -139,7 +145,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Video"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VideoMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,17 +159,19 @@ offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Labels" type="VBoxContainer" parent="Video/HBoxContainer"]
+[node name="Labels" type="VBoxContainer" parent="VideoMenu/HBoxContainer"]
 layout_mode = 2
 
-[node name="FullScreen" type="Label" parent="Video/HBoxContainer/Labels"]
+[node name="FullScreen" type="Label" parent="VideoMenu/HBoxContainer/Labels"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 auto_translate = false
 text = "fullscreen"
 language = "English"
 
-[node name="Borderless" type="Label" parent="Video/HBoxContainer/Labels"]
+[node name="Borderless" type="Label" parent="VideoMenu/HBoxContainer/Labels"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 auto_translate = false
@@ -171,7 +179,8 @@ text = "borderless
 "
 language = "English"
 
-[node name="VSync" type="Label" parent="Video/HBoxContainer/Labels"]
+[node name="VSync" type="Label" parent="VideoMenu/HBoxContainer/Labels"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 auto_translate = false
@@ -179,24 +188,28 @@ text = "VSync
 "
 language = "English"
 
-[node name="Checks" type="VBoxContainer" parent="Video/HBoxContainer"]
+[node name="Checks" type="VBoxContainer" parent="VideoMenu/HBoxContainer"]
 layout_mode = 2
 
-[node name="Fullscreen" type="CheckBox" parent="Video/HBoxContainer/Checks"]
+[node name="FullscreenCheckbox" type="CheckBox" parent="VideoMenu/HBoxContainer/Checks"]
+unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../Borderless")
+focus_neighbor_bottom = NodePath("../BorderlessCheckbox")
 
-[node name="Borderless" type="CheckBox" parent="Video/HBoxContainer/Checks"]
+[node name="BorderlessCheckbox" type="CheckBox" parent="VideoMenu/HBoxContainer/Checks"]
+unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_top = NodePath("../Fullscreen")
-focus_neighbor_bottom = NodePath("../VSync")
+focus_neighbor_top = NodePath("../FullscreenCheckbox")
+focus_neighbor_bottom = NodePath("../VSyncCheckbox")
 
-[node name="VSync" type="CheckBox" parent="Video/HBoxContainer/Checks"]
+[node name="VSyncCheckbox" type="CheckBox" parent="VideoMenu/HBoxContainer/Checks"]
+unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_top = NodePath("../Borderless")
+focus_neighbor_top = NodePath("../BorderlessCheckbox")
 focus_neighbor_bottom = NodePath("../../../BackFromVideo")
 
-[node name="BackFromVideo" type="Button" parent="Video"]
+[node name="BackFromVideo" type="Button" parent="VideoMenu"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -214,7 +227,8 @@ text = "back
 "
 language = "English"
 
-[node name="Audio" type="Control" parent="."]
+[node name="AudioMenu" type="Control" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -223,7 +237,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Audio"]
+[node name="HBoxContainer" type="HBoxContainer" parent="AudioMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -237,82 +251,92 @@ offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Labels" type="VBoxContainer" parent="Audio/HBoxContainer"]
+[node name="Labels" type="VBoxContainer" parent="AudioMenu/HBoxContainer"]
 layout_mode = 2
 
-[node name="Master" type="Label" parent="Audio/HBoxContainer/Labels"]
+[node name="Master" type="Label" parent="AudioMenu/HBoxContainer/Labels"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 auto_translate = false
 text = "master"
 language = "English"
 
-[node name="Music" type="Label" parent="Audio/HBoxContainer/Labels"]
+[node name="Music" type="Label" parent="AudioMenu/HBoxContainer/Labels"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 auto_translate = false
 text = "music"
 language = "English"
 
-[node name="Sound FX" type="Label" parent="Audio/HBoxContainer/Labels"]
+[node name="Sound FX" type="Label" parent="AudioMenu/HBoxContainer/Labels"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 auto_translate = false
 text = "sound FX"
 language = "English"
 
-[node name="Slider" type="VBoxContainer" parent="Audio/HBoxContainer"]
+[node name="Slider" type="VBoxContainer" parent="AudioMenu/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Audio/HBoxContainer/Slider"]
+[node name="HBoxContainer" type="HBoxContainer" parent="AudioMenu/HBoxContainer/Slider"]
 layout_mode = 2
 
-[node name="Master" type="HSlider" parent="Audio/HBoxContainer/Slider/HBoxContainer"]
+[node name="MasterBar" type="HSlider" parent="AudioMenu/HBoxContainer/Slider/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-focus_neighbor_bottom = NodePath("../../HBoxContainer2/Music")
+focus_neighbor_bottom = NodePath("../../HBoxContainer2/MusicBar")
 value = 100.0
 
-[node name="Label" type="Label" parent="Audio/HBoxContainer/Slider/HBoxContainer"]
+[node name="MasterBarLabel" type="Label" parent="AudioMenu/HBoxContainer/Slider/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "10"
 horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Audio/HBoxContainer/Slider"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="AudioMenu/HBoxContainer/Slider"]
 layout_mode = 2
 
-[node name="Music" type="HSlider" parent="Audio/HBoxContainer/Slider/HBoxContainer2"]
+[node name="MusicBar" type="HSlider" parent="AudioMenu/HBoxContainer/Slider/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../../HBoxContainer/Master")
-focus_neighbor_bottom = NodePath("../../HBoxContainer3/Sound FX")
+focus_neighbor_top = NodePath("../../HBoxContainer/MasterBar")
+focus_neighbor_bottom = NodePath("../../HBoxContainer3/Sound FXBar")
 value = 100.0
 
-[node name="Label" type="Label" parent="Audio/HBoxContainer/Slider/HBoxContainer2"]
+[node name="MusicBarLabel" type="Label" parent="AudioMenu/HBoxContainer/Slider/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "10
 "
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Audio/HBoxContainer/Slider"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="AudioMenu/HBoxContainer/Slider"]
 layout_mode = 2
 
-[node name="Sound FX" type="HSlider" parent="Audio/HBoxContainer/Slider/HBoxContainer3"]
+[node name="Sound FXBar" type="HSlider" parent="AudioMenu/HBoxContainer/Slider/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../../HBoxContainer2/Music")
+focus_neighbor_top = NodePath("../../HBoxContainer2/MusicBar")
 focus_neighbor_bottom = NodePath("../../../../BackFromAudio")
 value = 100.0
 
-[node name="Label" type="Label" parent="Audio/HBoxContainer/Slider/HBoxContainer3"]
+[node name="Sound FXBarLabel" type="Label" parent="AudioMenu/HBoxContainer/Slider/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "10"
 
-[node name="BackFromAudio" type="Button" parent="Audio"]
+[node name="BackFromAudio" type="Button" parent="AudioMenu"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -325,7 +349,7 @@ offset_right = 23.5
 grow_horizontal = 2
 grow_vertical = 0
 auto_translate = false
-focus_neighbor_top = NodePath("../HBoxContainer/Slider/HBoxContainer3/Sound FX")
+focus_neighbor_top = NodePath("../HBoxContainer/Slider/HBoxContainer3/Sound FXBar")
 theme = ExtResource("2_j3pew")
 text = "back
 "
@@ -334,15 +358,15 @@ language = "English"
 [connection signal="pressed" from="Menu/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Menu/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="Options/VBoxContainer/Video" to="." method="_on_video_pressed"]
-[connection signal="pressed" from="Options/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
-[connection signal="item_selected" from="Options/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
-[connection signal="pressed" from="Options/BackFromOptions" to="." method="_on_back_from_options_pressed"]
-[connection signal="toggled" from="Video/HBoxContainer/Checks/Fullscreen" to="." method="_on_fullscreen_toggled"]
-[connection signal="toggled" from="Video/HBoxContainer/Checks/Borderless" to="." method="_on_borderless_toggled"]
-[connection signal="toggled" from="Video/HBoxContainer/Checks/VSync" to="." method="_on_v_sync_toggled"]
-[connection signal="pressed" from="Video/BackFromVideo" to="." method="_on_back_from_video_pressed"]
-[connection signal="value_changed" from="Audio/HBoxContainer/Slider/HBoxContainer/Master" to="." method="_on_master_value_changed"]
-[connection signal="value_changed" from="Audio/HBoxContainer/Slider/HBoxContainer2/Music" to="." method="_on_music_value_changed"]
-[connection signal="value_changed" from="Audio/HBoxContainer/Slider/HBoxContainer3/Sound FX" to="." method="_on_sound_fx_value_changed"]
-[connection signal="pressed" from="Audio/BackFromAudio" to="." method="_on_back_from_audio_pressed"]
+[connection signal="pressed" from="OptionsMenu/VBoxContainer/Video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="OptionsMenu/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="item_selected" from="OptionsMenu/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="OptionsMenu/VBoxContainer/BackFromOptions" to="." method="_on_back_from_options_pressed"]
+[connection signal="toggled" from="VideoMenu/HBoxContainer/Checks/FullscreenCheckbox" to="." method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="VideoMenu/HBoxContainer/Checks/BorderlessCheckbox" to="." method="_on_borderless_toggled"]
+[connection signal="toggled" from="VideoMenu/HBoxContainer/Checks/VSyncCheckbox" to="." method="_on_v_sync_toggled"]
+[connection signal="pressed" from="VideoMenu/BackFromVideo" to="." method="_on_back_from_video_pressed"]
+[connection signal="value_changed" from="AudioMenu/HBoxContainer/Slider/HBoxContainer/MasterBar" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="AudioMenu/HBoxContainer/Slider/HBoxContainer2/MusicBar" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="AudioMenu/HBoxContainer/Slider/HBoxContainer3/Sound FXBar" to="." method="_on_sound_fx_value_changed"]
+[connection signal="pressed" from="AudioMenu/BackFromAudio" to="." method="_on_back_from_audio_pressed"]

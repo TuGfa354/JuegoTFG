@@ -1,27 +1,27 @@
 extends Control
-@onready var menu =$Menu
-@onready var options = $Options
-@onready var video = $Video
-@onready var audio = $Audio
-@onready var languages_drop_down = $Options/VBoxContainer/HBoxContainer/OptionButton
-@onready var fullscreen_checkbox=$Video/HBoxContainer/Checks/Fullscreen
-@onready var borderless_checkbox=$Video/HBoxContainer/Checks/Borderless
-@onready var vSyncfullscreen_checkbox=$Video/HBoxContainer/Checks/VSync
-@onready var master_bar = $Audio/HBoxContainer/Slider/HBoxContainer/Master
-@onready var master_text = $Audio/HBoxContainer/Slider/HBoxContainer/Label
-@onready var music_bar = $Audio/HBoxContainer/Slider/HBoxContainer2/Music
-@onready var music_text = $Audio/HBoxContainer/Slider/HBoxContainer2/Label
-@onready var sound_bar = $"Audio/HBoxContainer/Slider/HBoxContainer3/Sound FX"
-@onready var sound_text = $Audio/HBoxContainer/Slider/HBoxContainer3/Label
+@onready var menu = %Menu
+@onready var options = %OptionsMenu
+@onready var video = %VideoMenu
+@onready var audio = %AudioMenu
+@onready var languages_drop_down = %OptionButton
+@onready var fullscreen_checkbox=%FullscreenCheckbox
+@onready var borderless_checkbox=%BorderlessCheckbox
+@onready var vSyncfullscreen_checkbox=%VSyncCheckbox
+@onready var master_bar = %MasterBar
+@onready var master_text = %MasterBarLabel
+@onready var music_bar = %MusicBar
+@onready var music_text = %MusicBarLabel
+@onready var sound_bar = %"Sound FXBar"
+@onready var sound_text = %"Sound FXBarLabel"
 #TODO Import the language from a save file so that u only change it the first time u open it
 func _ready():
 	add_languages()
 	TranslationServer.set_locale(Globals.current_language)
 	translate()
-	$Menu/Start.grab_focus()
-	fullscreen_checkbox.button_pressed = Globals.fullscreen
-	borderless_checkbox.button_pressed = Globals.borderless
-	vSyncfullscreen_checkbox.button_pressed = Globals.vsync
+	%Start.grab_focus()
+	#fullscreen_checkbox.button_pressed = Globals.fullscreen
+	#borderless_checkbox.button_pressed = Globals.borderless
+	#vSyncfullscreen_checkbox.button_pressed = Globals.vsync
 	master_bar.value = Globals.master_sound
 	master_text.text = str(Globals.master_sound)
 	music_bar.value = Globals.music_sound
@@ -31,23 +31,23 @@ func _ready():
 	
 	
 func translate():
-		$Menu/Start.text = tr("start")
-		$Menu/Options.text = tr("options")
-		$Menu/Exit.text = tr("exit")
-		$Options/VBoxContainer/Video.text = tr("video")
-		$Options/VBoxContainer/Audio.text= tr("audio")
-		$Options/VBoxContainer/HBoxContainer/Language.text= tr("language")
+		%Start.text = tr("start")
+		%Options.text = tr("options")
+		%Exit.text = tr("exit")
+		%Video.text = tr("video")
+		%Audio.text= tr("audio")
+		%Language.text= tr("language")
 		languages_drop_down.set_item_text(0,tr("english"))
 		languages_drop_down.set_item_text(1,tr("spanish"))
-		$Options/BackFromOptions.text= tr("back")
-		$Video/HBoxContainer/Labels/FullScreen.text= tr("fullscreen")
-		$Video/HBoxContainer/Labels/Borderless.text= tr("borderless")
-		$Video/HBoxContainer/Labels/VSync.text= tr("vsync")
-		$Video/BackFromVideo.text= tr("back")
-		$Audio/HBoxContainer/Labels/Master.text= tr("master")
-		$Audio/HBoxContainer/Labels/Music.text= tr("music")
-		$"Audio/HBoxContainer/Labels/Sound FX".text= tr("sound FX")
-		$Audio/BackFromAudio.text= tr("back")
+		%BackFromOptions.text= tr("back")
+		%FullScreen.text= tr("fullscreen")
+		%Borderless.text= tr("borderless")
+		%VSync.text= tr("vsync")
+		%BackFromVideo.text= tr("back")
+		%Master.text= tr("master")
+		%Music.text= tr("music")
+		%"Sound FX".text= tr("sound FX")
+		%BackFromAudio.text= tr("back")
 
 func add_languages():
 	languages_drop_down.add_item("english",0)
@@ -76,7 +76,7 @@ func _on_start_pressed():
 
 func _on_options_pressed():
 	show_and_hide(options, menu)
-	$Options/VBoxContainer/Video.grab_focus()
+	%Video.grab_focus()
 	print(Globals.current_language)
 	if Globals.current_language =="es":
 		languages_drop_down.selected = 1
@@ -89,16 +89,18 @@ func _on_exit_pressed():
 
 func _on_video_pressed():
 	show_and_hide(video, options)
-	$Video/HBoxContainer/Checks/Fullscreen.grab_focus()
+	%FullscreenCheckbox.grab_focus()
 
 func _on_audio_pressed():
 	show_and_hide(audio, options)
-	$Audio/HBoxContainer/Slider/HBoxContainer/Master.grab_focus()
+	%MasterBar.grab_focus()
 
 func _on_back_from_options_pressed():
 	show_and_hide(menu, options)
-	$Menu/Start.grab_focus()
-
+	%Start.grab_focus()
+#TODO exclusive fullscreen no significa borderless, es el fullscreen que hay que usar para que se adapte a las resoluciones
+#si no es fullscreen que sea ventana y que borderless sea independiente, descomentar lo del ready y en el futuro hacer que sea con el guardado o algo
+#Repetir lo mismo en pause menu
 func _on_fullscreen_toggled(toggled_on):
 	if toggled_on:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -134,11 +136,11 @@ func _on_v_sync_toggled(toggled_on):
 
 func _on_back_from_video_pressed():
 	show_and_hide(options, video)
-	$Options/VBoxContainer/Video.grab_focus()
+	%Video.grab_focus()
 
 func _on_back_from_audio_pressed():
 	show_and_hide(options, audio)
-	$Options/VBoxContainer/Audio.grab_focus()
+	%Audio.grab_focus()
 
 
 func _on_master_value_changed(value):
