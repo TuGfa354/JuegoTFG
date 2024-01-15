@@ -21,7 +21,7 @@ signal pause
 func _ready():
 	visible = false
 	TranslationServer.set_locale(Globals.current_language)
-	add_languages()
+	#add_languages()
 	translate()
 	#fullscreen_checkbox.button_pressed = Globals.fullscreen
 	#borderless_checkbox.button_pressed = Globals.borderless
@@ -38,9 +38,9 @@ func translate():
 		%Exit.text = tr("exit_menu")
 		%Video.text = tr("video")
 		%Audio.text= tr("audio")
-		%Language.text= tr("language")
-		languages_drop_down.set_item_text(0,tr("english"))
-		languages_drop_down.set_item_text(1,tr("spanish"))
+		#%Language.text= tr("language")
+		#languages_drop_down.set_item_text(0,tr("english"))
+		#languages_drop_down.set_item_text(1,tr("spanish"))
 		%BackFromOptions.text= tr("back")
 		%FullScreen.text= tr("fullscreen")
 		%Borderless.text= tr("borderless")
@@ -54,9 +54,9 @@ func _process(_delta):
 
 	if Input.is_action_just_pressed("ui_cancel"):
 		toggle()
-func add_languages():
-	languages_drop_down.add_item("english",0)
-	languages_drop_down.add_item("spanish",1)
+#func add_languages():
+	#languages_drop_down.add_item("english",0)
+	#languages_drop_down.add_item("spanish",1)
 
 
 func toggle():
@@ -82,10 +82,10 @@ func _on_start_pressed():
 func _on_options_pressed():
 	show_and_hide(options, menu)
 	%Video.grab_focus()
-	if Globals.current_language =="es":
-		languages_drop_down.selected = 1
-	else:
-		languages_drop_down.selected = 0
+	#if Globals.current_language =="es":
+		#languages_drop_down.selected = 1
+	#else:
+		#languages_drop_down.selected = 0
 
 
 

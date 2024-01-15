@@ -4,6 +4,7 @@ var sword:PackedScene = preload("res://Scenes/Weapons/test_sword.tscn")
 signal sword_back
 func _ready():
 	$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.text= str($Enemies/EnemySpawner.total_time)
+	$InGameUi/InGameUi/MarginContainer/VBoxContainer/HBoxContainer/WaveNumber.text= str($Enemies/EnemySpawner.wave)
 
 func _on_pause_menu_pause(visible2):
 	$CanvasLayer.visible = visible2
@@ -21,18 +22,21 @@ func _on_knight_attack(delta, direction, current_position, rotationdeg):
 
 func _on_enemy_spawner_wave_ended():
 	$UpgradeMenu.visible = !$UpgradeMenu.visible
-	$InGameUi.visible = !$InGameUi.visible
+	#$InGameUi.visible = !$InGameUi.visible
+	$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible = !$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible
+	
 	$UpgradeMenu/UpgradeMenu/Continue.grab_focus()
 	for i in $Enemies/EnemySpawner/enemies.get_children():
 		i.queue_free()
 	get_tree().paused = $UpgradeMenu.visible
+	$InGameUi/InGameUi/MarginContainer/VBoxContainer/HBoxContainer/WaveNumber.text= str($Enemies/EnemySpawner.wave)
 
 
 
 func _on_upgrade_menu_resume():
 	$UpgradeMenu.visible = !$UpgradeMenu.visible
-	$InGameUi.visible = !$InGameUi.visible
+	$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible = !$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible
 	get_tree().paused = $UpgradeMenu.visible
 	$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.text= str($Enemies/EnemySpawner.total_time)
-	$Enemies/EnemySpawner.time = 0
+	$Enemies/EnemySpawner.time = 1
 	

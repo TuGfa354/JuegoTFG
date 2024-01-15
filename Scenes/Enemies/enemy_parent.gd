@@ -34,3 +34,5 @@ func _on_health_component_dead():
 
 func _on_animated_sprite_2d_animation_finished():
 	queue_free()
+
+#TODO el naivgationPath es un mierdón porque todos hacen siempre lo mismo y se stackean, probar si con usar direction del tirón funciona mejor

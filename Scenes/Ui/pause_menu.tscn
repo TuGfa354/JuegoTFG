@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvgyqm01rsx33"]
+[gd_scene load_steps=3 format=3 uid="uid://dvgyqm01rsx33"]
 
 [ext_resource type="Script" path="res://Scenes/Ui/PauseMenu.gd" id="1_b0ake"]
-[ext_resource type="Theme" uid="uid://c80piyxahit8y" path="res://Scenes/Ui/button.tres" id="2_0a478"]
 [ext_resource type="Texture2D" uid="uid://dty5nrwm5xtgg" path="res://Graphics/ui/Pxiel Art UI borders.png" id="2_83j15"]
 
 [node name="PauseMenu" type="Control"]
@@ -37,9 +36,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -90.0
+offset_left = -108.0
 offset_top = -139.0
-offset_right = 90.0
+offset_right = 108.0
 offset_bottom = 139.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -48,7 +47,7 @@ theme_override_constants/separation = 20
 [node name="Start" type="Button" parent="Menu"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 10
 text = "resume"
 language = "English"
 
@@ -61,7 +60,7 @@ text = "options"
 [node name="Exit" type="Button" parent="Menu"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 2
 text = "exit_menu"
 
 [node name="OptionsMenu" type="Control" parent="."]
@@ -97,39 +96,12 @@ text = "video"
 [node name="Audio" type="Button" parent="OptionsMenu/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 6
-focus_neighbor_bottom = NodePath("../HBoxContainer/OptionButton")
 text = "audio"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("2_0a478")
-
-[node name="Language" type="Button" parent="OptionsMenu/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-auto_translate = false
-theme = ExtResource("2_0a478")
-text = "language"
-language = "English"
-
-[node name="OptionButton" type="OptionButton" parent="OptionsMenu/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-auto_translate = false
-theme = ExtResource("2_0a478")
-alignment = 1
-language = "English"
 
 [node name="BackFromOptions" type="Button" parent="OptionsMenu/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../HBoxContainer/OptionButton")
 text = "back
 "
 
@@ -329,7 +301,6 @@ text = "back
 [connection signal="pressed" from="Menu/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="OptionsMenu/VBoxContainer/Video" to="." method="_on_video_pressed"]
 [connection signal="pressed" from="OptionsMenu/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
-[connection signal="item_selected" from="OptionsMenu/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="OptionsMenu/VBoxContainer/BackFromOptions" to="." method="_on_back_from_options_pressed"]
 [connection signal="toggled" from="VideoMenu/VBoxContainer/Fullscreen/FullscreenCheckbox" to="." method="_on_fullscreen_toggled"]
 [connection signal="toggled" from="VideoMenu/VBoxContainer/Borderless/BorderlessCheckbox" to="." method="_on_borderless_toggled"]

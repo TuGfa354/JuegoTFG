@@ -137,8 +137,9 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6mn5"]
-size = Vector2(20, 31)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a73g5"]
+radius = 7.5
+height = 28.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjxrr"]
 size = Vector2(20, 31)
@@ -169,8 +170,8 @@ maxHealth = 120.0
 base_mov_speed = 525.0
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="1"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_m6mn5")
+position = Vector2(-0.5, 1.5)
+shape = SubResource("CapsuleShape2D_a73g5")
 
 [node name="CharacterBodyShape" parent="." index="5"]
 position = Vector2(0, 0.5)

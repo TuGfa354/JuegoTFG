@@ -21,10 +21,10 @@ func enable_hitbox() -> void:
 func _physics_process(_delta):
 	if areaframe:
 		if areaframe.overlaps_area(self):
-			if vulnerable:
+			#if vulnerable:
 				health_component.damage(areaframe.damage)
-				vulnerable = false
-				$Timer.start()
+				#vulnerable = false
+				#$Timer.start()
 
 func _on_area_entered(area):
 	if(area is ParentWeapon  or EnemyAttack or MeleeAttack or Attack):
@@ -35,7 +35,8 @@ func _on_area_entered(area):
 			#pass
 
 func _on_timer_timeout():
-	vulnerable = true
+	#vulnerable = true
+	pass
 
 
 func _on_area_exited(area):

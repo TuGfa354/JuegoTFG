@@ -116,16 +116,17 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcfjo"]
-size = Vector2(20, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_oekmd"]
+radius = 9.05539
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fg2gw"]
 size = Vector2(20, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw5mc"]
-size = Vector2(20, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_t02le"]
+radius = 9.0
 
 [node name="Skeleton" instance=ExtResource("1_faiin")]
+collision_mask = 10
 script = ExtResource("2_k338a")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
@@ -135,7 +136,7 @@ animation = &"Run"
 
 [node name="CollisionShape2D" parent="DamageAreaComponent" index="0"]
 position = Vector2(0, -6)
-shape = SubResource("RectangleShape2D_lcfjo")
+shape = SubResource("CircleShape2D_oekmd")
 
 [node name="HealthComponent" parent="." index="4"]
 maxHealth = 125.0
@@ -151,4 +152,4 @@ shape = SubResource("RectangleShape2D_fg2gw")
 
 [node name="CharacterBodyShape" parent="." index="7"]
 position = Vector2(0, -6)
-shape = SubResource("RectangleShape2D_bw5mc")
+shape = SubResource("CircleShape2D_t02le")

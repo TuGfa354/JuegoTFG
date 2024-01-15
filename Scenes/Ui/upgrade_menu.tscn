@@ -17,36 +17,26 @@ grow_vertical = 2
 script = ExtResource("1_li4rh")
 
 [node name="Weapons" type="Label" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
-offset_left = 106.0
-offset_top = 10.0
-offset_right = 177.0
-offset_bottom = 33.0
+offset_left = 1741.0
+offset_top = 891.0
+offset_right = 1812.0
+offset_bottom = 914.0
 size_flags_horizontal = 0
 size_flags_vertical = 1
 text = "Weapons"
 horizontal_alignment = 1
 
 [node name="Objects" type="Label" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 113.0
-offset_top = 902.0
+offset_top = 883.0
 offset_right = 171.0
-offset_bottom = 925.0
+offset_bottom = 906.0
 text = "Objects"
 horizontal_alignment = 1
-
-[node name="Wave" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -29.0
-offset_top = 50.0
-offset_right = 29.0
-offset_bottom = 73.0
-grow_horizontal = 2
-text = "Wave 1"
 
 [node name="Money" type="Label" parent="."]
 layout_mode = 1
@@ -75,6 +65,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Reroll" type="Label" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -230,12 +221,8 @@ vertical_alignment = 1
 autowrap_mode = 3
 clip_text = true
 
-[node name="Button" type="Button" parent="StoreMargin/StoreGrid/IndividualStoreMargin/Background1"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="Button2" type="Button" parent="StoreMargin/StoreGrid/IndividualStoreMargin/Background1"]
+[node name="Buy" type="Button" parent="StoreMargin/StoreGrid/IndividualStoreMargin/Background1"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -316,7 +303,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Button" type="Button" parent="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2"]
+[node name="Buy2" type="Button" parent="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -410,7 +398,8 @@ grow_horizontal = 2
 text = "90"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3"]
+[node name="Buy3" type="Button" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -427,11 +416,18 @@ size_flags_horizontal = 6
 text = "Buy"
 
 [node name="WeaponsMargin" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 265.0
-offset_bottom = 170.0
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 40
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -265.0
+offset_top = -170.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="WeaponsGrid" type="GridContainer" parent="WeaponsMargin"]
 layout_mode = 2
@@ -580,7 +576,7 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -146.0
+offset_top = -170.0
 offset_right = 265.0
 grow_vertical = 0
 theme_override_constants/margin_left = 20

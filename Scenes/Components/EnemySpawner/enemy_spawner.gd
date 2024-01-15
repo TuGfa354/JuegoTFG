@@ -2,31 +2,34 @@ extends Node2D
 signal wave_ended
 @export var spawns: Array[SpawnInfo]= []
 @onready var player = get_tree().get_first_node_in_group("Player")
-var time = 0
-var total_time= 5
+var time = 1
+var total_time= 20
+var wave:int = 1
 
 
 
 func _on_timer_timeout():
-	if time==total_time-1:
+	if time==total_time:
+		wave+=1
 		wave_ended.emit()
-	time+=1
 	get_node("/root/Level1/InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer").text = str(total_time-time)
+	time+=1
 	var enemy_spawns = spawns
 	for i in enemy_spawns:
-		if time>= i.time_start and time <= i.time_end:
-			if i.spawn_delay_counter < i.enemy_spawn_delay:
-				i.spawn_delay_counter +=1
-			else:
-				i.spawn_delay_counter = 0
-				var new_enemy = load(str(i.enemy.resource_path))
-				var counter = 0
-				while counter<i.enemy_number:
-					var enemy_spawn = new_enemy.instantiate()
-					enemy_spawn.global_position = get_random_position()
-					$enemies.add_child(enemy_spawn)
+		if wave == i.wave:
+			if time>= i.time_start and time <= i.time_end:
+				if i.spawn_delay_counter < i.enemy_spawn_delay:
+					i.spawn_delay_counter +=1
+				else:
+					i.spawn_delay_counter = 0
+					var new_enemy = load(str(i.enemy.resource_path))
+					var counter = 0
+					while counter<i.enemy_number:
+						var enemy_spawn = new_enemy.instantiate()
+						enemy_spawn.global_position = get_random_position()
+						$enemies.add_child(enemy_spawn)
 
-					counter+=1
+						counter+=1
 
 func get_random_position():
 	var top_left = Vector2(60,60)

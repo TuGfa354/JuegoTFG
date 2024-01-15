@@ -142,15 +142,16 @@ radius = 200.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2wuv"]
 size = Vector2(20, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ostu"]
-size = Vector2(20, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_efwu4"]
+radius = 10.0125
 
 [node name="Skeleton Mage" instance=ExtResource("1_ta74d")]
+collision_mask = 10
 script = ExtResource("2_b65tl")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_5se78")
-animation = &"Death"
+animation = &"Run"
 
 [node name="Range" parent="DamageRangeComponent" index="1"]
 shape = SubResource("CircleShape2D_5x87m")
@@ -169,5 +170,5 @@ position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_f2wuv")
 
 [node name="CharacterBodyShape" parent="." index="7"]
-position = Vector2(0, 16)
-shape = SubResource("RectangleShape2D_5ostu")
+position = Vector2(-3, 18.5)
+shape = SubResource("CircleShape2D_efwu4")
