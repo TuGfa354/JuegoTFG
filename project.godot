@@ -117,3 +117,4 @@ locale/locale_filter_mode=0
 2d_physics/layer_6="Enemy Projectiles"
 2d_physics/layer_7="Weapons"
 2d_physics/layer_8="EnemyHitbox"
+2d_physics/layer_9="Loot"

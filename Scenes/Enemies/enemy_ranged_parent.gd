@@ -11,9 +11,12 @@ var running:bool = true
 var SPEED: float
 var dead:bool = false
 
+#Exp and gold
+@onready var loot_base = get_tree().get_first_node_in_group("loot")
+@export var experience: int
+var exp_gem = preload("res://Scenes/objects/experience_gem.tscn")
 
 func _ready():
-	$NavigationAgent2D.target_position = Globals.player_pos
 	$AnimatedSprite2D.play("Run")
 	SPEED = velocity_component.base_mov_speed
 
@@ -28,8 +31,7 @@ func _physics_process(_delta):
 			$AnimatedSprite2D.scale= Vector2(-1, 1)
 		else:
 			$AnimatedSprite2D.scale= Vector2(1, 1)
-		var next_path_position = $NavigationAgent2D.get_next_path_position()
-		direction = (next_path_position - global_position).normalized()
+		direction = (Globals.player_pos - global_position).normalized()
 		velocity = direction * velocity_component.base_mov_speed
 		if running:
 			velocity_component.base_mov_speed = SPEED
@@ -44,6 +46,10 @@ func _physics_process(_delta):
 
 
 func _on_animated_sprite_2d_animation_finished():
+	var new_gem = exp_gem.instantiate()
+	new_gem.global_position = global_position
+	new_gem.experience = experience
+	loot_base.call_deferred("add_child", new_gem)
 	queue_free()
 
 

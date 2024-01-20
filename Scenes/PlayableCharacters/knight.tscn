@@ -170,10 +170,12 @@ maxHealth = 120.0
 base_mov_speed = 525.0
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="1"]
+visible = false
 position = Vector2(-0.5, 1.5)
 shape = SubResource("CapsuleShape2D_a73g5")
 
 [node name="CharacterBodyShape" parent="." index="5"]
+visible = false
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fjxrr")
 

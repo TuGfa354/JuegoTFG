@@ -17,3 +17,6 @@ func translate():
 
 func _on_continue_pressed():
 	resume.emit()
+
+#TODO cuando le doy a la derecha en el ccandado de la derecha me lleva a reroll, cuando le doy a reroll a la izq mme lleva a la llave
+#TODO cambiar las stats a botones para poder leer lo que hacen

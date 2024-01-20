@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkm1oc3aiyxx4"]
+
+[ext_resource type="Script" path="res://Scenes/objects/experience_gem.gd" id="1_t4kni"]
+[ext_resource type="Texture2D" uid="uid://bh6ufkwjr5re2" path="res://Graphics/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/gem_01a.png" id="1_uqnnk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fvdwo"]
+radius = 25.0
+
+[node name="ExperienceGem" type="Area2D" groups=["loot"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_t4kni")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uqnnk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fvdwo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

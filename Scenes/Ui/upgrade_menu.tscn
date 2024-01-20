@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2whbnf5sjrer"]
+[gd_scene load_steps=10 format=3 uid="uid://b2whbnf5sjrer"]
 
 [ext_resource type="Script" path="res://Scenes/Ui/upgrade_menu.gd" id="1_li4rh"]
 [ext_resource type="Texture2D" uid="uid://dty5nrwm5xtgg" path="res://Graphics/ui/Pxiel Art UI borders.png" id="2_7u0i0"]
+[ext_resource type="Texture2D" uid="uid://dypx6s11gj86d" path="res://Graphics/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/coin_05d.png" id="2_arraj"]
+[ext_resource type="Texture2D" uid="uid://kh8ypsnpgsmr" path="res://Graphics/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/coin_02d.png" id="3_d168c"]
 [ext_resource type="Texture2D" uid="uid://dwq4i424si847" path="res://Graphics/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/Analog Sticks/Blank/button_xboxone_analog_blank.png" id="3_xpxps"]
+[ext_resource type="Texture2D" uid="uid://bp4b48ho8beb" path="res://Graphics/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/key_01d.png" id="4_4u5u7"]
 [ext_resource type="Texture2D" uid="uid://cnnxkc5rdu4xa" path="res://Graphics/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/D-Pad/button_xboxone_dpad_light_5.png" id="4_tsuri"]
-[ext_resource type="Texture2D" uid="uid://dy2c7npbsgqca" path="res://Graphics/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/Digital Buttons/Shoulder/button_xbox_digital_bumper_dark_2.png" id="5_0tvaj"]
+[ext_resource type="Texture2D" uid="uid://c6dt8jk6hrgnw" path="res://Graphics/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/key_01c.png" id="5_u1ffb"]
+[ext_resource type="Texture2D" uid="uid://c0fjvon6b21oe" path="res://Graphics/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/32x32/coin_02d.png" id="6_utdaw"]
 
 [node name="UpgradeMenu" type="Control"]
 process_mode = 3
@@ -60,11 +64,11 @@ offset_top = 144.0
 offset_right = 54.0
 offset_bottom = 184.0
 grow_horizontal = 2
-texture = ExtResource("5_0tvaj")
+texture = ExtResource("2_arraj")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Reroll" type="Label" parent="."]
+[node name="Reroll" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -75,6 +79,7 @@ offset_top = 150.0
 offset_right = 540.0
 offset_bottom = 175.0
 grow_horizontal = 2
+focus_neighbor_bottom = NodePath("../StoreMargin/StoreGrid/IndividualStoreMargin3/Background3/Buy3")
 text = "Reroll:"
 
 [node name="RerollQuantity" type="Label" parent="."]
@@ -96,12 +101,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 583.0
+offset_left = 563.0
 offset_top = 144.0
-offset_right = 655.0
+offset_right = 635.0
 offset_bottom = 181.0
 grow_horizontal = 2
-texture = ExtResource("5_0tvaj")
+texture = ExtResource("3_d168c")
 expand_mode = 1
 stretch_mode = 5
 
@@ -111,7 +116,12 @@ offset_left = 499.0
 offset_top = 785.0
 offset_right = 539.0
 offset_bottom = 825.0
-texture_normal = ExtResource("2_7u0i0")
+focus_neighbor_top = NodePath("../StoreMargin/StoreGrid/IndividualStoreMargin/Background1/Buy")
+focus_neighbor_right = NodePath("../Lock3")
+focus_neighbor_bottom = NodePath("../Continue")
+texture_normal = ExtResource("4_4u5u7")
+texture_hover = ExtResource("5_u1ffb")
+texture_focused = ExtResource("5_u1ffb")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -121,7 +131,12 @@ offset_left = 1382.0
 offset_top = 785.0
 offset_right = 1422.0
 offset_bottom = 825.0
-texture_normal = ExtResource("2_7u0i0")
+focus_neighbor_left = NodePath("../Lock3")
+focus_neighbor_top = NodePath("../StoreMargin/StoreGrid/IndividualStoreMargin3/Background3/Buy3")
+focus_neighbor_bottom = NodePath("../Continue")
+texture_normal = ExtResource("4_4u5u7")
+texture_hover = ExtResource("5_u1ffb")
+texture_focused = ExtResource("5_u1ffb")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -131,7 +146,13 @@ offset_left = 941.0
 offset_top = 785.0
 offset_right = 981.0
 offset_bottom = 825.0
-texture_normal = ExtResource("2_7u0i0")
+focus_neighbor_left = NodePath("../Lock1")
+focus_neighbor_top = NodePath("../StoreMargin/StoreGrid/IndividualStoreMargin2/Background2/Buy2")
+focus_neighbor_right = NodePath("../Lock2")
+focus_neighbor_bottom = NodePath("../Continue")
+texture_normal = ExtResource("4_4u5u7")
+texture_hover = ExtResource("5_u1ffb")
+texture_focused = ExtResource("5_u1ffb")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -156,6 +177,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 300
@@ -235,20 +258,52 @@ offset_right = 20.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_neighbor_top = NodePath("../../../../../Reroll")
+focus_neighbor_right = NodePath("../../../IndividualStoreMargin2/Background2/Buy2")
+focus_neighbor_bottom = NodePath("../../../../../Lock1")
 text = "Buy"
 
 [node name="Label" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin/Background1"]
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -80.0
+offset_right = 6.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "90"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin/Background1"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_top = 5.0
-offset_right = 20.0
-offset_bottom = 28.0
+offset_left = -41.5
+offset_right = 41.5
+offset_bottom = 23.0
 grow_horizontal = 2
-text = "90"
-horizontal_alignment = 1
+text = "item_name"
+
+[node name="TextureRect" type="TextureRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin/Background1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -84.0
+offset_right = 41.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_utdaw")
 
 [node name="IndividualStoreMargin2" type="MarginContainer" parent="StoreMargin/StoreGrid"]
 layout_mode = 2
@@ -317,20 +372,53 @@ offset_right = 20.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_neighbor_left = NodePath("../../../IndividualStoreMargin/Background1/Buy")
+focus_neighbor_top = NodePath("../../../../../Reroll")
+focus_neighbor_right = NodePath("../../../IndividualStoreMargin3/Background3/Buy3")
+focus_neighbor_bottom = NodePath("../../../../../Lock3")
 text = "Buy"
 
-[node name="Label" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2"]
+[node name="Label2" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_top = 5.0
-offset_right = 20.0
-offset_bottom = 28.0
+offset_left = -41.5
+offset_right = 41.5
+offset_bottom = 23.0
 grow_horizontal = 2
+text = "item_name"
+
+[node name="Label" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -80.0
+offset_right = 6.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "90"
 horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -84.0
+offset_right = 41.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_utdaw")
 
 [node name="IndividualStoreMargin3" type="MarginContainer" parent="StoreMargin/StoreGrid"]
 layout_mode = 2
@@ -385,19 +473,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Label" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = 5.0
-offset_right = 20.0
-offset_bottom = 28.0
-grow_horizontal = 2
-text = "90"
-horizontal_alignment = 1
-
 [node name="Buy3" type="Button" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -413,7 +488,52 @@ offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 6
+focus_neighbor_left = NodePath("../../../IndividualStoreMargin2/Background2/Buy2")
+focus_neighbor_top = NodePath("../../../../../Reroll")
+focus_neighbor_bottom = NodePath("../../../../../Lock2")
 text = "Buy"
+
+[node name="Label2" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.5
+offset_right = 41.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "item_name"
+
+[node name="Label" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -80.0
+offset_right = 6.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "90"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -84.0
+offset_right = 41.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_utdaw")
 
 [node name="WeaponsMargin" type="MarginContainer" parent="."]
 layout_mode = 1

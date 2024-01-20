@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://2vriyonhucnw"]
+[gd_scene load_steps=9 format=3 uid="uid://2vriyonhucnw"]
 
 [ext_resource type="Script" path="res://Scenes/PlayableCharacters/ParentPlayer.gd" id="1_wimjr"]
 [ext_resource type="PackedScene" uid="uid://d2c4ccnfltmr1" path="res://Scenes/Components/Health/health_component.tscn" id="2_j1i6e"]
@@ -23,6 +23,11 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l0qu6"]
+radius = 60.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qfkk6"]
 
 [node name="PlayableCharacter" type="CharacterBody2D"]
 scale = Vector2(2, 2)
@@ -88,5 +93,21 @@ limit_bottom = 525
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
+[node name="GrabArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+shape = SubResource("CircleShape2D_l0qu6")
+
+[node name="CollectArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
+shape = SubResource("CircleShape2D_qfkk6")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="dead" from="HealthComponent" to="." method="_on_health_component_dead"]
+[connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
+[connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]

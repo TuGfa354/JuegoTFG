@@ -112,6 +112,7 @@ size = Vector2(20, 32)
 [node name="Skeleton_rogue" instance=ExtResource("1_w2mi1")]
 collision_mask = 10
 script = ExtResource("2_qajjx")
+experience = 40
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_ub888")
