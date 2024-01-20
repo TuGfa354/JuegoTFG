@@ -28,8 +28,13 @@ func _on_timer_timeout():
 						var enemy_spawn = new_enemy.instantiate()
 						enemy_spawn.global_position = get_random_position()
 						$enemies.add_child(enemy_spawn)
-
 						counter+=1
+		elif wave>i.wave:
+			print("spawnInfo",i)
+			print(spawns.find(i))
+			var array_position= spawns.find(i)
+			spawns.erase(i)
+			print(spawns)
 
 func get_random_position():
 	var top_left = Vector2(60,60)
