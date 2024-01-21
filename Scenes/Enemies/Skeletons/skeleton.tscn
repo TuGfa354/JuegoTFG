@@ -128,7 +128,8 @@ radius = 9.0
 [node name="Skeleton" instance=ExtResource("1_faiin")]
 collision_mask = 10
 script = ExtResource("2_k338a")
-experience = 10
+experience = 1
+gold = 1
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(1, -24)

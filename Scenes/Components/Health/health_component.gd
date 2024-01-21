@@ -26,7 +26,7 @@ func damage(damage_amount: float):
 	if get_parent() is PlayerParent:
 		if vulnerable:
 			currentHealth = maxf(0.0, currentHealth - damage_amount)
-			print(currentHealth)
+
 			vulnerable = false
 			$Timer.start()
 			get_parent().get_node("ProgressBar2").value = currentHealth
@@ -38,7 +38,7 @@ func damage(damage_amount: float):
 				get_parent().get_node("ProgressBar2").visible = true
 	else:
 		currentHealth = maxf(0.0, currentHealth - damage_amount)
-		print(currentHealth)
+
 	if(currentHealth == 0):
 		dead.emit()
 

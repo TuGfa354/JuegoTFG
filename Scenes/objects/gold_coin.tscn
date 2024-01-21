@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://o30oyu8igssh"]
+
+[ext_resource type="Script" path="res://Scenes/objects/GoldCoin.gd" id="1_ffefg"]
+[ext_resource type="Texture2D" uid="uid://cls7k1ewef5k0" path="res://Graphics/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/coin_01d.png" id="2_xwxxv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e16ap"]
+radius = 25.0
+
+[node name="GoldCoin" type="Area2D" groups=["gold"]]
+scale = Vector2(0.7, 0.7)
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_ffefg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xwxxv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_e16ap")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

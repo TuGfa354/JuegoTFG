@@ -15,6 +15,8 @@ var dead:bool = false
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
 @export var experience: int
 var exp_gem = preload("res://Scenes/objects/experience_gem.tscn")
+var gold_coin = preload("res://Scenes/objects/gold_coin.tscn")
+@export var gold:int
 
 func _ready():
 	$AnimatedSprite2D.play("Run")
@@ -46,10 +48,16 @@ func _physics_process(_delta):
 
 
 func _on_animated_sprite_2d_animation_finished():
+	#Experience
 	var new_gem = exp_gem.instantiate()
-	new_gem.global_position = global_position
+	new_gem.global_position = Vector2(global_position.x-10,global_position.y)
 	new_gem.experience = experience
 	loot_base.call_deferred("add_child", new_gem)
+	#Gold
+	var new_coin = gold_coin.instantiate()
+	new_coin.global_position = Vector2(global_position.x+10,global_position.y)
+	new_coin.gold = gold
+	loot_base.call_deferred("add_child", new_coin)
 	queue_free()
 
 

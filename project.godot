@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Tfg"
 config/tags=PackedStringArray("juego")
-run/main_scene="res://Scenes/Ui/main_menu.tscn"
+run/main_scene="res://Scenes/Ui/mainMenu.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Save"
 config/features=PackedStringArray("4.2", "Mobile")
@@ -26,6 +26,7 @@ Globals="*res://Scenes/Globals/globals.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=4
 window/stretch/mode="canvas_items"
 
 [editor_plugins]

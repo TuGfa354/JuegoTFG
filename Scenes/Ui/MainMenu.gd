@@ -77,7 +77,7 @@ func _on_start_pressed():
 func _on_options_pressed():
 	show_and_hide(options, menu)
 	%Video.grab_focus()
-	print(Globals.current_language)
+
 	if Globals.current_language =="es":
 		languages_drop_down.selected = 1
 	else:

@@ -11,7 +11,7 @@ z_index = 1
 script = ExtResource("2_0ecf0")
 range_area = 200.0
 attack_speed = 1.5
-damage = 30.0
+damage = 60.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_5tytq")

@@ -22,14 +22,14 @@ var  collected_gold=0
 @onready var expText = get_node("/root/Level1/InGameUi/InGameUi/MarginContainer2/VBoxContainer/ProgressBar3/Labelexp")
 @onready var hpBar = get_node("/root/Level1/InGameUi/InGameUi/MarginContainer2/VBoxContainer/ProgressBar2")
 @onready var hpText = get_node("/root/Level1/InGameUi/InGameUi/MarginContainer2/VBoxContainer/ProgressBar2/Label")
+@onready var goldText = get_node("/root/Level1/InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer/GoldLabel")
 
 
 func _ready():
 	%ProgressBar2.max_value = health_component.maxHealth
 	%ProgressBar2.value = health_component.currentHealth
 
-	print(health_component.currentHealth)
-	print(health_component.maxHealth)
+
 	hpBar.max_value = health_component.maxHealth
 	hpBar.value = health_component.currentHealth
 
@@ -69,16 +69,20 @@ func _on_animated_sprite_2d_animation_finished():
 
 
 func _on_grab_area_area_entered(area):
-	if area.is_in_group("loot"):
+	if area.is_in_group("experience") or area.is_in_group("gold"):
 		area.target = self
 
 
 func _on_collect_area_area_entered(area):
-	if area.is_in_group("loot"):
+	if area.is_in_group("experience"):
 		var gem_exp = area.collect()
-		print(gem_exp)
+
 		calculate_experience(gem_exp)
 		area.queue_free()
+	elif area.is_in_group("gold"):
+		var gold_coin = area.collect()
+		gold +=gold_coin
+		goldText.text = str(gold)
 
 func calculate_experience(gem_exp):
 	var exp_required = calculate_experience_cap()
@@ -98,12 +102,13 @@ func calculate_experience(gem_exp):
 
 func calculate_experience_cap():
 	var exp_cap = experience_level
-	if experience_level <20:
-		exp_cap = experience_level*5
-	elif experience_level <40:
-		exp_cap = 95 * (experience_level-19)*8
-	else:
-		exp_cap = 255 +(experience_level-39)*12
+	#if experience_level <20:
+		#exp_cap = experience_level*5
+	#elif experience_level <40:
+		#exp_cap = 95 * (experience_level-19)*8
+	#else:
+		#exp_cap = 255 +(experience_level-39)*12
+	exp_cap = experience_level*20
 	return exp_cap
 
 func set_exp_bar(set_value = 1, set_max_value = 100):

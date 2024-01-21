@@ -148,7 +148,7 @@ radius = 10.0125
 [node name="Skeleton Mage" instance=ExtResource("1_ta74d")]
 collision_mask = 10
 script = ExtResource("2_b65tl")
-experience = 25
+experience = 2
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_5se78")

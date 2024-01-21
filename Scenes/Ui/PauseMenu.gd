@@ -5,7 +5,7 @@ extends Control
 @onready var video = %VideoMenu
 @onready var audio = %AudioMenu
 signal pause
-@onready var languages_drop_down = %OptionButton
+#@onready var languages_drop_down = %OptionButton
 @onready var fullscreen_checkbox=%FullscreenCheckbox
 @onready var borderless_checkbox=%BorderlessCheckbox
 @onready var vSyncfullscreen_checkbox=%VSyncCheckbox
@@ -62,7 +62,7 @@ func _process(_delta):
 func toggle():
 	visible = !visible
 	get_tree().paused = visible
-	print("oooo")
+
 	pause.emit(visible)
 
 
