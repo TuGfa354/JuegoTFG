@@ -28,12 +28,10 @@ var  collected_gold=0
 func _ready():
 	%ProgressBar2.max_value = health_component.maxHealth
 	%ProgressBar2.value = health_component.currentHealth
-
-
 	hpBar.max_value = health_component.maxHealth
 	hpBar.value = health_component.currentHealth
-
 	hpText.text = str(health_component.currentHealth,"/",health_component.maxHealth)
+	Globals.player_pos = global_position
 func _physics_process(_delta):
 	if dead:
 			$AnimatedSprite2D.play('Death')

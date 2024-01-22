@@ -30,6 +30,8 @@ func _on_enemy_spawner_wave_ended():
 		i.queue_free()
 	for i in $Loot.get_children():
 		i.queue_free()
+	for i in $Projectiles.get_children():
+		i.queue_free()
 	get_tree().paused = $UpgradeMenu.visible
 	$InGameUi/InGameUi/MarginContainer/VBoxContainer/HBoxContainer/WaveNumber.text= str($Enemies/EnemySpawner.wave)
 

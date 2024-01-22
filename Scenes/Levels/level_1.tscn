@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bn4q4fyry8aop"]
+[gd_scene load_steps=28 format=3 uid="uid://bn4q4fyry8aop"]
 
 [ext_resource type="PackedScene" uid="uid://clea0mhs5s5q" path="res://Scenes/Levels/parent_level.tscn" id="1_mx8lj"]
 [ext_resource type="Texture2D" uid="uid://d01q7fsb7dm73" path="res://Graphics/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Tiles.png" id="2_ei3pb"]
@@ -485,12 +485,6 @@ enemy_number = 5
 enemy_spawn_delay = 0
 wave = 1
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_2cu4t"]
-vertices = PackedVector2Array(1060, -377, 1060, 544, 1026, 577, -784, 574, -812, 543, -815, -372, -773, -415, 1018, -416)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-826, -376, -822, 547, -789, 584, 1030, 588, 1070, 549, 1071, -382, 1022, -427, -778, -425)])
-source_geometry_group_name = &"navigation_polygon_source_group"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6smq"]
 size = Vector2(15, 944)
 
@@ -531,10 +525,6 @@ layer_0/tile_data = PackedInt32Array(-196612, 65536, 1, -131076, 131072, 3, -196
 
 [node name="EnemySpawner" parent="Enemies" index="0" instance=ExtResource("5_bi14k")]
 spawns = Array[ExtResource("7_8nvke")]([SubResource("Resource_xvwxk"), SubResource("Resource_2pjy4"), SubResource("Resource_43ml1"), SubResource("Resource_kr247"), SubResource("Resource_mxwro")])
-
-[node name="NavigationRegion2D" parent="." index="4"]
-position = Vector2(838, 449)
-navigation_polygon = SubResource("NavigationPolygon_2cu4t")
 
 [node name="LevelBarriers" type="Node2D" parent="." index="5"]
 
@@ -609,14 +599,14 @@ position = Vector2(1, -18)
 rotation = 0.817146
 shape = SubResource("RectangleShape2D_lw5y3")
 
-[node name="GameOver" parent="." index="7"]
+[node name="GameOver" parent="." index="6"]
 unique_name_in_owner = true
 
-[node name="Character" parent="." index="9"]
+[node name="Character" parent="." index="8"]
 position = Vector2(838, 453)
 
 [node name="Knight" parent="Character" index="0" instance=ExtResource("3_r6v1l")]
 
-[node name="Loot" parent="." index="12" groups=["loot"]]
+[node name="Loot" parent="." index="11" groups=["loot"]]
 
 [connection signal="wave_ended" from="Enemies/EnemySpawner" to="." method="_on_enemy_spawner_wave_ended"]

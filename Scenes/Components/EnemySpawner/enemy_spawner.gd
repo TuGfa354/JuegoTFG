@@ -30,7 +30,6 @@ func _on_timer_timeout():
 						$enemies.add_child(enemy_spawn)
 						counter+=1
 		elif wave>i.wave:
-			var array_position= spawns.find(i)
 			spawns.erase(i)
 
 
