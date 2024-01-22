@@ -35,7 +35,6 @@ func _physics_process(_delta):
 
 
 func _on_health_component_dead():
-
 	hitbox_component.disable_hitbox()
 	velocity_component.stop_moving()
 	$DamageAreaComponent/CollisionShape2D.disabled = true

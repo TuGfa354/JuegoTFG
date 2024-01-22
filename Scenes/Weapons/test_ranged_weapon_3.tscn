@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://h8pi4nbouin"]
+
+[ext_resource type="PackedScene" uid="uid://btjtg18vhmths" path="res://Scenes/Weapons/parent_ranged_weapon.tscn" id="1_8xb2e"]
+[ext_resource type="Texture2D" uid="uid://c0qaktiqwnq8p" path="res://Graphics/armas/modern/1.png" id="2_5787a"]
+[ext_resource type="Script" path="res://Scenes/Weapons/test_ranged_weapon_3.gd" id="2_sfgg2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7fqo0"]
+
+[node name="test_ranged_weapon_3" instance=ExtResource("1_8xb2e")]
+script = ExtResource("2_sfgg2")
+range_area = 600.0
+attack_speed = 3.0
+damage = 160.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_7fqo0")
+
+[node name="Sprite2D" parent="WeaponPivot" index="0"]
+texture = ExtResource("2_5787a")
+region_enabled = true
+region_rect = Rect2(160, 48, 48, 16)
+
+[node name="ShootingPoint" parent="WeaponPivot/Sprite2D" index="0"]
+position = Vector2(25, 0)

@@ -28,7 +28,7 @@ func _physics_process(_delta):
 	if dead:
 		$AnimatedSprite2D.play('Death')
 	else:
-		$NavigationAgent2D.target_position = Globals.player_pos
+		#$NavigationAgent2D.target_position = Globals.player_pos
 		if  Globals.player_pos.x< position.x:
 			$AnimatedSprite2D.scale= Vector2(-1, 1)
 		else:

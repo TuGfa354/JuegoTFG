@@ -9,7 +9,7 @@
 [node name="Test_ranged_weapon" instance=ExtResource("1_j3tso")]
 z_index = 1
 script = ExtResource("2_0ecf0")
-range_area = 200.0
+range_area = 300.0
 attack_speed = 1.5
 damage = 60.0
 

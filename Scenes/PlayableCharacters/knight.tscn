@@ -1,11 +1,14 @@
-[gd_scene load_steps=26 format=3 uid="uid://pr383wo1yuuf"]
+[gd_scene load_steps=29 format=3 uid="uid://pr383wo1yuuf"]
 
 [ext_resource type="PackedScene" uid="uid://2vriyonhucnw" path="res://Scenes/PlayableCharacters/ParentPlayer.tscn" id="1_eg81x"]
 [ext_resource type="Texture2D" uid="uid://dhdd3hu6rn2op" path="res://Graphics/Pixel Crawler - FREE - 1.8/Heroes/Knight/Idle/Idle-Sheet.png" id="2_ac4x4"]
 [ext_resource type="Script" path="res://Scenes/PlayableCharacters/knight.gd" id="2_lsgc5"]
 [ext_resource type="Texture2D" uid="uid://dk8wk574lrau0" path="res://Graphics/Pixel Crawler - FREE - 1.8/Heroes/Knight/Run/Run-Sheet.png" id="3_s8ee1"]
 [ext_resource type="Texture2D" uid="uid://cvqf0txl2v0s5" path="res://Graphics/Pixel Crawler - FREE - 1.8/Heroes/Knight/Death/Death-Sheet.png" id="4_shaax"]
+[ext_resource type="PackedScene" uid="uid://h8pi4nbouin" path="res://Scenes/Weapons/test_ranged_weapon_3.tscn" id="6_m55cj"]
 [ext_resource type="PackedScene" uid="uid://bbc3m4wkyx1bb" path="res://Scenes/Weapons/test_ranged_weapon.tscn" id="7_k4mix"]
+[ext_resource type="PackedScene" uid="uid://je88wenhuril" path="res://Scenes/Weapons/test_ranged_weapon_4.tscn" id="7_q21aw"]
+[ext_resource type="PackedScene" uid="uid://kxm6ywcyr0cc" path="res://Scenes/Weapons/test_ranged_weapon_2.tscn" id="8_tnb6y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6i1g8"]
 atlas = ExtResource("4_shaax")
@@ -151,15 +154,11 @@ script = ExtResource("2_lsgc5")
 sprite_frames = SubResource("SpriteFrames_3t43b")
 animation = &"Idle"
 
-[node name="Test_ranged_weapon5" parent="Weapons/Marker2D" index="0" instance=ExtResource("7_k4mix")]
+[node name="test_ranged_weapon_3" parent="Weapons/Marker2D2" index="0" instance=ExtResource("6_m55cj")]
 
-[node name="Test_ranged_weapon4" parent="Weapons/Marker2D2" index="0" instance=ExtResource("7_k4mix")]
+[node name="test_ranged_weapon_4" parent="Weapons/Marker2D3" index="0" instance=ExtResource("7_q21aw")]
 
-[node name="Test_ranged_weapon5" parent="Weapons/Marker2D3" index="0" instance=ExtResource("7_k4mix")]
-
-[node name="Test_ranged_weapon3" parent="Weapons/Marker2D4" index="0" instance=ExtResource("7_k4mix")]
-
-[node name="Test_ranged_weapon2" parent="Weapons/Marker2D5" index="0" instance=ExtResource("7_k4mix")]
+[node name="test_ranged_weapon_2" parent="Weapons/Marker2D5" index="0" instance=ExtResource("8_tnb6y")]
 
 [node name="Test_ranged_weapon" parent="Weapons/Marker2D6" index="0" instance=ExtResource("7_k4mix")]
 

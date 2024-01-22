@@ -15,8 +15,6 @@ script = ExtResource("1_cnok4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-
 [node name="DamageRangeComponent" parent="." instance=ExtResource("4_2a1c1")]
 unique_name_in_owner = true
 timerDuration = 2.0
