@@ -1,11 +1,14 @@
 extends CharacterBody2D
 class_name EnemyRangedParent
 
+#region variables
 
+#Components
 @onready var hitbox_component = %HitboxComponent as HitboxComponent
 @onready var velocity_component = %Velocity as VelocityComponent
 @onready var health_component = %HealthComponent as HealthComponent
 @onready var damage_range_component = %DamageRangeComponent as DamageRangeComponent
+
 var direction: Vector2
 var running:bool = true
 var SPEED: float
@@ -17,18 +20,18 @@ var dead:bool = false
 var exp_gem = preload("res://Scenes/objects/experience_gem.tscn")
 var gold_coin = preload("res://Scenes/objects/gold_coin.tscn")
 @export var gold:int
+#endregion
 
 func _ready():
 	$AnimatedSprite2D.play("Run")
 	SPEED = velocity_component.base_mov_speed
 
-
+#TODO mejorar la muerte como con el melee
 
 func _physics_process(_delta):
 	if dead:
 		$AnimatedSprite2D.play('Death')
 	else:
-		#$NavigationAgent2D.target_position = Globals.player_pos
 		if  Globals.player_pos.x< position.x:
 			$AnimatedSprite2D.scale= Vector2(-1, 1)
 		else:

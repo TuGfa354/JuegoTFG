@@ -122,18 +122,18 @@ animation = &"Run"
 position = Vector2(0, 16)
 shape = SubResource("CircleShape2D_jl5ek")
 
-[node name="HealthComponent" parent="." index="4"]
+[node name="HealthComponent" parent="." index="3"]
 maxHealth = 100.0
 
-[node name="Velocity" parent="." index="5"]
+[node name="Velocity" parent="." index="4"]
 base_mov_speed = 450.0
 
-[node name="HitboxComponent" parent="." index="6"]
+[node name="HitboxComponent" parent="." index="5"]
 position = Vector2(0, 16)
 
 [node name="Hitbox" parent="HitboxComponent" index="1"]
 shape = SubResource("RectangleShape2D_n85j6")
 
-[node name="CharacterBodyShape" parent="." index="7"]
+[node name="CharacterBodyShape" parent="." index="6"]
 position = Vector2(0, 16)
 shape = SubResource("CircleShape2D_yfepe")

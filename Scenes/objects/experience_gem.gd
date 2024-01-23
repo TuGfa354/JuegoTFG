@@ -13,9 +13,9 @@ var speed = 7
 @onready var collision = $CollisionShape2D
 
 func _ready():
-	if experience <= 10:
+	if experience == 1:
 		return
-	elif experience <= 25:
+	elif experience == 2:
 		sprite.texture= spr_yellow
 	else:
 		sprite.texture = spr_red

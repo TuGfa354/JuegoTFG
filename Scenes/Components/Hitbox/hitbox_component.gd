@@ -1,23 +1,25 @@
 extends Area2D
 class_name HitboxComponent
 
+#region variables
+
 @export var health_component: HealthComponent
 @export var hit_box_shape: CollisionShape2D
 @export var timerDuration:float
 var vulnerable = true
 var areaframe
+#endregion
 
 
 func _ready():
 	$Timer.wait_time = timerDuration
+
 func disable_hitbox() -> void:
 	hit_box_shape.set_deferred("disabled", true)
 
-
 func enable_hitbox() -> void:
 	hit_box_shape.set_deferred("disabled", false)
-#TODO cambiar los timers de los daños a las armas a melee en vez de dentro de la hitbox para que si reciben muchos proyectiles les hagan daño todos
-#TODO si te quedas quieto con un enemigo encima no te hace daño constante
+
 func _physics_process(_delta):
 	if areaframe:
 		if areaframe.overlaps_area(self):
@@ -33,7 +35,7 @@ func _on_area_entered(area):
 			#area.queue_free()
 		#else:
 			#pass
-
+#TODO cuando haga las armas melee y funcionen como deberían quitar el timer que no hace nada
 func _on_timer_timeout():
 	#vulnerable = true
 	pass

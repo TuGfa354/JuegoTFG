@@ -1,16 +1,30 @@
 extends Area2D
 class_name ParentRangedWeapon
+
+#region variables
+
+
 var can_shoot:bool = true
 @export var range_area:float
 @export var attack_speed:float
 @export var damage:float
+@export var weapon_name:String
+@export var cost:int
+@export var description:String
+@export var level:int = 1
+#endregion
+#TODO añadir más stats y/o escalados
 func _ready():
 	$CollisionShape2D.shape.radius = range_area
 	%Timer.wait_time = attack_speed
+	var description_text = "Fires a bullet to enemies with a range of %.1f every %.1f seconds that deals %.1f damage"
+	description = description_text % [range_area, attack_speed, damage]
+	print(description)
 func _physics_process(_delta):
 	var enemies_in_range = get_overlapping_areas()
 	if enemies_in_range.size() > 0:
 		var distances= []
+		#Finds the enemy that's closest to the gun
 		for target_enemy in enemies_in_range:
 			distances.append(global_position.distance_to(target_enemy.global_position))
 		var target_enemy = enemies_in_range[distances.find(distances.min())]
@@ -23,7 +37,6 @@ func shoot():
 	var new_bullet = BULLET.instantiate()
 	new_bullet.global_position =%ShootingPoint.global_position
 	new_bullet.global_rotation =%ShootingPoint.global_rotation
-
 	new_bullet.damage = damage
 	get_node("/root/Level1/Projectiles").add_child(new_bullet)
 	can_shoot = false

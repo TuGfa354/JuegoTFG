@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Components/DamageRange/damage_range_component.gd" id="1_q0gqk"]
 
 [node name="DamageRangeComponent" type="Area2D"]
+collision_layer = 0
 script = ExtResource("1_q0gqk")
 
 [node name="SpellCooldown" type="Timer" parent="."]

@@ -1,10 +1,17 @@
 extends Node2D
+#region signals
+
 signal wave_ended
+
+#endregion
+#region variables
+#Custom resource
 @export var spawns: Array[SpawnInfo]= []
 @onready var player = get_tree().get_first_node_in_group("Player")
 var time = 1
 var total_time= 20
 var wave:int = 1
+#endregion
 
 
 
@@ -34,34 +41,30 @@ func _on_timer_timeout():
 
 
 func get_random_position():
-	var top_left = Vector2(60,60)
-	var top_right = Vector2(1880,60)
-	var bottom_right= Vector2(1880,1000)
-	var bottom_left = Vector2(60,1000)
-	#Outside camera
-	#var vpr = get_viewport_rect().size * randf_range(1.1, 1.4)
-	#var top_left = Vector2(player.global_position.x - vpr.x/2, player.global_position.y -vpr.y/2)
-	#var top_right = Vector2(player.global_position.x + vpr.x/2, player.global_position.y -vpr.y/2)
-	#var bottom_left = Vector2(player.global_position.x - vpr.x/2, player.global_position.y +vpr.y/2)
-	#var bottom_right = Vector2(player.global_position.x + vpr.x/2, player.global_position.y +vpr.y/2)
-	var pos_side = ["up", "down","right","left"].pick_random()
-	var spawn_pos1 = Vector2.ZERO
-	var spawn_pos2 = Vector2.ZERO
-	match pos_side:
-		"up":
-			spawn_pos1=top_left
-			spawn_pos2=top_right
-		"down":
-			spawn_pos1=bottom_left
-			spawn_pos2=bottom_right
-		"right":
-			spawn_pos1=top_right
-			spawn_pos2=bottom_right
-		"left":
-			spawn_pos1=top_left
-			spawn_pos2=bottom_left
-	var x_spawn = randf_range(spawn_pos1.x, spawn_pos2.x)
-	var y_spawn = randf_range(spawn_pos1.y, spawn_pos2.y)
+	#Corners positions
+	#var top_left = Vector2(60,60)
+	#var top_right = Vector2(1880,60)
+	#var bottom_right= Vector2(1880,1000)
+	#var bottom_left = Vector2(60,1000)
+	#var pos_side = ["up", "down","right","left"].pick_random()
+	#var spawn_pos1 = Vector2.ZERO
+	#var spawn_pos2 = Vector2.ZERO
+	#match pos_side:
+		#"up":
+			#spawn_pos1=top_left
+			#spawn_pos2=top_right
+		#"down":
+			#spawn_pos1=bottom_left
+			#spawn_pos2=bottom_right
+		#"right":
+			#spawn_pos1=top_right
+			#spawn_pos2=bottom_right
+		#"left":
+			#spawn_pos1=top_left
+			#spawn_pos2=bottom_left
+	#Picks random position between two corners
+	var x_spawn = randf_range(60, 1880)
+	var y_spawn = randf_range(60, 1000)
 	return Vector2(x_spawn, y_spawn)
 	#IN A CIRCLE OR SOMETHING
 	#var vpr = get_viewport_rect().size

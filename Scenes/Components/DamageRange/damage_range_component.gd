@@ -1,20 +1,27 @@
 extends Area2D
 class_name DamageRangeComponent
+
+#region signals
+
 signal casting
 signal not_casting
+#endregion
+
+#region variables
+
 var in_range:bool = false
 var can_cast:bool = true
 @export var timerDuration:float
+#endregion
 
 func _ready():
-		$SpellCooldown.wait_time = timerDuration
+	$SpellCooldown.wait_time = timerDuration
 
 func _physics_process(_delta):
 	var pos = get_parent().global_position
 	var direction = get_parent().direction
 	if in_range:
 		get_parent().running = false
-		#get_parent().AnimatedSprite2D.play("Idle")
 		if can_cast:
 			cast_spell(pos, direction)
 	else:
