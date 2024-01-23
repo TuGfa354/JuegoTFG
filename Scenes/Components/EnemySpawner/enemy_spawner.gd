@@ -8,19 +8,17 @@ signal wave_ended
 #Custom resource
 @export var spawns: Array[SpawnInfo]= []
 @onready var player = get_tree().get_first_node_in_group("Player")
-var time = 1
-var total_time= 20
+var time = 0
+var total_time= 10
 var wave:int = 1
 #endregion
 
 
 
 func _on_timer_timeout():
-	if time==total_time:
-		wave+=1
-		wave_ended.emit()
-	get_node("/root/Level1/InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer").text = str(total_time-time)
+	print(time)
 	time+=1
+	get_node("/root/Level1/InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer").text = str(total_time-time)
 	var enemy_spawns = spawns
 	for i in enemy_spawns:
 		if wave == i.wave:
@@ -38,6 +36,9 @@ func _on_timer_timeout():
 						counter+=1
 		elif wave>i.wave:
 			spawns.erase(i)
+	if time==total_time:
+		wave+=1
+		wave_ended.emit()
 
 
 func get_random_position():

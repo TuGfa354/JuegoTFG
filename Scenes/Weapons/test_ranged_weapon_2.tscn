@@ -12,6 +12,8 @@ script = ExtResource("2_moims")
 range_area = 200.0
 attack_speed = 1.0
 damage = 40.0
+weapon_name = "Pistol"
+price = 15
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_bupbe")

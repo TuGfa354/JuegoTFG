@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bn4q4fyry8aop"]
+[gd_scene load_steps=32 format=3 uid="uid://bn4q4fyry8aop"]
 
 [ext_resource type="PackedScene" uid="uid://clea0mhs5s5q" path="res://Scenes/Levels/parent_level.tscn" id="1_mx8lj"]
 [ext_resource type="Texture2D" uid="uid://d01q7fsb7dm73" path="res://Graphics/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Tiles.png" id="2_ei3pb"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://b8vjrhk626qel" path="res://Scenes/Enemies/Skeletons/skeleton_mage.tscn" id="8_bocdj"]
 [ext_resource type="PackedScene" uid="uid://dw0ftrb632ae3" path="res://Scenes/Enemies/Skeletons/skeleton_rogue.tscn" id="8_nsj7y"]
 [ext_resource type="PackedScene" uid="uid://bi0geqhiagin4" path="res://Scenes/Enemies/Skeletons/skeleton_warrior.tscn" id="9_4y8qg"]
+[ext_resource type="PackedScene" uid="uid://bbc3m4wkyx1bb" path="res://Scenes/Weapons/test_ranged_weapon.tscn" id="11_1nqk6"]
+[ext_resource type="PackedScene" uid="uid://kxm6ywcyr0cc" path="res://Scenes/Weapons/test_ranged_weapon_2.tscn" id="12_guvkt"]
+[ext_resource type="PackedScene" uid="uid://h8pi4nbouin" path="res://Scenes/Weapons/test_ranged_weapon_3.tscn" id="13_s4753"]
+[ext_resource type="PackedScene" uid="uid://je88wenhuril" path="res://Scenes/Weapons/test_ranged_weapon_4.tscn" id="14_tvn8q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vv0xo"]
 texture = ExtResource("2_ei3pb")
@@ -442,7 +446,7 @@ sources/1 = SubResource("TileSetAtlasSource_4rhiv")
 
 [sub_resource type="Resource" id="Resource_xvwxk"]
 script = ExtResource("7_8nvke")
-time_start = 2
+time_start = 1
 time_end = 6
 enemy = ExtResource("8_bocdj")
 enemy_number = 1
@@ -478,7 +482,7 @@ wave = 2
 
 [sub_resource type="Resource" id="Resource_mxwro"]
 script = ExtResource("7_8nvke")
-time_start = 2
+time_start = 1
 time_end = 2
 enemy = ExtResource("7_8om0y")
 enemy_number = 5
@@ -606,6 +610,9 @@ unique_name_in_owner = true
 position = Vector2(838, 453)
 
 [node name="Knight" parent="Character" index="0" instance=ExtResource("3_r6v1l")]
+
+[node name="UpgradeMenu" parent="UpgradeMenu" index="0"]
+weapons = Array[PackedScene]([ExtResource("11_1nqk6"), ExtResource("12_guvkt"), ExtResource("13_s4753"), ExtResource("14_tvn8q")])
 
 [node name="Loot" parent="." index="11" groups=["loot"]]
 

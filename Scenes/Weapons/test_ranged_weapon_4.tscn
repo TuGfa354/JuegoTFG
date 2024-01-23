@@ -11,6 +11,8 @@ script = ExtResource("2_n7n4a")
 range_area = 250.0
 attack_speed = 0.75
 damage = 30.0
+weapon_name = "Submachine Gun"
+price = 25
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_g2jrp")

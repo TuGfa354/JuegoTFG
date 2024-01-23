@@ -9,9 +9,10 @@ var can_shoot:bool = true
 @export var attack_speed:float
 @export var damage:float
 @export var weapon_name:String
-@export var cost:int
-@export var description:String
+@export var price:int
+var description:String
 @export var level:int = 1
+@onready var image = $WeaponPivot/Sprite2D
 #endregion
 #TODO añadir más stats y/o escalados
 func _ready():
