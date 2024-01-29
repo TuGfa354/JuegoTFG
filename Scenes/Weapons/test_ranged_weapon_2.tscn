@@ -1,19 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://kxm6ywcyr0cc"]
+[gd_scene load_steps=8 format=3 uid="uid://kxm6ywcyr0cc"]
 
 [ext_resource type="PackedScene" uid="uid://btjtg18vhmths" path="res://Scenes/Weapons/parent_ranged_weapon.tscn" id="1_baygd"]
 [ext_resource type="Script" path="res://Scenes/Weapons/test_ranged_weapon_2.gd" id="2_moims"]
 [ext_resource type="Texture2D" uid="uid://c0qaktiqwnq8p" path="res://Graphics/armas/modern/1.png" id="3_8c6xy"]
+[ext_resource type="Script" path="res://WeaponInfo.gd" id="3_bpu5h"]
+[ext_resource type="Texture2D" uid="uid://y3jayvc2ium6" path="res://Graphics/armas/modern/test2.png" id="4_7vvbg"]
+
+[sub_resource type="Resource" id="Resource_ugrvo"]
+script = ExtResource("3_bpu5h")
+weapon_sprite = ExtResource("4_7vvbg")
+price = 1.0
+level = 1
+weapon_name = "Pistol"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bupbe"]
 
 [node name="test_ranged_weapon_2" instance=ExtResource("1_baygd")]
 position = Vector2(0, -1)
 script = ExtResource("2_moims")
-range_area = 200.0
+weapon_info = SubResource("Resource_ugrvo")
+range_area = 300.0
 attack_speed = 1.0
-damage = 40.0
-weapon_name = "Pistol"
-price = 15
+damage = 25.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_bupbe")

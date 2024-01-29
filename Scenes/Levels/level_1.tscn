@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dw0ftrb632ae3" path="res://Scenes/Enemies/Skeletons/skeleton_rogue.tscn" id="8_nsj7y"]
 [ext_resource type="PackedScene" uid="uid://bi0geqhiagin4" path="res://Scenes/Enemies/Skeletons/skeleton_warrior.tscn" id="9_4y8qg"]
 [ext_resource type="PackedScene" uid="uid://bbc3m4wkyx1bb" path="res://Scenes/Weapons/test_ranged_weapon.tscn" id="11_1nqk6"]
-[ext_resource type="PackedScene" uid="uid://kxm6ywcyr0cc" path="res://Scenes/Weapons/test_ranged_weapon_2.tscn" id="12_guvkt"]
-[ext_resource type="PackedScene" uid="uid://h8pi4nbouin" path="res://Scenes/Weapons/test_ranged_weapon_3.tscn" id="13_s4753"]
-[ext_resource type="PackedScene" uid="uid://je88wenhuril" path="res://Scenes/Weapons/test_ranged_weapon_4.tscn" id="14_tvn8q"]
+[ext_resource type="PackedScene" uid="uid://kxm6ywcyr0cc" path="res://Scenes/Weapons/test_ranged_weapon_2.tscn" id="12_1tgf7"]
+[ext_resource type="PackedScene" uid="uid://h8pi4nbouin" path="res://Scenes/Weapons/test_ranged_weapon_3.tscn" id="13_p311h"]
+[ext_resource type="PackedScene" uid="uid://je88wenhuril" path="res://Scenes/Weapons/test_ranged_weapon_4.tscn" id="14_ocbc7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vv0xo"]
 texture = ExtResource("2_ei3pb")
@@ -612,7 +612,7 @@ position = Vector2(838, 453)
 [node name="Knight" parent="Character" index="0" instance=ExtResource("3_r6v1l")]
 
 [node name="UpgradeMenu" parent="UpgradeMenu" index="0"]
-weapons = Array[PackedScene]([ExtResource("11_1nqk6"), ExtResource("12_guvkt"), ExtResource("13_s4753"), ExtResource("14_tvn8q")])
+weapons = Array[PackedScene]([ExtResource("11_1nqk6"), ExtResource("12_1tgf7"), ExtResource("13_p311h"), ExtResource("14_ocbc7")])
 
 [node name="Loot" parent="." index="11" groups=["loot"]]
 

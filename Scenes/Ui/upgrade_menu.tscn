@@ -1035,3 +1035,6 @@ text = "100"
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Reroll" to="." method="_on_reroll_pressed"]
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="StoreMargin/StoreGrid/IndividualStoreMargin/Background1/Buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2/Buy2" to="." method="_on_buy_2_pressed"]
+[connection signal="pressed" from="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3/Buy3" to="." method="_on_buy_3_pressed"]

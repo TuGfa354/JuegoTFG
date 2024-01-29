@@ -1,18 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://h8pi4nbouin"]
+[gd_scene load_steps=8 format=3 uid="uid://h8pi4nbouin"]
 
 [ext_resource type="PackedScene" uid="uid://btjtg18vhmths" path="res://Scenes/Weapons/parent_ranged_weapon.tscn" id="1_8xb2e"]
 [ext_resource type="Texture2D" uid="uid://c0qaktiqwnq8p" path="res://Graphics/armas/modern/1.png" id="2_5787a"]
 [ext_resource type="Script" path="res://Scenes/Weapons/test_ranged_weapon_3.gd" id="2_sfgg2"]
+[ext_resource type="Script" path="res://WeaponInfo.gd" id="3_4oux7"]
+[ext_resource type="Texture2D" uid="uid://bsybexbdrq5ib" path="res://Graphics/armas/modern/test3.png" id="4_2gbno"]
+
+[sub_resource type="Resource" id="Resource_mhmql"]
+script = ExtResource("3_4oux7")
+weapon_sprite = ExtResource("4_2gbno")
+price = 4.0
+level = 1
+weapon_name = "AWP"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7fqo0"]
 
 [node name="test_ranged_weapon_3" instance=ExtResource("1_8xb2e")]
 script = ExtResource("2_sfgg2")
+weapon_info = SubResource("Resource_mhmql")
 range_area = 600.0
 attack_speed = 3.0
-damage = 160.0
-weapon_name = "Sniper Rifle"
-price = 50
+damage = 75.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_7fqo0")
