@@ -151,7 +151,7 @@ script = ExtResource("2_lsgc5")
 sprite_frames = SubResource("SpriteFrames_3t43b")
 animation = &"Idle"
 
-[node name="Test_ranged_weapon" parent="Weapons/Marker2D" index="0" instance=ExtResource("7_k4mix")]
+[node name="Test_ranged_weapon" parent="Weapons/Marker2D6" index="0" instance=ExtResource("7_k4mix")]
 
 [node name="HealthComponent" parent="." index="2"]
 maxHealth = 120.0

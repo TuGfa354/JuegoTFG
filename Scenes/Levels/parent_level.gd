@@ -28,7 +28,7 @@ func _on_enemy_spawner_wave_ended():
 	$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible = !$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible
 	$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer/GoldLabel.visible = !$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer/GoldLabel.visible
 	
-	$UpgradeMenu/UpgradeMenu/Continue.grab_focus()
+	$UpgradeMenu/UpgradeMenu/ContinueMargin/Continue.grab_focus()
 	#Deletes all remaining enemies, projectiles and loot from the past wave
 	for i in $Enemies/EnemySpawner/enemies.get_children():
 		i.queue_free()

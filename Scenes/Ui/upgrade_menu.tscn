@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2whbnf5sjrer"]
+[gd_scene load_steps=9 format=3 uid="uid://b2whbnf5sjrer"]
 
 [ext_resource type="Script" path="res://Scenes/Ui/upgrade_menu.gd" id="1_li4rh"]
 [ext_resource type="Texture2D" uid="uid://dty5nrwm5xtgg" path="res://Graphics/ui/Pxiel Art UI borders.png" id="2_7u0i0"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://kh8ypsnpgsmr" path="res://Graphics/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/coin_02d.png" id="3_d168c"]
 [ext_resource type="Texture2D" uid="uid://dwq4i424si847" path="res://Graphics/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/Analog Sticks/Blank/button_xboxone_analog_blank.png" id="3_xpxps"]
 [ext_resource type="Texture2D" uid="uid://bp4b48ho8beb" path="res://Graphics/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/key_01d.png" id="4_4u5u7"]
-[ext_resource type="Texture2D" uid="uid://cnnxkc5rdu4xa" path="res://Graphics/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/XBOX BUTTONS - Premium Assets/D-Pad/button_xboxone_dpad_light_5.png" id="4_tsuri"]
 [ext_resource type="Texture2D" uid="uid://c6dt8jk6hrgnw" path="res://Graphics/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/key_01c.png" id="5_u1ffb"]
 [ext_resource type="Texture2D" uid="uid://c0fjvon6b21oe" path="res://Graphics/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/32x32/coin_02d.png" id="6_utdaw"]
 
@@ -68,20 +67,6 @@ texture = ExtResource("2_arraj")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Reroll" type="Button" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 490.0
-offset_top = 150.0
-offset_right = 540.0
-offset_bottom = 175.0
-grow_horizontal = 2
-focus_neighbor_bottom = NodePath("../StoreMargin/StoreGrid/IndividualStoreMargin3/Background3/Buy3")
-text = "Reroll:"
-
 [node name="RerollQuantity" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -116,9 +101,10 @@ offset_left = 499.0
 offset_top = 785.0
 offset_right = 539.0
 offset_bottom = 825.0
-focus_neighbor_top = NodePath("../StoreMargin/StoreGrid/IndividualStoreMargin/Background1/Buy")
+focus_neighbor_left = NodePath("../ObjectsMargin/ObjectsGrid/ObjectBorder3")
+focus_neighbor_top = NodePath("../StoreMargin/StoreHbox/IndividualStoreMargin/Background1/Buy")
 focus_neighbor_right = NodePath("../Lock3")
-focus_neighbor_bottom = NodePath("../Continue")
+focus_neighbor_bottom = NodePath("../ContinueMargin/Continue")
 texture_normal = ExtResource("4_4u5u7")
 texture_hover = ExtResource("5_u1ffb")
 texture_focused = ExtResource("5_u1ffb")
@@ -132,8 +118,9 @@ offset_top = 785.0
 offset_right = 1422.0
 offset_bottom = 825.0
 focus_neighbor_left = NodePath("../Lock3")
-focus_neighbor_top = NodePath("../StoreMargin/StoreGrid/IndividualStoreMargin3/Background3/Buy3")
-focus_neighbor_bottom = NodePath("../Continue")
+focus_neighbor_top = NodePath("../StoreMargin/StoreHbox/IndividualStoreMargin3/Background3/Buy3")
+focus_neighbor_right = NodePath("../WeaponsMargin/WeaponsGrid/WeaponBorder")
+focus_neighbor_bottom = NodePath("../ContinueMargin/Continue")
 texture_normal = ExtResource("4_4u5u7")
 texture_hover = ExtResource("5_u1ffb")
 texture_focused = ExtResource("5_u1ffb")
@@ -147,30 +134,14 @@ offset_top = 785.0
 offset_right = 981.0
 offset_bottom = 825.0
 focus_neighbor_left = NodePath("../Lock1")
-focus_neighbor_top = NodePath("../StoreMargin/StoreGrid/IndividualStoreMargin2/Background2/Buy2")
+focus_neighbor_top = NodePath("../StoreMargin/StoreHbox/IndividualStoreMargin2/Background2/Buy2")
 focus_neighbor_right = NodePath("../Lock2")
-focus_neighbor_bottom = NodePath("../Continue")
+focus_neighbor_bottom = NodePath("../ContinueMargin/Continue")
 texture_normal = ExtResource("4_4u5u7")
 texture_hover = ExtResource("5_u1ffb")
 texture_focused = ExtResource("5_u1ffb")
 ignore_texture_size = true
 stretch_mode = 5
-
-[node name="Continue" type="Button" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -39.0
-offset_top = -131.0
-offset_right = 39.0
-offset_bottom = -100.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Continue"
 
 [node name="StoreMargin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -186,24 +157,22 @@ theme_override_constants/margin_top = 300
 theme_override_constants/margin_right = 300
 theme_override_constants/margin_bottom = 300
 
-[node name="StoreGrid" type="GridContainer" parent="StoreMargin"]
+[node name="StoreHbox" type="HBoxContainer" parent="StoreMargin"]
 layout_mode = 2
-columns = 3
 
-[node name="IndividualStoreMargin" type="MarginContainer" parent="StoreMargin/StoreGrid"]
+[node name="IndividualStoreMargin" type="MarginContainer" parent="StoreMargin/StoreHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
 
-[node name="Background1" type="ColorRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin"]
+[node name="Background1" type="ColorRect" parent="StoreMargin/StoreHbox/IndividualStoreMargin"]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 color = Color(1, 1, 1, 0.396078)
 
-[node name="StoreBorder" type="TextureRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin/Background1"]
+[node name="StoreBorder" type="TextureRect" parent="StoreMargin/StoreHbox/IndividualStoreMargin/Background1"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -215,7 +184,7 @@ offset_bottom = 148.0
 grow_horizontal = 2
 texture = ExtResource("2_7u0i0")
 
-[node name="Item1" type="TextureRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin/Background1/StoreBorder"]
+[node name="Item1" type="TextureRect" parent="StoreMargin/StoreHbox/IndividualStoreMargin/Background1/StoreBorder"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -227,7 +196,7 @@ texture = ExtResource("3_xpxps")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ItemDescription1" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin/Background1"]
+[node name="ItemDescription1" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin/Background1"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 14
@@ -246,7 +215,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 clip_text = true
 
-[node name="Buy" type="Button" parent="StoreMargin/StoreGrid/IndividualStoreMargin/Background1"]
+[node name="Buy" type="Button" parent="StoreMargin/StoreHbox/IndividualStoreMargin/Background1"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -260,12 +229,13 @@ offset_right = 20.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
-focus_neighbor_top = NodePath("../../../../../Reroll")
+focus_neighbor_left = NodePath("../../../../../ObjectsMargin/ObjectsGrid/ObjectBorder3")
+focus_neighbor_top = NodePath("../../../../../MarginContainer/Reroll")
 focus_neighbor_right = NodePath("../../../IndividualStoreMargin2/Background2/Buy2")
 focus_neighbor_bottom = NodePath("../../../../../Lock1")
 text = "Buy"
 
-[node name="Price1" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin/Background1"]
+[node name="Price1" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin/Background1"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -282,7 +252,7 @@ grow_vertical = 2
 text = "90"
 horizontal_alignment = 1
 
-[node name="ItemName1" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin/Background1"]
+[node name="ItemName1" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin/Background1"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -294,7 +264,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "item_name"
 
-[node name="Coin1" type="TextureRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin/Background1"]
+[node name="Coin1" type="TextureRect" parent="StoreMargin/StoreHbox/IndividualStoreMargin/Background1"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -310,20 +280,19 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_utdaw")
 
-[node name="IndividualStoreMargin2" type="MarginContainer" parent="StoreMargin/StoreGrid"]
+[node name="IndividualStoreMargin2" type="MarginContainer" parent="StoreMargin/StoreHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
 
-[node name="Background2" type="ColorRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin2"]
+[node name="Background2" type="ColorRect" parent="StoreMargin/StoreHbox/IndividualStoreMargin2"]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 color = Color(1, 1, 1, 0.396078)
 
-[node name="StoreBorder2" type="TextureRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2"]
+[node name="StoreBorder2" type="TextureRect" parent="StoreMargin/StoreHbox/IndividualStoreMargin2/Background2"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -335,7 +304,7 @@ offset_bottom = 148.0
 grow_horizontal = 2
 texture = ExtResource("2_7u0i0")
 
-[node name="Item2" type="TextureRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2/StoreBorder2"]
+[node name="Item2" type="TextureRect" parent="StoreMargin/StoreHbox/IndividualStoreMargin2/Background2/StoreBorder2"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -347,7 +316,7 @@ texture = ExtResource("3_xpxps")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ItemDescription2" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2"]
+[node name="ItemDescription2" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin2/Background2"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 14
@@ -365,7 +334,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Buy2" type="Button" parent="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2"]
+[node name="Buy2" type="Button" parent="StoreMargin/StoreHbox/IndividualStoreMargin2/Background2"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -380,12 +349,12 @@ offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_neighbor_left = NodePath("../../../IndividualStoreMargin/Background1/Buy")
-focus_neighbor_top = NodePath("../../../../../Reroll")
+focus_neighbor_top = NodePath("../../../../../MarginContainer/Reroll")
 focus_neighbor_right = NodePath("../../../IndividualStoreMargin3/Background3/Buy3")
 focus_neighbor_bottom = NodePath("../../../../../Lock3")
 text = "Buy"
 
-[node name="ItemName2" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2"]
+[node name="ItemName2" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin2/Background2"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -397,7 +366,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "item_name"
 
-[node name="Price2" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2"]
+[node name="Price2" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin2/Background2"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -414,7 +383,7 @@ grow_vertical = 2
 text = "90"
 horizontal_alignment = 1
 
-[node name="Coin2" type="TextureRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2"]
+[node name="Coin2" type="TextureRect" parent="StoreMargin/StoreHbox/IndividualStoreMargin2/Background2"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -430,20 +399,21 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_utdaw")
 
-[node name="IndividualStoreMargin3" type="MarginContainer" parent="StoreMargin/StoreGrid"]
+[node name="IndividualStoreMargin3" type="MarginContainer" parent="StoreMargin/StoreHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
 
-[node name="Background3" type="ColorRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin3"]
+[node name="Background3" type="ColorRect" parent="StoreMargin/StoreHbox/IndividualStoreMargin3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(1, 1, 1, 0.396078)
 
-[node name="StoreBorder3" type="TextureRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3"]
+[node name="StoreBorder3" type="TextureRect" parent="StoreMargin/StoreHbox/IndividualStoreMargin3/Background3"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -455,7 +425,7 @@ offset_bottom = 148.0
 grow_horizontal = 2
 texture = ExtResource("2_7u0i0")
 
-[node name="Item3" type="TextureRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3/StoreBorder3"]
+[node name="Item3" type="TextureRect" parent="StoreMargin/StoreHbox/IndividualStoreMargin3/Background3/StoreBorder3"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -467,7 +437,7 @@ texture = ExtResource("3_xpxps")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ItemDescription3" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3"]
+[node name="ItemDescription3" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin3/Background3"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 14
@@ -485,7 +455,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Buy3" type="Button" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3"]
+[node name="Buy3" type="Button" parent="StoreMargin/StoreHbox/IndividualStoreMargin3/Background3"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -501,11 +471,12 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 6
 focus_neighbor_left = NodePath("../../../IndividualStoreMargin2/Background2/Buy2")
-focus_neighbor_top = NodePath("../../../../../Reroll")
+focus_neighbor_top = NodePath("../../../../../MarginContainer/Reroll")
+focus_neighbor_right = NodePath("../../../../../WeaponsMargin/WeaponsGrid/WeaponBorder")
 focus_neighbor_bottom = NodePath("../../../../../Lock2")
 text = "Buy"
 
-[node name="ItemName3" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3"]
+[node name="ItemName3" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin3/Background3"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -517,7 +488,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "item_name"
 
-[node name="Price3" type="Label" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3"]
+[node name="Price3" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin3/Background3"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -534,7 +505,7 @@ grow_vertical = 2
 text = "90"
 horizontal_alignment = 1
 
-[node name="Coin3" type="TextureRect" parent="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3"]
+[node name="Coin3" type="TextureRect" parent="StoreMargin/StoreHbox/IndividualStoreMargin3/Background3"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -568,15 +539,17 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 columns = 3
 
-[node name="WeaponBorder" type="TextureRect" parent="WeaponsMargin/WeaponsGrid"]
+[node name="WeaponBorder" type="TextureButton" parent="WeaponsMargin/WeaponsGrid"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_7u0i0")
-expand_mode = 1
+texture_normal = ExtResource("2_7u0i0")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Weapon1" type="TextureRect" parent="WeaponsMargin/WeaponsGrid/WeaponBorder"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -587,19 +560,20 @@ offset_right = -14.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tsuri")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="WeaponBorder2" type="TextureRect" parent="WeaponsMargin/WeaponsGrid"]
+[node name="WeaponBorder2" type="TextureButton" parent="WeaponsMargin/WeaponsGrid"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_7u0i0")
-expand_mode = 1
+texture_normal = ExtResource("2_7u0i0")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Weapon2" type="TextureRect" parent="WeaponsMargin/WeaponsGrid/WeaponBorder2"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -610,19 +584,20 @@ offset_right = -14.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tsuri")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="WeaponBorder3" type="TextureRect" parent="WeaponsMargin/WeaponsGrid"]
+[node name="WeaponBorder3" type="TextureButton" parent="WeaponsMargin/WeaponsGrid"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_7u0i0")
-expand_mode = 1
+texture_normal = ExtResource("2_7u0i0")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Weapon3" type="TextureRect" parent="WeaponsMargin/WeaponsGrid/WeaponBorder3"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -633,19 +608,20 @@ offset_right = -14.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tsuri")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="WeaponBorder4" type="TextureRect" parent="WeaponsMargin/WeaponsGrid"]
+[node name="WeaponBorder4" type="TextureButton" parent="WeaponsMargin/WeaponsGrid"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_7u0i0")
-expand_mode = 1
+texture_normal = ExtResource("2_7u0i0")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Weapon4" type="TextureRect" parent="WeaponsMargin/WeaponsGrid/WeaponBorder4"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -656,19 +632,20 @@ offset_right = -14.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tsuri")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="WeaponBorder5" type="TextureRect" parent="WeaponsMargin/WeaponsGrid"]
+[node name="WeaponBorder5" type="TextureButton" parent="WeaponsMargin/WeaponsGrid"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_7u0i0")
-expand_mode = 1
+texture_normal = ExtResource("2_7u0i0")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Weapon5" type="TextureRect" parent="WeaponsMargin/WeaponsGrid/WeaponBorder5"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -679,19 +656,20 @@ offset_right = -14.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tsuri")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="WeaponBorder6" type="TextureRect" parent="WeaponsMargin/WeaponsGrid"]
+[node name="WeaponBorder6" type="TextureButton" parent="WeaponsMargin/WeaponsGrid"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_7u0i0")
-expand_mode = 1
+texture_normal = ExtResource("2_7u0i0")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Weapon6" type="TextureRect" parent="WeaponsMargin/WeaponsGrid/WeaponBorder6"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -702,7 +680,6 @@ offset_right = -14.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tsuri")
 expand_mode = 1
 stretch_mode = 5
 
@@ -721,12 +698,13 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 columns = 3
 
-[node name="ObjectBorder" type="TextureRect" parent="ObjectsMargin/ObjectsGrid"]
+[node name="ObjectBorder" type="TextureButton" parent="ObjectsMargin/ObjectsGrid"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_7u0i0")
-expand_mode = 1
+texture_normal = ExtResource("2_7u0i0")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Object1" type="TextureRect" parent="ObjectsMargin/ObjectsGrid/ObjectBorder"]
@@ -740,16 +718,16 @@ offset_right = -14.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tsuri")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ObjectBorder2" type="TextureRect" parent="ObjectsMargin/ObjectsGrid"]
+[node name="ObjectBorder2" type="TextureButton" parent="ObjectsMargin/ObjectsGrid"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_7u0i0")
-expand_mode = 1
+texture_normal = ExtResource("2_7u0i0")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Object2" type="TextureRect" parent="ObjectsMargin/ObjectsGrid/ObjectBorder2"]
@@ -763,16 +741,16 @@ offset_right = -14.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tsuri")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ObjectBorder3" type="TextureRect" parent="ObjectsMargin/ObjectsGrid"]
+[node name="ObjectBorder3" type="TextureButton" parent="ObjectsMargin/ObjectsGrid"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_7u0i0")
-expand_mode = 1
+texture_normal = ExtResource("2_7u0i0")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Object3" type="TextureRect" parent="ObjectsMargin/ObjectsGrid/ObjectBorder3"]
@@ -786,16 +764,16 @@ offset_right = -14.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tsuri")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ObjectBorder4" type="TextureRect" parent="ObjectsMargin/ObjectsGrid"]
+[node name="ObjectBorder4" type="TextureButton" parent="ObjectsMargin/ObjectsGrid"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_7u0i0")
-expand_mode = 1
+texture_normal = ExtResource("2_7u0i0")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Object4" type="TextureRect" parent="ObjectsMargin/ObjectsGrid/ObjectBorder4"]
@@ -809,16 +787,16 @@ offset_right = -14.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tsuri")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ObjectBorder5" type="TextureRect" parent="ObjectsMargin/ObjectsGrid"]
+[node name="ObjectBorder5" type="TextureButton" parent="ObjectsMargin/ObjectsGrid"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_7u0i0")
-expand_mode = 1
+texture_normal = ExtResource("2_7u0i0")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Object5" type="TextureRect" parent="ObjectsMargin/ObjectsGrid/ObjectBorder5"]
@@ -832,16 +810,16 @@ offset_right = -14.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tsuri")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ObjectBorder6" type="TextureRect" parent="ObjectsMargin/ObjectsGrid"]
+[node name="ObjectBorder6" type="TextureButton" parent="ObjectsMargin/ObjectsGrid"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_7u0i0")
-expand_mode = 1
+texture_normal = ExtResource("2_7u0i0")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Object6" type="TextureRect" parent="ObjectsMargin/ObjectsGrid/ObjectBorder6"]
@@ -855,11 +833,10 @@ offset_right = -14.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_tsuri")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="StatsMargin" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -873,11 +850,11 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/margin_right = 20
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="StatsMargin"]
 layout_mode = 2
 color = Color(1, 1, 1, 0.396078)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="StatsMargin/ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -885,156 +862,219 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 25
 text = "stats"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="StatsMargin/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "max_hp:"
 
-[node name="Label2" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "90"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="StatsMargin/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "attack:"
 
-[node name="Label2" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="StatsMargin/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "defence:"
 
-[node name="Label2" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer3"]
+[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="StatsMargin/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "speed:"
 
-[node name="Label2" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer4"]
+[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "120"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="StatsMargin/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer5"]
+[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "attack_speed:"
 
-[node name="Label2" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer5"]
+[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "150
 "
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer6" type="HBoxContainer" parent="StatsMargin/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer6"]
+[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer6"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "hp_regeneration:"
 
-[node name="Label2" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer6"]
+[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer6"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer7" type="HBoxContainer" parent="StatsMargin/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer7"]
+[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer7"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "life_steal:"
 
-[node name="Label2" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer7"]
+[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer7"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
 
-[node name="HBoxContainer8" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer8" type="HBoxContainer" parent="StatsMargin/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer8"]
+[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer8"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "range:"
 
-[node name="Label2" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer8"]
+[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer8"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
 
-[node name="HBoxContainer9" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer9" type="HBoxContainer" parent="StatsMargin/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer9"]
+[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer9"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "crit_rate:"
 
-[node name="Label2" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer9"]
+[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer9"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
 
-[node name="HBoxContainer10" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer10" type="HBoxContainer" parent="StatsMargin/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer10"]
+[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer10"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "crit_damage:"
 
-[node name="Label2" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer10"]
+[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer10"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
 
+[node name="ContinueMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -615.0
+offset_top = -298.0
+offset_right = 615.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="Continue" type="Button" parent="ContinueMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Continue"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -481.0
+offset_bottom = 191.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 145
+
+[node name="Reroll" type="Button" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_neighbor_bottom = NodePath("../../StoreMargin/StoreHbox/IndividualStoreMargin3/Background3/Buy3")
+text = "Reroll:"
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="Reroll" to="." method="_on_reroll_pressed"]
-[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="StoreMargin/StoreGrid/IndividualStoreMargin/Background1/Buy" to="." method="_on_buy_pressed"]
-[connection signal="pressed" from="StoreMargin/StoreGrid/IndividualStoreMargin2/Background2/Buy2" to="." method="_on_buy_2_pressed"]
-[connection signal="pressed" from="StoreMargin/StoreGrid/IndividualStoreMargin3/Background3/Buy3" to="." method="_on_buy_3_pressed"]
+[connection signal="pressed" from="StoreMargin/StoreHbox/IndividualStoreMargin/Background1/Buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="StoreMargin/StoreHbox/IndividualStoreMargin2/Background2/Buy2" to="." method="_on_buy_2_pressed"]
+[connection signal="pressed" from="StoreMargin/StoreHbox/IndividualStoreMargin3/Background3/Buy3" to="." method="_on_buy_3_pressed"]
+[connection signal="focus_entered" from="WeaponsMargin/WeaponsGrid/WeaponBorder" to="." method="_on_weapon_border_focus_entered"]
+[connection signal="focus_exited" from="WeaponsMargin/WeaponsGrid/WeaponBorder" to="." method="_on_weapon_border_focus_exited"]
+[connection signal="focus_entered" from="WeaponsMargin/WeaponsGrid/WeaponBorder2" to="." method="_on_weapon_border_2_focus_entered"]
+[connection signal="focus_exited" from="WeaponsMargin/WeaponsGrid/WeaponBorder2" to="." method="_on_weapon_border_2_focus_exited"]
+[connection signal="focus_entered" from="WeaponsMargin/WeaponsGrid/WeaponBorder3" to="." method="_on_weapon_border_3_focus_entered"]
+[connection signal="focus_exited" from="WeaponsMargin/WeaponsGrid/WeaponBorder3" to="." method="_on_weapon_border_3_focus_exited"]
+[connection signal="focus_entered" from="WeaponsMargin/WeaponsGrid/WeaponBorder4" to="." method="_on_weapon_border_4_focus_entered"]
+[connection signal="focus_exited" from="WeaponsMargin/WeaponsGrid/WeaponBorder4" to="." method="_on_weapon_border_4_focus_exited"]
+[connection signal="focus_entered" from="WeaponsMargin/WeaponsGrid/WeaponBorder5" to="." method="_on_weapon_border_5_focus_entered"]
+[connection signal="focus_exited" from="WeaponsMargin/WeaponsGrid/WeaponBorder5" to="." method="_on_weapon_border_5_focus_exited"]
+[connection signal="focus_entered" from="WeaponsMargin/WeaponsGrid/WeaponBorder6" to="." method="_on_weapon_border_6_focus_entered"]
+[connection signal="focus_exited" from="WeaponsMargin/WeaponsGrid/WeaponBorder6" to="." method="_on_weapon_border_6_focus_exited"]
+[connection signal="focus_entered" from="ObjectsMargin/ObjectsGrid/ObjectBorder" to="." method="_on_object_border_focus_entered"]
+[connection signal="focus_exited" from="ObjectsMargin/ObjectsGrid/ObjectBorder" to="." method="_on_object_border_focus_exited"]
+[connection signal="focus_entered" from="ObjectsMargin/ObjectsGrid/ObjectBorder2" to="." method="_on_object_border_2_focus_entered"]
+[connection signal="focus_exited" from="ObjectsMargin/ObjectsGrid/ObjectBorder2" to="." method="_on_object_border_2_focus_exited"]
+[connection signal="focus_entered" from="ObjectsMargin/ObjectsGrid/ObjectBorder3" to="." method="_on_object_border_3_focus_entered"]
+[connection signal="focus_exited" from="ObjectsMargin/ObjectsGrid/ObjectBorder3" to="." method="_on_object_border_3_focus_exited"]
+[connection signal="focus_entered" from="ObjectsMargin/ObjectsGrid/ObjectBorder4" to="." method="_on_object_border_4_focus_entered"]
+[connection signal="focus_exited" from="ObjectsMargin/ObjectsGrid/ObjectBorder4" to="." method="_on_object_border_4_focus_exited"]
+[connection signal="focus_entered" from="ObjectsMargin/ObjectsGrid/ObjectBorder5" to="." method="_on_object_border_5_focus_entered"]
+[connection signal="focus_exited" from="ObjectsMargin/ObjectsGrid/ObjectBorder5" to="." method="_on_object_border_5_focus_exited"]
+[connection signal="focus_entered" from="ObjectsMargin/ObjectsGrid/ObjectBorder6" to="." method="_on_object_border_6_focus_entered"]
+[connection signal="focus_exited" from="ObjectsMargin/ObjectsGrid/ObjectBorder6" to="." method="_on_object_border_6_focus_exited"]
+[connection signal="pressed" from="ContinueMargin/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MarginContainer/Reroll" to="." method="_on_reroll_pressed"]
