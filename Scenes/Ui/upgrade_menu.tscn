@@ -96,6 +96,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Lock1" type="TextureButton" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 499.0
 offset_top = 785.0
@@ -103,7 +104,7 @@ offset_right = 539.0
 offset_bottom = 825.0
 focus_neighbor_left = NodePath("../ObjectsMargin/ObjectsGrid/ObjectBorder3")
 focus_neighbor_top = NodePath("../StoreMargin/StoreHbox/IndividualStoreMargin/Background1/Buy")
-focus_neighbor_right = NodePath("../Lock3")
+focus_neighbor_right = NodePath("../Lock2")
 focus_neighbor_bottom = NodePath("../ContinueMargin/Continue")
 texture_normal = ExtResource("4_4u5u7")
 texture_hover = ExtResource("5_u1ffb")
@@ -111,13 +112,14 @@ texture_focused = ExtResource("5_u1ffb")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Lock2" type="TextureButton" parent="."]
+[node name="Lock3" type="TextureButton" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 1382.0
 offset_top = 785.0
 offset_right = 1422.0
 offset_bottom = 825.0
-focus_neighbor_left = NodePath("../Lock3")
+focus_neighbor_left = NodePath("../Lock2")
 focus_neighbor_top = NodePath("../StoreMargin/StoreHbox/IndividualStoreMargin3/Background3/Buy3")
 focus_neighbor_right = NodePath("../WeaponsMargin/WeaponsGrid/WeaponBorder")
 focus_neighbor_bottom = NodePath("../ContinueMargin/Continue")
@@ -127,7 +129,8 @@ texture_focused = ExtResource("5_u1ffb")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Lock3" type="TextureButton" parent="."]
+[node name="Lock2" type="TextureButton" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 941.0
 offset_top = 785.0
@@ -135,7 +138,7 @@ offset_right = 981.0
 offset_bottom = 825.0
 focus_neighbor_left = NodePath("../Lock1")
 focus_neighbor_top = NodePath("../StoreMargin/StoreHbox/IndividualStoreMargin2/Background2/Buy2")
-focus_neighbor_right = NodePath("../Lock2")
+focus_neighbor_right = NodePath("../Lock3")
 focus_neighbor_bottom = NodePath("../ContinueMargin/Continue")
 texture_normal = ExtResource("4_4u5u7")
 texture_hover = ExtResource("5_u1ffb")
@@ -351,7 +354,7 @@ grow_vertical = 0
 focus_neighbor_left = NodePath("../../../IndividualStoreMargin/Background1/Buy")
 focus_neighbor_top = NodePath("../../../../../MarginContainer/Reroll")
 focus_neighbor_right = NodePath("../../../IndividualStoreMargin3/Background3/Buy3")
-focus_neighbor_bottom = NodePath("../../../../../Lock3")
+focus_neighbor_bottom = NodePath("../../../../../Lock2")
 text = "Buy"
 
 [node name="ItemName2" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin2/Background2"]
@@ -473,7 +476,7 @@ size_flags_horizontal = 6
 focus_neighbor_left = NodePath("../../../IndividualStoreMargin2/Background2/Buy2")
 focus_neighbor_top = NodePath("../../../../../MarginContainer/Reroll")
 focus_neighbor_right = NodePath("../../../../../WeaponsMargin/WeaponsGrid/WeaponBorder")
-focus_neighbor_bottom = NodePath("../../../../../Lock2")
+focus_neighbor_bottom = NodePath("../../../../../Lock3")
 text = "Buy"
 
 [node name="ItemName3" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin3/Background3"]
