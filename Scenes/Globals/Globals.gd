@@ -2,6 +2,7 @@ extends Node
 signal stat_change
 var player_pos : Vector2
 var current_language:String
+var player_gold: int
 #TODO estos valores deberían ser cargados del guardado o algo
 var fullscreen:bool
 var vsync:bool = true

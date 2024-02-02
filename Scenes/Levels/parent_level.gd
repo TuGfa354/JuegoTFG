@@ -26,8 +26,8 @@ func _on_enemy_spawner_wave_ended():
 	#Shows the upgradeMenu canvasLayer and hides the timer from the in_Game_ui
 	$UpgradeMenu.visible = !$UpgradeMenu.visible
 	$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible = !$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible
-	$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer/GoldLabel.visible = !$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer/GoldLabel.visible
-	
+	$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer.visible = false#!$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer.visible
+	$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer.visible = false#!$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer.visible
 	$UpgradeMenu/UpgradeMenu/ContinueMargin/Continue.grab_focus()
 	#Deletes all remaining enemies, projectiles and loot from the past wave
 	for i in $Enemies/EnemySpawner/enemies.get_children():
@@ -48,5 +48,6 @@ func _on_upgrade_menu_resume():
 	get_tree().paused = $UpgradeMenu.visible
 	$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.text= str($Enemies/EnemySpawner.total_time)
 	$Enemies/EnemySpawner.time = 1
-	$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer/GoldLabel.visible = !$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer/GoldLabel.visible
-	
+	$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer.visible = true#!$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer.visible
+	$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer.visible = true#!$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer.visible
+	$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer/GoldLabel.text = str(Globals.player_gold)

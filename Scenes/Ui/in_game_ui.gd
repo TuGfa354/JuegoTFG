@@ -4,4 +4,3 @@ func _ready():
 	translate()
 func translate():
 	%Wave.text = tr("wave")
-

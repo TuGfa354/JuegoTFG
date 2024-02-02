@@ -17,7 +17,7 @@ signal death
 var experience = 0
 var experience_level = 1
 var collected_experience = 0
-var gold = 0
+#var gold = 0
 var  collected_gold=0
 
 #UI
@@ -83,8 +83,8 @@ func _on_collect_area_area_entered(area):
 		calculate_experience(gem_exp)
 	elif area.is_in_group("gold"):
 		var gold_coin:int = area.collect()
-		gold +=gold_coin
-		goldText.text = str(gold)
+		Globals.player_gold +=gold_coin
+		goldText.text = str(Globals.player_gold)
 	area.queue_free()
 
 func calculate_experience(gem_exp):

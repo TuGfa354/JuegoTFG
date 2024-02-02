@@ -49,7 +49,7 @@ func store_roll():
 	update_sprites()
 
 func update_money():
-	$Money.text = str(player_gold)
+	$Money.text = str(Globals.player_gold)
 func hide_box(box_number):
 	update_sprites()
 	match box_number:
@@ -72,6 +72,34 @@ func update_sprites():
 			var texture_slot = $WeaponsMargin/WeaponsGrid.get_child(i).get_child(0)
 			texture_slot.texture = weapon.weapon_info.weapon_sprite
 
+func buy_weapon(n):
+	var weapon_slot = null
+	for i in player_weapons.get_child_count():
+		if player_weapons.get_child(i).get_child_count()==0:
+			weapon_slot = player_weapons.get_child(i)
+	match n:
+		1:
+			if Globals.player_gold >= weapon_1.weapon_info.price:
+				if weapon_slot != null:
+					weapon_slot.add_child(weapon_1)
+					Globals.player_gold-=weapon_1.weapon_info.price
+					update_money()
+					hide_box(1)
+		2:
+			if Globals.player_gold >= weapon_2.weapon_info.price:
+				if weapon_slot != null:
+					weapon_slot.add_child(weapon_2)
+					Globals.player_gold-=weapon_2.weapon_info.price
+					update_money()
+					hide_box(2)
+		3:
+			if Globals.player_gold >= weapon_3.weapon_info.price:
+				if weapon_slot != null:
+					weapon_slot.add_child(weapon_3)
+					Globals.player_gold-=weapon_3.weapon_info.price
+					update_money()
+					hide_box(3)
+
 #endregion
 
 
@@ -80,13 +108,13 @@ func _on_continue_pressed():
 
 func _on_visibility_changed():
 	if get_parent().visible == true:
-		player_gold = get_tree().get_first_node_in_group("player").gold
+		#player_gold = get_tree().get_first_node_in_group("player").gold
 		update_money()
 		store_roll()
 
 func _on_reroll_pressed():
-	if player_gold >=3:
-		player_gold-=3
+	if Globals.player_gold >=3:
+		Globals.player_gold-=3
 		store_roll()
 		update_money()
 
@@ -96,44 +124,47 @@ func _on_reroll_pressed():
 
 
 func _on_buy_pressed():
-	var weapon_slot = null
-	for i in player_weapons.get_child_count():
-		if player_weapons.get_child(i).get_child_count()==0:
-			weapon_slot = player_weapons.get_child(i)
-	if player_gold >= weapon_1.weapon_info.price:
-		if weapon_slot != null:
-			weapon_slot.add_child(weapon_1)
-			player_gold-=weapon_1.weapon_info.price
-			update_money()
-			hide_box(1)
+	buy_weapon(1)
+	#var weapon_slot = null
+	#for i in player_weapons.get_child_count():
+		#if player_weapons.get_child(i).get_child_count()==0:
+			#weapon_slot = player_weapons.get_child(i)
+	#if Globals.player_gold >= weapon_1.weapon_info.price:
+		#if weapon_slot != null:
+			#weapon_slot.add_child(weapon_1)
+			#Globals.player_gold-=weapon_1.weapon_info.price
+			#update_money()
+			#hide_box(1)
 
 
 func _on_buy_2_pressed():
-	var weapon_slot = null
-	for i in player_weapons.get_child_count():
-		if player_weapons.get_child(i).get_child_count()==0:
-			weapon_slot = player_weapons.get_child(i)
-	if player_gold >= weapon_2.weapon_info.price:
-		if weapon_slot != null:
-			weapon_slot.add_child(weapon_2)
-			player_gold-=weapon_2.weapon_info.price
-			update_money()
-			hide_box(2)
+	buy_weapon(2)
+	#var weapon_slot = null
+	#for i in player_weapons.get_child_count():
+		#if player_weapons.get_child(i).get_child_count()==0:
+			#weapon_slot = player_weapons.get_child(i)
+	#if Globals.player_gold >= weapon_2.weapon_info.price:
+		#if weapon_slot != null:
+			#weapon_slot.add_child(weapon_2)
+			#Globals.player_gold-=weapon_2.weapon_info.price
+			#update_money()
+			#hide_box(2)
 
 #TODO cuando desaparece un arma se bugea la navegación
 func _on_buy_3_pressed():
-	var weapon_slot = null
-	for i in player_weapons.get_child_count():
-		if player_weapons.get_child(i).get_child_count()==0:
-			weapon_slot = player_weapons.get_child(i)
-	if player_gold >= weapon_3.weapon_info.price:
-		if weapon_slot != null:
-			print(weapon_3)
-			print(weapon_slot)
-			weapon_slot.add_child(weapon_3)
-			player_gold-=weapon_3.weapon_info.price
-			update_money()
-			hide_box(3)
+	buy_weapon(3)
+	#var weapon_slot = null
+	#for i in player_weapons.get_child_count():
+		#if player_weapons.get_child(i).get_child_count()==0:
+			#weapon_slot = player_weapons.get_child(i)
+	#if Globals.player_gold >= weapon_3.weapon_info.price:
+		#if weapon_slot != null:
+			#print(weapon_3)
+			#print(weapon_slot)
+			#weapon_slot.add_child(weapon_3)
+			#Globals.player_gold-=weapon_3.weapon_info.price
+			#update_money()
+			#hide_box(3)
 
 
 
