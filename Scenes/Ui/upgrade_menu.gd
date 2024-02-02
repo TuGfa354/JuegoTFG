@@ -70,7 +70,6 @@ func hide_box(box_number):
 			%Continue.grab_focus()
 
 func update_sprites():
-	var sprite_path: = %Weapon1
 	for i in player_weapons.get_child_count():
 		if player_weapons.get_child(i).get_child_count()==1:
 			#var full_path = sprite_path+str(i)
@@ -108,6 +107,8 @@ func buy_weapon(n):
 
 #endregion
 
+#region signals
+
 
 func _on_continue_pressed():
 	resume.emit()
@@ -138,7 +139,6 @@ func _on_buy_2_pressed():
 	buy_weapon(2)
 
 
-#TODO cuando desaparece un arma se bugea la navegación
 func _on_buy_3_pressed():
 	buy_weapon(3)
 
@@ -239,3 +239,5 @@ func _on_object_border_6_focus_entered():
 
 func _on_object_border_6_focus_exited():
 	%ObjectBorder6.modulate = 'ffffff'
+
+#endregion

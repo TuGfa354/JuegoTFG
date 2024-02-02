@@ -102,10 +102,6 @@ offset_left = 499.0
 offset_top = 785.0
 offset_right = 539.0
 offset_bottom = 825.0
-focus_neighbor_left = NodePath("../ObjectsMargin/ObjectsGrid/ObjectBorder3")
-focus_neighbor_top = NodePath("../StoreMargin/StoreHbox/IndividualStoreMargin/Background1/Buy")
-focus_neighbor_right = NodePath("../Lock2")
-focus_neighbor_bottom = NodePath("../ContinueMargin/Continue")
 texture_normal = ExtResource("4_4u5u7")
 texture_hover = ExtResource("5_u1ffb")
 texture_focused = ExtResource("5_u1ffb")
@@ -119,10 +115,6 @@ offset_left = 1382.0
 offset_top = 785.0
 offset_right = 1422.0
 offset_bottom = 825.0
-focus_neighbor_left = NodePath("../Lock2")
-focus_neighbor_top = NodePath("../StoreMargin/StoreHbox/IndividualStoreMargin3/Background3/Buy3")
-focus_neighbor_right = NodePath("../WeaponsMargin/WeaponsGrid/WeaponBorder")
-focus_neighbor_bottom = NodePath("../ContinueMargin/Continue")
 texture_normal = ExtResource("4_4u5u7")
 texture_hover = ExtResource("5_u1ffb")
 texture_focused = ExtResource("5_u1ffb")
@@ -136,10 +128,6 @@ offset_left = 941.0
 offset_top = 785.0
 offset_right = 981.0
 offset_bottom = 825.0
-focus_neighbor_left = NodePath("../Lock1")
-focus_neighbor_top = NodePath("../StoreMargin/StoreHbox/IndividualStoreMargin2/Background2/Buy2")
-focus_neighbor_right = NodePath("../Lock3")
-focus_neighbor_bottom = NodePath("../ContinueMargin/Continue")
 texture_normal = ExtResource("4_4u5u7")
 texture_hover = ExtResource("5_u1ffb")
 texture_focused = ExtResource("5_u1ffb")
@@ -232,10 +220,6 @@ offset_right = 20.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
-focus_neighbor_left = NodePath("../../../../../ObjectsMargin/ObjectsGrid/ObjectBorder3")
-focus_neighbor_top = NodePath("../../../../../MarginContainer/Reroll")
-focus_neighbor_right = NodePath("../../../IndividualStoreMargin2/Background2/Buy2")
-focus_neighbor_bottom = NodePath("../../../../../Lock1")
 text = "Buy"
 
 [node name="Price1" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin/Background1"]
@@ -351,10 +335,6 @@ offset_right = 20.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
-focus_neighbor_left = NodePath("../../../IndividualStoreMargin/Background1/Buy")
-focus_neighbor_top = NodePath("../../../../../MarginContainer/Reroll")
-focus_neighbor_right = NodePath("../../../IndividualStoreMargin3/Background3/Buy3")
-focus_neighbor_bottom = NodePath("../../../../../Lock2")
 text = "Buy"
 
 [node name="ItemName2" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin2/Background2"]
@@ -473,10 +453,6 @@ offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 6
-focus_neighbor_left = NodePath("../../../IndividualStoreMargin2/Background2/Buy2")
-focus_neighbor_top = NodePath("../../../../../MarginContainer/Reroll")
-focus_neighbor_right = NodePath("../../../../../WeaponsMargin/WeaponsGrid/WeaponBorder")
-focus_neighbor_bottom = NodePath("../../../../../Lock3")
 text = "Buy"
 
 [node name="ItemName3" type="Label" parent="StoreMargin/StoreHbox/IndividualStoreMargin3/Background3"]
@@ -1048,7 +1024,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-focus_neighbor_bottom = NodePath("../../StoreMargin/StoreHbox/IndividualStoreMargin3/Background3/Buy3")
 text = "Reroll:"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

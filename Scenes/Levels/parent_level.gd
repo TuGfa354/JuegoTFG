@@ -23,6 +23,7 @@ func _on_pause_menu_pause(visible2):
 
 
 func _on_enemy_spawner_wave_ended():
+	get_tree().get_first_node_in_group("player").position = Vector2.ZERO
 	#Shows the upgradeMenu canvasLayer and hides the timer from the in_Game_ui
 	$UpgradeMenu.visible = !$UpgradeMenu.visible
 	$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible = !$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible
@@ -39,6 +40,7 @@ func _on_enemy_spawner_wave_ended():
 	get_tree().paused = $UpgradeMenu.visible
 	#Changes the wave number
 	$InGameUi/InGameUi/MarginContainer/VBoxContainer/HBoxContainer/WaveNumber.text= str($Enemies/EnemySpawner.wave)
+
 
 
 #Unpauses and ui time to the total time and the starting time to 1
