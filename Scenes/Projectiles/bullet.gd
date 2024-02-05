@@ -2,6 +2,7 @@ extends Area2D
 class_name Attack
 var travelled_distance:float = 0
 var damage:float
+var life_steal:float
 
 func _physics_process(delta):
 	const SPEED :int =750

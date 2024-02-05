@@ -10,6 +10,7 @@ var can_shoot:bool = true
 @export var range_area:float
 @export var attack_speed:float
 @export var damage:float 
+@export var life_steal:float
 #@export var weapon_name:String
 #@export var price:int
 #var description:String
@@ -44,6 +45,7 @@ func shoot():
 	new_bullet.global_position =%ShootingPoint.global_position
 	new_bullet.global_rotation =%ShootingPoint.global_rotation
 	new_bullet.damage = damage
+	new_bullet.life_steal = life_steal
 	get_node("/root/Level1/Projectiles").add_child(new_bullet)
 	can_shoot = false
 	%Timer.start()

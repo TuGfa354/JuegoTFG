@@ -54,8 +54,17 @@ func damage(damage_amount: float):
 
 
 func heal(heal_amount: float):
-	currentHealth = minf(maxHealth, currentHealth + heal_amount)
-	healed.emit(heal_amount)
+	currentHealth = minf(currentHealth + heal_amount, maxHealth)
+	$Timer.start()
+	#Updates the UI values
+	get_parent().get_node("ProgressBar2").value = currentHealth
+	get_node("/root/Level1/InGameUi/InGameUi/MarginContainer2/VBoxContainer/ProgressBar2").value = currentHealth
+	get_node("/root/Level1/InGameUi/InGameUi/MarginContainer2/VBoxContainer/ProgressBar2/Label").text = str(currentHealth,"/",maxHealth)
+	#Shows hp bar on character if not full hp
+	if get_parent().get_node("ProgressBar2").value == get_parent().get_node("ProgressBar2").max_value:
+		get_parent().get_node("ProgressBar2").visible = false
+	else:
+		get_parent().get_node("ProgressBar2").visible = true
 
 
 func _on_timer_timeout():

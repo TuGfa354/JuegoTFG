@@ -22,6 +22,7 @@ weapon_info = SubResource("Resource_6q26x")
 range_area = 300.0
 attack_speed = 0.5
 damage = 100.0
+life_steal = 0.02
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_5tytq")
