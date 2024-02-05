@@ -119,8 +119,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_oekmd"]
 radius = 9.05539
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fg2gw"]
-size = Vector2(20, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_qjyct"]
+radius = 9.01388
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t02le"]
 radius = 9.0
@@ -150,7 +150,7 @@ base_mov_speed = 375.0
 position = Vector2(0, -6)
 
 [node name="Hitbox" parent="HitboxComponent" index="1"]
-shape = SubResource("RectangleShape2D_fg2gw")
+shape = SubResource("CircleShape2D_qjyct")
 
 [node name="CharacterBodyShape" parent="." index="6"]
 position = Vector2(0, -6)

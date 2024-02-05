@@ -9,7 +9,7 @@ signal wave_ended
 @export var spawns: Array[SpawnInfo]= []
 @onready var player = get_tree().get_first_node_in_group("Player")
 var time = 0
-var total_time= 10
+var total_time= 20
 var wave:int = 1
 #endregion
 

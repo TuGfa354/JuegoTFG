@@ -10,9 +10,9 @@ signal healed(healing_amount)
 #region variables
 
 var vulnerable:bool = true
-@export var maxHealth: float
+@export var maxHealth: int
 
-var currentHealth
+var currentHealth: int
 #endregion
 
 
@@ -46,6 +46,7 @@ func damage(damage_amount: float):
 	else:
 		#Enemies don't have a vulnerable timer, melee weapons do on their damage
 		currentHealth = maxf(0.0, currentHealth - damage_amount)
+		#print('Current Health:',currentHealth, 'Body:',get_parent())
 
 	if(currentHealth == 0):
 		dead.emit()
@@ -54,7 +55,7 @@ func damage(damage_amount: float):
 
 
 func heal(heal_amount: float):
-	currentHealth = minf(currentHealth + heal_amount, maxHealth)
+	currentHealth = ceil(minf(currentHealth + heal_amount, maxHealth))
 	$Timer.start()
 	#Updates the UI values
 	get_parent().get_node("ProgressBar2").value = currentHealth
