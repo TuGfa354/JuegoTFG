@@ -38,7 +38,6 @@ func _on_area_entered(area):
 			#area.queue_free()
 		#else:
 			#pass
-#TODO cuando haga las armas melee y funcionen como deberían quitar el timer que no hace nada
 func _on_timer_timeout():
 	#vulnerable = true
 	pass

@@ -10,3 +10,4 @@ var borderless:bool = true
 var master_sound:int = 100
 var music_sound:int = 100
 var fx_sound:int = 100
+var upgrading:bool = false

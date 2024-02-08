@@ -60,10 +60,13 @@ func _process(_delta):
 
 
 func toggle():
-	visible = !visible
-	get_tree().paused = visible
 
-	pause.emit(visible)
+	if Globals.upgrading == true:
+		pass
+	else:
+		visible = !visible
+		get_tree().paused = visible
+		pause.emit(visible)
 
 
 func show_and_hide(first, second):

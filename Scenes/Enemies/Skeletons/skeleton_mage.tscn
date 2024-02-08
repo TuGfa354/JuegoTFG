@@ -132,7 +132,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_yrigh")
 }],
 "loop": true,
-"name": &"Run",
+"name": &"w",
 "speed": 6.0
 }]
 
@@ -140,7 +140,7 @@ animations = [{
 radius = 200.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2wuv"]
-size = Vector2(20, 32)
+size = Vector2(18, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_efwu4"]
 radius = 10.0125
@@ -153,7 +153,7 @@ gold = 2
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_5se78")
-animation = &"Run"
+animation = &"w"
 
 [node name="Range" parent="DamageRangeComponent" index="1"]
 shape = SubResource("CircleShape2D_5x87m")
@@ -169,6 +169,7 @@ base_mov_speed = 300.0
 position = Vector2(0, 16)
 
 [node name="Hitbox" parent="HitboxComponent" index="1"]
+position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_f2wuv")
 
 [node name="CharacterBodyShape" parent="." index="6"]
