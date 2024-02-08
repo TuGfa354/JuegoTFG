@@ -22,6 +22,16 @@ func translate():
 	%Objects.text = tr("objects")
 	%Weapons.text = tr("weapons")
 	%Reroll.text = tr("reroll")
+	%max_hp.text = tr('max_hp')
+	%attack.text = tr('attack')
+	%defence.text = tr('defence')
+	%speed.text = tr('speed')
+	%attack_speed.text = tr('attack_speed')
+	%hp_regeneration.text = tr('hp_regeneration')
+	%life_steal.text = tr('life_steal')
+	%range.text = tr('range')
+	%crit_rate.text = tr('crit_rate')
+	%crit_damage.text = tr('crit_damage')
 #func _process(delta):
 	#print(visible)
 func store_roll():

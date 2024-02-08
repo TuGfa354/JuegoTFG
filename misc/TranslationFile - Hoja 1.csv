@@ -24,3 +24,13 @@ reroll,Reroll,Repetir
 objects,Objects,Objetos
 weapons,Weapons,Armas
 wave,Wave,Oleada
+max_hp,Max HP,HP Max
+attack,Attack,Ataque
+defence,Defence,Defensa
+speed,Speed,Velocidad
+attack_speed,Attack speed,Velocidad de ataque
+hp_regeneration,HP regeneration,Regeneración de HP
+life_steal,Life steal,Robo de vida
+range,Range,Rango
+crit_rate,Crit rate,Prob crítico
+crit_damage,Crit damage,Daño crítico

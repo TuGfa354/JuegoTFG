@@ -841,7 +841,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer"]
+[node name="stats" type="Label" parent="StatsMargin/ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 25
@@ -851,12 +851,14 @@ text = "stats"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer"]
+[node name="max_hp" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "max_hp:"
+text = "max_hp"
 
-[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer"]
+[node name="max_hp_stat" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "90"
@@ -865,12 +867,14 @@ text = "90"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer2"]
+[node name="attack" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "attack:"
+text = "attack"
 
-[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer2"]
+[node name="attack_stat" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
@@ -879,12 +883,14 @@ text = "100"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer3"]
+[node name="defence" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "defence:"
+text = "defence"
 
-[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer3"]
+[node name="defence_stat" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
@@ -893,12 +899,14 @@ text = "100"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer4"]
+[node name="speed" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "speed:"
+text = "speed"
 
-[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer4"]
+[node name="speed_stat" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "120"
@@ -907,12 +915,14 @@ text = "120"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer5"]
+[node name="attack_speed" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "attack_speed:"
+text = "attack_speed"
 
-[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer5"]
+[node name="attack_speed_stat" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "150
@@ -922,12 +932,14 @@ text = "150
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer6"]
+[node name="hp_regeneration" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer6"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "hp_regeneration:"
+text = "hp_regeneration"
 
-[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer6"]
+[node name="hp_regeneration_stat" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer6"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
@@ -936,12 +948,14 @@ text = "100"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer7"]
+[node name="life_steal" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer7"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "life_steal:"
+text = "life_steal"
 
-[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer7"]
+[node name="life_steal_stat" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer7"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
@@ -950,12 +964,14 @@ text = "100"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer8"]
+[node name="range" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer8"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "range:"
+text = "range"
 
-[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer8"]
+[node name="range_stat" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer8"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
@@ -964,12 +980,14 @@ text = "100"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer9"]
+[node name="crit_rate" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer9"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "crit_rate:"
+text = "crit_rate"
 
-[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer9"]
+[node name="crit_rate_stat" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer9"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
@@ -978,12 +996,14 @@ text = "100"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer10"]
+[node name="crit_damage" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer10"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "crit_damage:"
+text = "crit_damage"
 
-[node name="Label2" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer10"]
+[node name="crit_damage_stat" type="Label" parent="StatsMargin/ColorRect/VBoxContainer/HBoxContainer10"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 text = "100"
