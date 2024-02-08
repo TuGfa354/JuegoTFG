@@ -26,7 +26,7 @@ func _on_enemy_spawner_wave_ended():
 	get_tree().get_first_node_in_group("player").position = Vector2.ZERO
 	#Shows the upgradeMenu canvasLayer and hides the timer from the in_Game_ui
 	$UpgradeMenu.visible = !$UpgradeMenu.visible
-	#Globals.upgrading = $UpgradeMenu.visible
+	Globals.upgrading = $UpgradeMenu.visible
 	$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible = !$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible
 	$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer.visible = false#!$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer.visible
 	$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer.visible = false#!$InGameUi/InGameUi/MarginContainer2/VBoxContainer/HBoxContainer.visible
@@ -47,7 +47,7 @@ func _on_enemy_spawner_wave_ended():
 #Unpauses and ui time to the total time and the starting time to 1
 func _on_upgrade_menu_resume():
 	$UpgradeMenu.visible = !$UpgradeMenu.visible
-	#Globals.upgrading = $UpgradeMenu.visible
+	Globals.upgrading = $UpgradeMenu.visible
 	$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible = !$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.visible
 	get_tree().paused = $UpgradeMenu.visible
 	$InGameUi/InGameUi/MarginContainer/VBoxContainer/Timer.text= str($Enemies/EnemySpawner.total_time)

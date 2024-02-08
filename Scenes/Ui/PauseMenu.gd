@@ -62,7 +62,7 @@ func _process(_delta):
 func toggle():
 
 	if Globals.upgrading == true:
-		pass
+		print("aa")
 	else:
 		visible = !visible
 		get_tree().paused = visible

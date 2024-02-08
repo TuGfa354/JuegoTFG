@@ -18,6 +18,26 @@ script = ExtResource("1_4aggb")
 
 [node name="Timers" type="Node" parent="."]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.513726)
+
+[node name="PauseMenu" parent="CanvasLayer/ColorRect2" instance=ExtResource("2_x2u8c")]
+layout_mode = 1
+
+[node name="Character" type="Node2D" parent="."]
+
+[node name="InGameUi" type="CanvasLayer" parent="."]
+
+[node name="InGameUi" parent="InGameUi" instance=ExtResource("3_en336")]
+
 [node name="UpgradeMenu" type="CanvasLayer" parent="."]
 visible = false
 
@@ -50,27 +70,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 150
 text = "Game Over"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.513726)
-
-[node name="PauseMenu" parent="CanvasLayer/ColorRect2" instance=ExtResource("2_x2u8c")]
-layout_mode = 1
-
-[node name="Character" type="Node2D" parent="."]
-
-[node name="InGameUi" type="CanvasLayer" parent="."]
-
-[node name="InGameUi" parent="InGameUi" instance=ExtResource("3_en336")]
-
 [node name="Loot" type="Node2D" parent="."]
 
-[connection signal="resume" from="UpgradeMenu/UpgradeMenu" to="." method="_on_upgrade_menu_resume"]
 [connection signal="pause" from="CanvasLayer/ColorRect2/PauseMenu" to="." method="_on_pause_menu_pause"]
+[connection signal="resume" from="UpgradeMenu/UpgradeMenu" to="." method="_on_upgrade_menu_resume"]
