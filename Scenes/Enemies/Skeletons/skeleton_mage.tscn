@@ -160,7 +160,7 @@ shape = SubResource("CircleShape2D_5x87m")
 debug_color = Color(0.862745, 0.32549, 0.411765, 0.419608)
 
 [node name="HealthComponent" parent="." index="3"]
-maxHealth = 75.0
+maxHealth = 25
 
 [node name="Velocity" parent="." index="4"]
 base_mov_speed = 300.0

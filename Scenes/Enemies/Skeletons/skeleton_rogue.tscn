@@ -124,7 +124,7 @@ position = Vector2(0, 16)
 shape = SubResource("CircleShape2D_jl5ek")
 
 [node name="HealthComponent" parent="." index="3"]
-maxHealth = 100.0
+maxHealth = 35
 
 [node name="Velocity" parent="." index="4"]
 base_mov_speed = 450.0

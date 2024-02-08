@@ -19,3 +19,4 @@ subir niveles de armas
 
 Bugs conocidos:
 	Cuando se mantienen ambas flechas a la vez a veces el jugador mira a la izquierda cuando se dirige a la derecha
+	Las balas pegan a más de un enemigo a veces, haciendo también que se cure 2 veces

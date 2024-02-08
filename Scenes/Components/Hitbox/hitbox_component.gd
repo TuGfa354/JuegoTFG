@@ -26,7 +26,7 @@ func _physics_process(_delta):
 			#if vulnerable:
 				health_component.damage(areaframe.damage)
 				if areaframe is Attack :
-					print('attacker',areaframe, 'attacked',get_parent())
+					#print('attacker',areaframe, 'attacked',get_parent())
 					get_tree().get_first_node_in_group('player').health_component.heal(areaframe.damage * areaframe.life_steal)
 				#vulnerable = false
 				#$Timer.start()

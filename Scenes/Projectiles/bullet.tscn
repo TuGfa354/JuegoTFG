@@ -53,7 +53,7 @@ radius = 13.0384
 z_index = 2
 scale = Vector2(0.6, 0.6)
 collision_layer = 16
-collision_mask = 138
+collision_mask = 136
 script = ExtResource("1_jg61m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -67,4 +67,5 @@ frame_progress = 0.662924
 position = Vector2(4, 13)
 shape = SubResource("CircleShape2D_36ht1")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

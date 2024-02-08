@@ -124,7 +124,7 @@ position = Vector2(0, 17)
 shape = SubResource("CircleShape2D_tgbe6")
 
 [node name="HealthComponent" parent="." index="3"]
-maxHealth = 175.0
+maxHealth = 60
 
 [node name="Velocity" parent="." index="4"]
 base_mov_speed = 225.0

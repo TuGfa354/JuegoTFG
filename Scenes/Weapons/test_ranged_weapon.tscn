@@ -20,8 +20,8 @@ z_index = 1
 script = ExtResource("2_0ecf0")
 weapon_info = SubResource("Resource_6q26x")
 range_area = 300.0
-attack_speed = 0.75
-damage = 45.0
+attack_speed = 0.3
+damage = 15.0
 life_steal = 0.1
 
 [node name="CollisionShape2D" parent="." index="0"]

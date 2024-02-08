@@ -19,8 +19,8 @@ weapon_name = "smg"
 script = ExtResource("2_n7n4a")
 weapon_info = SubResource("Resource_qr1lt")
 range_area = 200.0
-attack_speed = 0.5
-damage = 15.0
+attack_speed = 0.2
+damage = 5.0
 life_steal = 0.1
 
 [node name="CollisionShape2D" parent="." index="0"]

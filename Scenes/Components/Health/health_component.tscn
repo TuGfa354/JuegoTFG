@@ -6,7 +6,7 @@
 script = ExtResource("1_v1j1p")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
 
 [connection signal="dead" from="." to="." method="_on_dead"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

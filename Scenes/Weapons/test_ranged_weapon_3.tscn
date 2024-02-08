@@ -19,8 +19,8 @@ weapon_name = "AWP"
 script = ExtResource("2_sfgg2")
 weapon_info = SubResource("Resource_mhmql")
 range_area = 600.0
-attack_speed = 3.0
-damage = 75.0
+attack_speed = 1.5
+damage = 25.0
 life_steal = 0.1
 
 [node name="CollisionShape2D" parent="." index="0"]
